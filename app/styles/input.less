@@ -1,0 +1,75 @@
+@import "~styles/colors";
+
+.hidden{
+    visibility: hidden;
+}
+
+.typeahead {
+    border: 0 !important;
+    outline: 0;
+    border-bottom: 2px solid @nice-warm !important;
+    // background-color: #fff !important;
+}
+
+.tt-hint {
+    // color: #8C766D !important;
+    color: @nice-warm !important;
+}
+
+form {
+    padding-left: 35px;
+    display: block;
+}
+::-webkit-input-placeholder {
+   color: @nice-warm;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: @nice-warm;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: @nice-warm;
+}
+
+:-ms-input-placeholder {  
+   color: @nice-warm;
+}
+
+.typeahead:focus {
+    border: 1px solid #0097cf;
+}
+
+.tt-query {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+
+.tt-dropdown-menu {
+  width: 213px;
+  margin-top: 4px;
+  padding: 4px 0;
+  background-color: #fff;
+  border: 2px solid @nice-warm;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  animation: fadein 2s;
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  line-height: 24px;
+}
+.tt-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+.tt-suggestion.tt-cursor {
+  color: #222;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}

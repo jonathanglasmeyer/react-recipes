@@ -15,17 +15,24 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        React: 'react'
+    })
   ],
   resolve: {
     modulesDirectories: ['bower_components', 'node_modules', 'app'],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.less', '.es6']
   },
   module: {
     loaders: [
       { test: /\.jsx$/, loaders: ['react-hot', 'es6', 'jsx?harmony'] },
+      { test: /\.es6$/, loader: "es6" },
       { test: /\.css/, loader: "style-loader!css-loader" },
-	    { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+	    { test: /\.less$/, loader: "style-loader!css-loader!autoprefixer!less-loader" },
       { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
       { test: /\.jpg/, loader: "file-loader" },
