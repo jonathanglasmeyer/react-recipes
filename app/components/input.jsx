@@ -65,7 +65,7 @@ module.exports = React.createClass({
             }, 0);
             element.value = '';
             // Actions.add_item(text);
-            this.props.sendToFirebase(text);
+            this.props.onAddToFirebase(text);
         }
     },
 

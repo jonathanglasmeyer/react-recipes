@@ -9,7 +9,9 @@ var ListItem = require('components/list_item');
 module.exports = React.createClass({
     render() {
         let items = _.map(this.props.items,
-                         (item, i) => <ListItem key={i} name={item} />);
+                         (data, _) => <ListItem 
+                                        onSyncToggleState={this.props.onSyncToggleState} 
+                                        key={data.key} data={data} />);
         return (
             <div className='list'>
                 <ul>{items}</ul>

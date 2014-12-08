@@ -30,16 +30,24 @@ module.exports = React.createClass({
       this.bindAsArray(FireBaseRef, 'items');
     },
 
-    sendToFirebase(text) {
-      this.firebaseRefs["items"].push({ text: text });
+    addToFirebase(text) {
+      var childRef = this.firebaseRefs["items"].push();
+      childRef.set({checked: false, text: text, key: childRef.key()});
+    },
+
+    syncToggleState(key, state) {
+        var childRef = this.firebaseRefs['items'].child(key);
+        childRef.update({checked: state});
     },
 
     render() {
+        console.log(this.state.items);
         return (
             <div className='row clear container'>
                 <div className='main'>
-                    <List items={this.state.items}/>
-                    <Input sendToFirebase={this.sendToFirebase} />
+                    <List onSyncToggleState={this.syncToggleState}
+                          items={this.state.items}/>
+                    <Input onAddToFirebase={this.addToFirebase} />
                 </div>
             </div>
         );

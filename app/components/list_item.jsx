@@ -4,29 +4,31 @@ var cx = require('react/addons').addons.classSet;
 
 
 module.exports = React.createClass({
-    getInitialState() {
-        return {
-            checked: false
-        }
-    },
+
+    // getInitialState() {
+    //     return {
+    //         checked: false
+    //     }
+    // },
 
     handleChange(e) {
-        this.setState({checked: !this.state.checked});
+        this.props.onSyncToggleState(this.props.data.key, 
+                                     !this.props.data.checked);
     },
 
     render() {
-        console.log(this.state.checked);
         return (
-            <li> 
+            <li>
                 <label className={
-                    cx({'checkbox-label': true, 
-                        'checkbox-label-done': this.state.checked})}>
-                    <input 
-                        className='checkbox-animated' 
-                        type='checkbox' 
+                    cx({'checkbox-label': true,
+                        'checkbox-label-done': this.props.data.checked})}>
+                    <input
+                        className='checkbox-animated'
+                        type='checkbox'
+                        checked={this.props.data.checked}
                         onChange={this.handleChange}
                     />
-                    {this.props.name}
+                    {this.props.data.text}
                 </label>
             </li>
         );
