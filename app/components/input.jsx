@@ -60,6 +60,8 @@ module.exports = React.createClass({
         if (!text) {
             return;
         } else {
+            $('#li-input').css({transition: 'none'});
+
             $('html, body').animate({
                 scrollTop: $(element).offset().top
             }, 0);

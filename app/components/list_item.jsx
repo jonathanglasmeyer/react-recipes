@@ -13,6 +13,7 @@ module.exports = React.createClass({
     },
 
     handleDelete(e) {
+        $('#li-input').css({transition: 'all .2s ease-out'});
         e.preventDefault();
         Actions.delete(this.props.data.key);
     },

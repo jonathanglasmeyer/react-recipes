@@ -13,7 +13,6 @@ var Actions = require('actions');
 
 var ItemStore = require('item_store');
 
-var Input = require('components/input');
 var Header = require('components/header');
 var List = require('components/list');
 
@@ -42,9 +41,8 @@ module.exports = React.createClass({
         return (
             <div className='row clear container'>
                 <div className='main'>
-                    <List onSyncToggleState={this.syncToggleState}
-                          items={this.state.items}/>
-                    <Input onAddToFirebase={this.addToFirebase} />
+                    <List items={this.state.items}/>
+                    
                 </div>
             </div>
         );
