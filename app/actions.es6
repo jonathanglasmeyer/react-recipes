@@ -12,13 +12,18 @@ module.exports = mcFly.createActions({
         return { actionType: 'INIT' }
     },
 
-    toggle(key, state) {
+    check(key) {
         return {
-            actionType: 'TOGGLE',
-            key: key,
-            state: state
+            actionType: 'CHECK',
+            key: key
+        }
+    },
+
+    delete(key) {
+        return {
+            actionType: 'DELETE',
+            key: key
         }
     }
-
 
 });

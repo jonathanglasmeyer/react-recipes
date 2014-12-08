@@ -9,8 +9,13 @@ function addItem(text) {
     childRef.set({checked: false, text: text, key: childRef.key()});
 }
 
-function toggle(key, state) {
-    ref.child(key).update({checked: state});
+function check(key) {
+    ref.child(key).update({checked: true});
+}
+
+function delete_item(key) {
+
+    ref.child(key).remove();
 }
 
 function init() {
@@ -24,6 +29,13 @@ function init() {
         var data = dataSnapshot.val();
         var position = (_.findKey(_items, {key: key}));
         _items[position] = data;
+        ItemStore.emitChange();
+    });
+
+    ref.on('child_removed', (dataSnapshot) => {
+        var key = dataSnapshot.key();
+        var position = (_.findKey(_items, {key: key}));
+        _items.splice(position, 1);
         ItemStore.emitChange();
     });
 }
@@ -46,8 +58,12 @@ var ItemStore = mcFly.createStore({
             init();
         break;
 
-        case 'TOGGLE':
-            toggle(payload.key, payload.state);
+        case 'CHECK':
+            check(payload.key);
+        break;
+
+        case 'DELETE':
+            delete_item(payload.key);
         break;
 
         default:

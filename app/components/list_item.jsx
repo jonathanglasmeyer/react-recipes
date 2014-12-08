@@ -7,7 +7,11 @@ var Actions = require('actions');
 module.exports = React.createClass({
 
     handleChange(e) {
-        Actions.toggle(this.props.data.key, !this.props.data.checked);
+        if (this.props.data.checked) {
+            Actions.delete(this.props.data.key);
+        } else {
+            Actions.check(this.props.data.key);
+        }
     },
 
     render() {
