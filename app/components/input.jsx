@@ -47,10 +47,11 @@ module.exports = React.createClass({
     //     var element = this.refs.input.getDOMNode();
 		// $(element).typeahead('destroy');
 	// },
-    componentDidMount() {
-        element = this.refs.input.getDOMNode();
-        $(element).focus();
-    },
+
+    // componentDidMount() {
+    //     element = this.refs.input.getDOMNode();
+    //     $(element).focus();
+    // },
 
     handleSubmit(e) {
         e.preventDefault();
@@ -63,7 +64,8 @@ module.exports = React.createClass({
                 scrollTop: $(element).offset().top
             }, 0);
             element.value = '';
-            Actions.add_item(text);
+            // Actions.add_item(text);
+            this.props.sendToFirebase(text);
         }
     },
 

@@ -7,8 +7,11 @@ require('base/less/style.less');
 // custom css
 require('styles/app');
 
+
+var LocalStorageMixin = require('react-localstorage');
 var React = require('react');
-require('reactfire');
+var ReactFireMixin = require('reactfire');
+var FireBaseRef = require('firebase_ref');
 
 var ItemStore = require('item_store');
 
@@ -16,33 +19,27 @@ var Input = require('components/input');
 var Header = require('components/header');
 var List = require('components/list');
 
-getState = function() {
-    return {
-        items: ItemStore.getItems()
-    }
-}
-
-
 module.exports = React.createClass({
-    mixins: [ItemStore.mixin, ReactFireMixin],
+    mixins: [ReactFireMixin, LocalStorageMixin],
 
     getInitialState() {
-        return getState();
+        return {items: []};
     },
 
-    onChange() {
-        this.setState(getState());
-        console.log(this.state.items);
+    componentWillMount() {
+      this.bindAsArray(FireBaseRef, 'items');
     },
 
+    sendToFirebase(text) {
+      this.firebaseRefs["items"].push({ text: text });
+    },
 
     render() {
         return (
             <div className='row clear container'>
                 <div className='main'>
-                    <Header/>
                     <List items={this.state.items}/>
-                    <Input onSubmit={this.handleSubmit} />
+                    <Input sendToFirebase={this.sendToFirebase} />
                 </div>
             </div>
         );
