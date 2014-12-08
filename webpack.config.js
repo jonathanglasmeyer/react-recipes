@@ -35,9 +35,9 @@ module.exports = {
 	    { test: /\.less$/, loader: "style-loader!css-loader!autoprefixer!less-loader" },
       { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
+      { test: /\.svg/, loader: "raw-loader" },
       { test: /\.jpg/, loader: "file-loader" },
-      { test: /[\\\/]bower_components[\\\/]modernizr[\\\/]modernizr\.js$/,
-            loader: "imports?this=>window!exports?window.Modernizr" }
+      { test: /[\\\/]bower_components[\\\/]modernizr[\\\/]modernizr\.js$/, loader: "imports?this=>window!exports?window.Modernizr" }
     ]
   },
 };

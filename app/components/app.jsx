@@ -1,11 +1,15 @@
+// css presets
 require('modernizr/modernizr');
 require('base/less/style.less');
 
-require("imports?this=>window!typeahead.js");
+// require("imports?this=>window!typeahead.js");
 
+// custom css
 require('styles/app');
 
 var React = require('react');
+require('reactfire');
+
 var ItemStore = require('item_store');
 
 var Input = require('components/input');
@@ -20,7 +24,7 @@ getState = function() {
 
 
 module.exports = React.createClass({
-    mixins: [ItemStore.mixin],
+    mixins: [ItemStore.mixin, ReactFireMixin],
 
     getInitialState() {
         return getState();
@@ -35,11 +39,10 @@ module.exports = React.createClass({
     render() {
         return (
             <div className='row clear container'>
-                <Header />
-
                 <div className='main'>
-                    <Input onSubmit={this.handleSubmit} />
+                    <Header/>
                     <List items={this.state.items}/>
+                    <Input onSubmit={this.handleSubmit} />
                 </div>
             </div>
         );

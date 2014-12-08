@@ -1,75 +1,56 @@
 @import "~styles/colors";
+@import url(http://fonts.googleapis.com/css?family=Lato);
 
 .hidden{
     visibility: hidden;
 }
 
-.typeahead {
+Input[type='text'] {
     border: 0 !important;
+    background-color: @base1 !important;
     outline: 0;
-    border-bottom: 2px solid @nice-warm !important;
-    // background-color: #fff !important;
+    width: 12rem;
+    padding-left: 0;
+    border-bottom: 2px dotted @base4 !important;
+    margin-bottom: 2em;
+    color: @base3;
+    font-family: "Lato";
+    font-weight: 300;
 }
 
-.tt-hint {
-    // color: #8C766D !important;
-    color: @nice-warm !important;
+
+.plus-icon {
+    display: inline-block;
+    border: none;
+    background-color: @base1;
+    padding-left: 0.2em;
+    position: relative;
+    top: 0.3rem;
+    padding-right: .3rem;
+    fill: @base3 ;
 }
 
 form {
-    padding-left: 35px;
+    // margin-top: .2rem;
+    padding-left: 2.0rem;
+    padding-bottom: 4.0rem;
+
     display: block;
 }
+
 ::-webkit-input-placeholder {
-   color: @nice-warm;
+   color: @base4;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: @nice-warm;
+   color: @base4;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: @nice-warm;
+   color: @base4;
 }
 
-:-ms-input-placeholder {  
-   color: @nice-warm;
+:-ms-input-placeholder {
+   color: @base4;
 }
 
-.typeahead:focus {
-    border: 1px solid #0097cf;
-}
-
-.tt-query {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-
-.tt-dropdown-menu {
-  width: 213px;
-  margin-top: 4px;
-  padding: 4px 0;
-  background-color: #fff;
-  border: 2px solid @nice-warm;
-  border-radius: 1px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-  animation: fadein 2s;
-}
-
-.tt-suggestion {
-  padding: 3px 20px;
-  line-height: 24px;
-}
-.tt-suggestion em {
-  font-weight: bold;
-  font-style: normal;
-}
-.tt-suggestion.tt-cursor {
-  color: #222;
-  background-color: #0097cf;
-
-}
-
-.tt-suggestion p {
-  margin: 0;
-}

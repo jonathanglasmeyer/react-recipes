@@ -1,0 +1,10 @@
+main:
+    image: nginx
+    volumes:
+        - dist:/usr/share/nginx/html
+    ports:
+        - "80"
+    environment:
+        VIRTUAL_HOST: recipes.jonathanwerner.net
+
+

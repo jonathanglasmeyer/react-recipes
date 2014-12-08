@@ -1,6 +1,6 @@
 var mcFly = require('mcFly');
 
-var _items = ['Aubergine', 'Tomate', 'Apfel'];
+var _items = [];
 
 function addItem(text) {
   _items.push(text);
