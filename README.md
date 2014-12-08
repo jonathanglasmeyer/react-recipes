@@ -1,10 +1,8 @@
-# react-template
+# react-recipes
 
-Adapts [gaearon/react-tutorial-hot](https://github.com/gaearon/react-tutorial-hot).
+this is a shopping list / recipes collection app made with React in a very early stage.
 
-## features
-- react hot reload
-- ES6 transpiling
+see the current status quo at [recipes.jonathanewerner.net](http://recipes.jonathanewerner.net).
 
 ## usage
 
@@ -13,4 +11,4 @@ npm install
 npm start
 ```
 
-And visit `http://localhost:3000/dist/`. Try opening multiple tabs!
+And visit `http://localhost:3000/dist/`.
