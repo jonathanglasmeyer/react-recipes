@@ -8,10 +8,8 @@ require('base/less/style.less');
 require('styles/app');
 
 
-var LocalStorageMixin = require('react-localstorage');
 var React = require('react');
-var ReactFireMixin = require('reactfire');
-var FireBaseRef = require('firebase_ref');
+var Actions = require('actions');
 
 var ItemStore = require('item_store');
 
@@ -19,29 +17,28 @@ var Input = require('components/input');
 var Header = require('components/header');
 var List = require('components/list');
 
+function getState() {
+    return { items: ItemStore.getItems() };
+}
+
 module.exports = React.createClass({
-    mixins: [ReactFireMixin, LocalStorageMixin],
+    mixins: [ItemStore.mixin],
 
     getInitialState() {
-        return {items: []};
+        return getState();
     },
 
     componentWillMount() {
-      this.bindAsArray(FireBaseRef, 'items');
+      Actions.init();
     },
 
-    addToFirebase(text) {
-      var childRef = this.firebaseRefs["items"].push();
-      childRef.set({checked: false, text: text, key: childRef.key()});
+    onChange() {
+        this.setState(getState());
     },
 
-    syncToggleState(key, state) {
-        var childRef = this.firebaseRefs['items'].child(key);
-        childRef.update({checked: state});
-    },
+
 
     render() {
-        console.log(this.state.items);
         return (
             <div className='row clear container'>
                 <div className='main'>

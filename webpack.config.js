@@ -20,7 +20,8 @@ module.exports = {
         $: "jquery",
         jQuery: "jquery",
         "window.jQuery": "jquery",
-        React: 'react'
+        React: 'react',
+        "_": 'lodash'
     })
   ],
   resolve: {

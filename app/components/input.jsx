@@ -64,8 +64,7 @@ module.exports = React.createClass({
                 scrollTop: $(element).offset().top
             }, 0);
             element.value = '';
-            // Actions.add_item(text);
-            this.props.onAddToFirebase(text);
+            Actions.add_item(text);
         }
     },
 

@@ -1,19 +1,13 @@
 require('styles/list_item.less');
 require('styles/checkbox.less');
 var cx = require('react/addons').addons.classSet;
+var Actions = require('actions');
 
 
 module.exports = React.createClass({
 
-    // getInitialState() {
-    //     return {
-    //         checked: false
-    //     }
-    // },
-
     handleChange(e) {
-        this.props.onSyncToggleState(this.props.data.key, 
-                                     !this.props.data.checked);
+        Actions.toggle(this.props.data.key, !this.props.data.checked);
     },
 
     render() {

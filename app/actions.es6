@@ -6,5 +6,19 @@ module.exports = mcFly.createActions({
             actionType: 'ADD_ITEM',
             text: text
         }
+    },
+
+    init() {
+        return { actionType: 'INIT' }
+    },
+
+    toggle(key, state) {
+        return {
+            actionType: 'TOGGLE',
+            key: key,
+            state: state
+        }
     }
+
+
 });
