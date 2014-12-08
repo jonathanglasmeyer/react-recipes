@@ -9,8 +9,8 @@ function addItem(text) {
     childRef.set({checked: false, text: text, key: childRef.key()});
 }
 
-function check(key) {
-    ref.child(key).update({checked: true});
+function check(key, state) {
+    ref.child(key).update({checked: state});
 }
 
 function delete_item(key) {
@@ -59,7 +59,7 @@ var ItemStore = mcFly.createStore({
         break;
 
         case 'CHECK':
-            check(payload.key);
+            check(payload.key, payload.state);
         break;
 
         case 'DELETE':

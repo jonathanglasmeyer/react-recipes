@@ -1,5 +1,7 @@
 require('styles/list_item.less');
 require('styles/checkbox.less');
+
+var deleteSymbol = require('img/delete.svg');
 var cx = require('react/addons').addons.classSet;
 var Actions = require('actions');
 
@@ -7,11 +9,12 @@ var Actions = require('actions');
 module.exports = React.createClass({
 
     handleChange(e) {
-        if (this.props.data.checked) {
-            Actions.delete(this.props.data.key);
-        } else {
-            Actions.check(this.props.data.key);
-        }
+        Actions.check(this.props.data.key, !this.props.data.checked);
+    },
+
+    handleDelete(e) {
+        e.preventDefault();
+        Actions.delete(this.props.data.key);
     },
 
     render() {
@@ -27,6 +30,13 @@ module.exports = React.createClass({
                         onChange={this.handleChange}
                     />
                     {this.props.data.text}
+                    {this.props.data.checked ?
+                        <div className="delete-icon right"
+                            dangerouslySetInnerHTML={{__html: deleteSymbol}} 
+                            onClick={this.handleDelete}
+                            />
+                        :
+                        null}
                 </label>
             </li>
         );

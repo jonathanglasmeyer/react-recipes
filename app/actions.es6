@@ -12,10 +12,11 @@ module.exports = mcFly.createActions({
         return { actionType: 'INIT' }
     },
 
-    check(key) {
+    check(key, state) {
         return {
             actionType: 'CHECK',
-            key: key
+            key: key,
+            state: state
         }
     },
 
