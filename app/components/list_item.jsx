@@ -13,6 +13,7 @@ module.exports = React.createClass({
     },
 
     handleDelete(e) {
+        // we want an animation of the input box when we delete
         $('#li-input').css({transition: 'all .2s ease-out'});
         e.preventDefault();
         Actions.delete(this.props.data.key);

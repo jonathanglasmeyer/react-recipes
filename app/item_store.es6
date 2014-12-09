@@ -2,6 +2,9 @@ var mcFly = require('mcFly');
 
 var ref = require('firebase_ref');
 
+var Firebase = require('firebase');
+
+
 var _items = [];
 
 function addItem(text) {

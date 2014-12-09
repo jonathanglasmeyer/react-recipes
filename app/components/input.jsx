@@ -60,11 +60,22 @@ module.exports = React.createClass({
         if (!text) {
             return;
         } else {
+            // we don't want an animation of the input box when we insert
+            // looks ugly especially on mobile
             $('#li-input').css({transition: 'none'});
 
-            $('html, body').animate({
-                scrollTop: $(element).offset().top
-            }, 0);
+            // only zoom y axis to input element if it is at the bottom border
+            // of the viewport
+            var pos = $(element).offset().top;
+            var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            if (pos > height-100) {
+
+                console.log(pos);
+                console.log(height);
+                $('html, body').animate({
+                    scrollTop: pos
+                }, 0);
+            }
             element.value = '';
             Actions.add_item(text);
         }
