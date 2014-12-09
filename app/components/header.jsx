@@ -7,7 +7,6 @@ module.exports = React.createClass({
     render() {
         return (
             <header>
-                <h2 className='text-center uppercase'>einkaufsliste</h2>
             </header>
         );
     }

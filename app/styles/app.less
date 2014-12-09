@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import "~styles/colors";
 
+html {
+}
 body {
     font: 130% 'Lato';
     color: @base3;
@@ -12,10 +14,28 @@ body {
     -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
+#background-image {
+    background: url(~img/fruit.jpg) no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height:100%;
+    opacity: 0.54 ;
+    position: fixed;
+    // background-repeat: repeat-y;
+    // background-size: 100% auto;
+    padding: 0;
+    margin: 0;
+    z-index:0;
+}
+
+
 .main {
-    // padding-top: 6rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
     margin: 0 auto;
     display: block;
-    // background-color: @base4;
+    background-color: @base1;
     max-width: 360px;
 }

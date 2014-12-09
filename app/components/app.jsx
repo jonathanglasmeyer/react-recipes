@@ -39,11 +39,10 @@ module.exports = React.createClass({
 
     render() {
         return (
-            <div className='row clear container'>
-                <div className='main'>
-                    <List items={this.state.items}/>
-                    
-                </div>
+            <div>
+                    <div className='main'>
+                        <List items={this.state.items}/>
+                    </div>
             </div>
         );
     }

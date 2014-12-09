@@ -19,12 +19,22 @@ module.exports = React.createClass({
         Actions.delete(this.props.data.key);
     },
 
+    isCategory(cat_id) {
+        return !this.props.data.checked && this.props.data.category === cat_id ;
+    },
+
+
     render() {
         return (
             <li>
                 <label className={
                     cx({'checkbox-label': true,
-                        'checkbox-label-done': this.props.data.checked})}>
+                        'checkbox-label-done': this.props.data.checked,
+                        'checkbox-label-kraeuter': this.isCategory(0),
+                        'checkbox-label-vegetable': this.isCategory(1),
+                        'checkbox-label-milch': this.isCategory(2),
+                        'checkbox-label-drogerie': this.isCategory(3)
+                    })}>
                     <input
                         className='checkbox-animated'
                         type='checkbox'
@@ -34,11 +44,10 @@ module.exports = React.createClass({
                     {this.props.data.text}
                     {this.props.data.checked ?
                         <div className="delete-icon right"
-                            dangerouslySetInnerHTML={{__html: deleteSymbol}} 
+                            dangerouslySetInnerHTML={{__html: deleteSymbol}}
                             onClick={this.handleDelete}
                             />
-                        :
-                        null}
+                    : null}
                 </label>
             </li>
         );

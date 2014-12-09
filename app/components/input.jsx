@@ -68,13 +68,13 @@ module.exports = React.createClass({
             // of the viewport
             var pos = $(element).offset().top;
             var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            if (pos > height-100) {
+            if (pos > height) {
 
                 console.log(pos);
                 console.log(height);
-                $('html, body').animate({
-                    scrollTop: pos
-                }, 0);
+                $('.items').animate({
+                    scrollTop: 0
+                }, 3000);
             }
             element.value = '';
             Actions.add_item(text);
