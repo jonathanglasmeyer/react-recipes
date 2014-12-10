@@ -1,10 +1,8 @@
 var $ = require('jquery');
-var React = require('react');
-
 
 require('styles/input');
 
-var plusSymbol = require('img/add.svg');
+var Svg = require('components/svg');
 
 var Actions = require('actions');
 
@@ -84,10 +82,8 @@ module.exports = React.createClass({
     render() {
         return (
                 <form className='input-form' onSubmit={this.handleSubmit}>
-                         <div className="plus-icon"
-                            dangerouslySetInnerHTML={{__html: plusSymbol}} />
-                      <input type="text" placeholder="Item"
-                         ref='input' />
+                     <Svg className="plus-icon" fname='add' />
+                     <input type="text" placeholder="Item" ref='input' />
                 </form>
         );
     }
