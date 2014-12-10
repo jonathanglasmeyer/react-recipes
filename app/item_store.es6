@@ -4,6 +4,7 @@ var ref = require('firebase_ref');
 
 var Firebase = require('firebase');
 
+var categories = require('data/categories.json');
 
 var _items = [];
 
@@ -11,31 +12,18 @@ function _split(str) {
     return str.trim().split(/\s+/);
 }
 
-const KRAEUTER = [ "basilikum", "rosmarin", "thymian", "salbei", 'zitronengras', 'koriander']
-const GEMUESE = [
-    "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", 'limette',
-    "Möhre", "Tomate", "kohl", "brokkoli", "avocado", "salat", "kartoffel", "gurke", "beete", "banane", "apfel", 'bohnensprossen']
-
-const MILCHKAESE = ["milch", "käse", "sahne", "soja", "creme", "fraiche"]
-
-const DROGERIE = ['shampoo', 'waschgel', 'seife', 'toilettenpapier', 'küchenkrep', 'tabs']
-const CATEGORIES = [KRAEUTER, GEMUESE, MILCHKAESE, DROGERIE]
-const UNCATEGORIZED = 999;
 
 function contains(string1, string2) {
     // case independent
-   var foo = string1.toLowerCase().indexOf(string2.toLowerCase()) > -1;
-   if (foo) {
-       console.log(string1);
-       console.log(string2);
-   }
-   return foo;
+   return string1.toLowerCase().indexOf(string2.toLowerCase()) > -1;
 }
 
 function category(item_name) {
-    let category_id = _.findIndex(CATEGORIES, category =>
-         _.any(category, category_item => contains(item_name, category_item)));
-    return category_id === -1 ? UNCATEGORIZED : category_id;
+    let category = _.find(categories, category =>
+         _.any(category.items, category_item => contains(item_name, category_item)));
+    return category == undefined ?
+        { name: 'undefined', id: 999, color: ''} :
+        { name: category.name, id: category.id, color: category.color };
 }
 
 function addItem(text) {
@@ -53,7 +41,6 @@ function check(key, state) {
 }
 
 function delete_item(key) {
-
     ref.child(key).remove();
 }
 

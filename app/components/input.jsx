@@ -8,6 +8,11 @@ var Actions = require('actions');
 
 module.exports = React.createClass({
 
+    componentDidMount() {
+        // keyboard focus on input 
+        $(this.refs.input.getDOMNode()).focus();
+    },
+
     handleSubmit(e) {
         e.preventDefault();
         var element = this.refs.input.getDOMNode();

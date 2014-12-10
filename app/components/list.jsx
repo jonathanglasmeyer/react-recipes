@@ -10,7 +10,7 @@ var Category = require('components/category');
 
 module.exports = React.createClass({
     render() {
-        let sorted_items = _.sortBy(this.props.items, 'category');
+        let sorted_items = _.sortBy(this.props.items, item => item.category.id);
         // let grouped_items = _.groupBy(this.props.items, 'category');
         // console.log(grouped_items);
 

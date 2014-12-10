@@ -6,6 +6,9 @@ var Actions = require('actions');
 
 var Svg = require('components/svg');
 
+const DEBUG = 0;
+// const DEBUG = 1;
+
 module.exports = React.createClass({
 
     handleChange(e) {
@@ -19,18 +22,15 @@ module.exports = React.createClass({
         Actions.delete(this.props.data.key);
     },
 
-    isCategory(cat_id) {
-        return !this.props.data.checked && this.props.data.category === cat_id ;
-    },
-
-
     render() {
         return (
             <li>
                 <label className={
                     cx({'item': true,
-                        'item-done': this.props.data.checked
-                    })}>
+                        'item-done': this.props.data.checked })}
+                    style={ this.props.data.category.color &&
+                            !this.props.data.checked ?
+                            {color: this.props.data.category.color} : {} }>
                     <input
                         className='checkbox-animated'
                         type='checkbox'
@@ -38,6 +38,8 @@ module.exports = React.createClass({
                         onChange={this.handleChange}
                     />
                     {this.props.data.text}
+                    { DEBUG ? this.props.data.category.id : null}
+                    { DEBUG ? this.props.data.category.color : null}
                     {this.props.data.checked ?
                         <Svg onClick={this.handleDelete} fname='delete'
                              className='right delete-icon' />
