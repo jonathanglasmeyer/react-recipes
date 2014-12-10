@@ -1,10 +1,10 @@
-require('styles/list_item.less');
+require('styles/item.less');
 require('styles/checkbox.less');
 
-var deleteSymbol = require('img/delete.svg');
 var cx = require('react/addons').addons.classSet;
 var Actions = require('actions');
 
+var Svg = require('components/svg');
 
 module.exports = React.createClass({
 
@@ -28,12 +28,8 @@ module.exports = React.createClass({
         return (
             <li>
                 <label className={
-                    cx({'checkbox-label': true,
-                        'checkbox-label-done': this.props.data.checked,
-                        'checkbox-label-kraeuter': this.isCategory(0),
-                        'checkbox-label-vegetable': this.isCategory(1),
-                        'checkbox-label-milch': this.isCategory(2),
-                        'checkbox-label-drogerie': this.isCategory(3)
+                    cx({'item': true,
+                        'item-done': this.props.data.checked
                     })}>
                     <input
                         className='checkbox-animated'
@@ -43,10 +39,8 @@ module.exports = React.createClass({
                     />
                     {this.props.data.text}
                     {this.props.data.checked ?
-                        <div className="delete-icon right"
-                            dangerouslySetInnerHTML={{__html: deleteSymbol}}
-                            onClick={this.handleDelete}
-                            />
+                        <Svg onClick={this.handleDelete} fname='delete'
+                             className='right delete-icon' />
                     : null}
                 </label>
             </li>

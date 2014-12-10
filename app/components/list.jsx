@@ -4,7 +4,7 @@ var  _ = require('lodash');
 
 var React = require('react');
 var Input = require('components/input');
-var ListItem = require('components/list_item');
+var ListItem = require('components/item');
 var Category = require('components/category');
 
 

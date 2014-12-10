@@ -1,0 +1,44 @@
+@import "~styles/colors";
+
+.items {
+    list-style-type: none; padding: 0;
+    height: 500px;
+    overflow-y: auto;
+    // overflow-x: hidden;
+    // width: 200px;
+}
+
+.items li {
+    height: 50px; width: 100%; line-height: 50px; padding-left: 20px;
+    position: absolute; top: 0; left: 0;
+    transition: all .2s ease-out;
+}
+
+ul {
+    list-style-type: none;
+    position: relative;
+}
+
+ul li {
+    padding-bottom: 1.5rem;
+}
+
+li:last-child {
+    padding-bottom: 0rem;
+}
+
+
+
+.delete-icon:active {
+    fill: @base3 ;
+}
+
+label.item {
+    position: relative;
+    right: -1rem;
+}
+
+label.item-done {
+    text-decoration: line-through;
+    color: @base4;
+}
