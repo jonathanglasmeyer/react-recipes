@@ -19,18 +19,10 @@ module.exports = React.createClass({
             // looks ugly especially on mobile
             $('#li-input').css({transition: 'none'});
 
-            // only zoom y axis to input element if it is at the bottom border
-            // of the viewport
-            var pos = $(element).offset().top;
-            var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            if (pos > height) {
+            // scroll to bottom of list
+            let listDiv = $('.items');
+            listDiv.scrollTop(listDiv[0].scrollHeight);
 
-                console.log(pos);
-                console.log(height);
-                $('.items').animate({
-                    scrollTop: 0
-                }, 3000);
-            }
             element.value = '';
             Actions.add_item(text);
         }
