@@ -1,36 +1,36 @@
 [{
     "name": "Kräuter",
     "id": 0,
-    "items": [ "basilikum", "rosmarin", "thymian", "salbei", "zitronengras", "koriander"], "color": "#96CA2D"
+    "items": [ "basilikum", "rosmarin", "thymian", "salbei", "zitronengras", "koriander"], "color": "96CA2D"
 },
 {
     "name": "Gemüse",
     "id": 1,
     "items": [ "paprika", "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", "limette", "Möhre", "Tomate", "kohl", "brokkoli", "avocado", "salat", "kartoffel", "gurke", "beete", "banane", "apfel", "bohnensprossen", "zucchini"],
-    "color": "#5C832F"
+    "color": "5C832F"
 },
 {
     "name": "Milch/Käse",
     "id": 2,
     "items": ["milch", "käse", "sahne", "soja", "creme", "fraiche"],
-    "color": "#BD8D46"
+    "color": "BD8D46"
 },
 {
     "name": "TK",
     "id": 3,
     "items": ["erbsen", "bohnen", "pizza"],
-    "color": "#94B6D4"
+    "color": "94B6D4"
 },
 {
     "name": "Getränke",
     "id": 4,
     "items": ["wein", "saft", "bier"],
-    "color": "#3498DB"
+    "color": "3498DB"
 },
 {
     "name": "Drogerie",
     "id": 8,
     "items": ["shampoo", "wasch", "gel", "seife", "toilettenpapier", "küchenkrep", "tabs"],
-    "color": "#363942"
+    "color": "363942"
 }
 ]

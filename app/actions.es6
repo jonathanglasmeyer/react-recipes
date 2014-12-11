@@ -1,15 +1,17 @@
+'use strict';
+
 var mcFly = require('mcFly');
 
 module.exports = mcFly.createActions({
-    add_item(text) {
+    addItem(text) {
         return {
             actionType: 'ADD_ITEM',
             text: text
-        }
+        };
     },
 
     init() {
-        return { actionType: 'INIT' }
+        return { actionType: 'INIT' };
     },
 
     check(key, state) {
@@ -17,14 +19,14 @@ module.exports = mcFly.createActions({
             actionType: 'CHECK',
             key: key,
             state: state
-        }
+        };
     },
 
     delete(key) {
         return {
             actionType: 'DELETE',
             key: key
-        }
+        };
     }
 
 });

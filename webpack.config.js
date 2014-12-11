@@ -25,7 +25,7 @@ module.exports = {
     })
   ],
   resolve: {
-    modulesDirectories: ['bower_components', 'node_modules', 'app'],
+    modulesDirectories: ['bower_components', 'node_modules', 'app', 'web_components'],
     extensions: ['', '.js', '.jsx', '.less', '.es6']
   },
   module: {

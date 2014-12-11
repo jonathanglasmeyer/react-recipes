@@ -11,9 +11,7 @@
 
 
 .checkbox-animated:before {
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.23s ease-in-out;
   content: "";
   position: absolute;
   left: 0;
@@ -25,26 +23,37 @@
 
 
 .checkbox-animated:checked:before {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  height: .5rem;
-  top: 0.15rem;
-  border-color: @base4;
+  height: .4rem;
+  width: 0.8rem;
+  left: .12rem;
+  top: 0.2rem;
+  border-color: @base3;
   border-top-style: none;
   border-right-style: none;
     text-decoration: line-through;
 }
 
+.checkbox-animated:checked:after {
+  content: "";
+  position: absolute;
+  // top: -0.125rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid @base3;
+  background: @base1;
+  cursor: pointer;
+}
+
+
 .checkbox-animated:after {
   content: "";
   position: absolute;
-  top: -0.125rem;
+  // top: -0.125rem;
   left: 0;
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
   background: @base1;
   cursor: pointer;
 }

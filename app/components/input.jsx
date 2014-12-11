@@ -1,4 +1,4 @@
-var $ = require('jquery');
+'use strict';
 
 require('styles/input');
 
@@ -9,7 +9,7 @@ var Actions = require('actions');
 module.exports = React.createClass({
 
     componentDidMount() {
-        // keyboard focus on input 
+        // keyboard focus on input
         $(this.refs.input.getDOMNode()).focus();
     },
 
@@ -29,15 +29,15 @@ module.exports = React.createClass({
             listDiv.scrollTop(listDiv[0].scrollHeight);
 
             element.value = '';
-            Actions.add_item(text);
+            Actions.addItem(text);
         }
     },
 
     render() {
         return (
                 <form className='input-form' onSubmit={this.handleSubmit}>
-                     <Svg className="plus-icon" fname='add' />
-                     <input type="text" placeholder="Item" ref='input' />
+                     <Svg className='plus-icon' fname='add' />
+                     <input type='text' placeholder='Item' ref='input' />
                 </form>
         );
     }

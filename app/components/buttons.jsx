@@ -1,13 +1,11 @@
 'use strict';
-
-require('styles/category');
+// require('');
 
 module.exports = React.createClass({
-
     render() {
         return (
-            <li className='category'>
-            </li>
+          <input type="submit" value="delete all" className="button grey-button" />
         );
     }
 });
+

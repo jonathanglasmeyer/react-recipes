@@ -1,3 +1,4 @@
+'use strict';
 // css presets
 require('modernizr/modernizr');
 require('base/less/style.less');
@@ -7,13 +8,11 @@ require('base/less/style.less');
 // custom css
 require('styles/app');
 
-
-var React = require('react');
 var Actions = require('actions');
 
 var ItemStore = require('item_store');
 
-var Header = require('components/header');
+// var Header = require('components/header');
 var List = require('components/list');
 
 function getState() {

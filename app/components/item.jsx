@@ -1,17 +1,27 @@
+'use strict';
 require('styles/item.less');
 require('styles/checkbox.less');
 
 var cx = require('react/addons').addons.classSet;
+var {hexToRgb} = require('helpers');
+
 var Actions = require('actions');
 
 var Svg = require('components/svg');
 
-const DEBUG = 0;
-// const DEBUG = 1;
+let DEBUG = 0;
+// DEBUG = 1;
+
 
 module.exports = React.createClass({
 
-    handleChange(e) {
+    getDefaultProps() {
+        return {
+            categoryStart: false
+        };
+    },
+
+    handleChange() {
         Actions.check(this.props.data.key, !this.props.data.checked);
     },
 
@@ -22,17 +32,24 @@ module.exports = React.createClass({
         Actions.delete(this.props.data.key);
     },
 
+    backgroundColor() {
+        return this.props.data.category.color ?
+                {background:
+                    `rgba(${hexToRgb(this.props.data.category.color)}, .15)`} :
+                {};
+    },
+
     render() {
         return (
-            <li>
+            <li className={cx({'category-start': this.props.categoryStart})}
+                        style={this.backgroundColor()} >
+
                 <label className={
                     cx({'item': true,
-                        'item-done': this.props.data.checked })}
-                    style={ this.props.data.category.color &&
-                            !this.props.data.checked ?
-                            {color: this.props.data.category.color} : {} }>
+                        'item-done': this.props.data.checked })} >
                     <input
                         className='checkbox-animated'
+                        style={this.backgroundColor()}
                         type='checkbox'
                         checked={this.props.data.checked}
                         onChange={this.handleChange}

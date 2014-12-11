@@ -4,12 +4,16 @@
     list-style-type: none; padding: 0;
     height: 500px;
     overflow-y: auto;
-    // overflow-x: hidden;
-    // width: 200px;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .items li {
-    height: 50px; width: 100%; line-height: 50px; padding-left: 20px;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    // margin-left: 2rem;
     position: absolute; top: 0; left: 0;
     transition: all .2s ease-out;
 }
@@ -21,6 +25,7 @@ ul {
 
 ul li {
     padding-bottom: 1.5rem;
+    // margin-bottom: 1.5rem;
 }
 
 li:last-child {
@@ -35,10 +40,14 @@ li:last-child {
 
 label.item {
     position: relative;
-    right: -1rem;
+    right: -2rem;
 }
 
 label.item-done {
     text-decoration: line-through;
     color: @base4;
+}
+
+li.category-start {
+    border-top: 1px dotted @base2;
 }

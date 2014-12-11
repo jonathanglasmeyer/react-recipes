@@ -1,7 +1,6 @@
-var React = require('react');
+'use strict';
 var App = require('components/app');
 
-window.jQuery = window.$ = require("jquery");
+window.jQuery = window.$ = require('jquery');
 
-React.render(<App />, document.getElementById('content')
-);
+React.render(<App />, document.getElementById('content'));
