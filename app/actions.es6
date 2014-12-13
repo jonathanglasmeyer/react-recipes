@@ -27,6 +27,18 @@ module.exports = mcFly.createActions({
             actionType: 'DELETE',
             key: key
         };
+    },
+
+    removeAllChecked() {
+        return {
+            actionType: 'REMOVE_ALL_CHECKED'
+        };
+    },
+
+    checkAll() {
+        return {
+            actionType: 'CHECK_ALL'
+        };
     }
 
 });

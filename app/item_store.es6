@@ -17,7 +17,7 @@ function category(itemName) {
     let cat = _.find(categories, cat =>
          _.any(cat.items, catItem => contains(itemName, catItem)));
     return cat === undefined ?
-        { name: 'undefined', id: 999, color: 'black'} :
+        { name: 'undefined', id: 999, color: ''} :
         { name: cat.name, id: cat.id, color: cat.color };
 }
 
@@ -46,6 +46,15 @@ var ItemStore = mcFly.createStore({
             deleteItem(payload.key);
         break;
 
+        case 'REMOVE_ALL_CHECKED':
+            removeAllChecked();
+        break;
+
+        case 'CHECK_ALL':
+            checkAll();
+        break;
+
+
         default:
             return true;
     }
@@ -73,6 +82,22 @@ function check(key, state) {
 function deleteItem(key) {
     ref.child(key).remove();
 }
+
+function removeAllChecked() {
+    let checkedItems = _.filter(_items, 'checked');
+    _.each(checkedItems, (item,i) => setTimeout(() => deleteItem(item.key), 100*i));
+}
+
+function checkAll() {
+    let uncheckedItems = _.filter(_items, item => !item.checked);
+
+    // this is to uncheck all items if all are already checked
+    let boolVal = uncheckedItems.length !== 0;
+
+    _.each(_items, (item,i) =>
+           setTimeout(() => check(item.key, boolVal), 100*i));
+}
+
 
 function init() {
     ref.on('child_added', (dataSnapshot) => {

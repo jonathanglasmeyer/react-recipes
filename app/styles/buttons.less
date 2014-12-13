@@ -1,2 +1,30 @@
+@import "~styles/colors";
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+#buttons {
+    // border: 1px dotted @base2;
+    // border-bottom: none;
+}
+
+.button-unstyled.delete-all {
+    color: @base2;
+    position: relative;
+    padding: .5rem .7rem;
+    // border: 1px solid @base2-light;
+    border: 1px solid @base2;
+    // background: rgba(142, 40, 0, .05);;
+    text-decoration: none;
+    border-radius: 2px;
+    // left: -.2rem;
+    top: .3rem;
+    // box-shadow:         2px 2px 5px 5px @base3;
+    // font-family: "Roboto Slab";
+    font-size: 80%;
+}
 
 
+.button-unstyled.delete-all:active {
+    // border: 1px solid @base2;
+    border: 1px solid rgba(142, 40, 0, .2);;
+    // background: rgba(142, 40, 0, .2);
+}

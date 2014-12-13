@@ -6,19 +6,19 @@
 {
     "name": "Gemüse",
     "id": 1,
-    "items": [ "paprika", "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", "limette", "Möhre", "Tomate", "kohl", "brokkoli", "avocado", "salat", "kartoffel", "gurke", "beete", "banane", "apfel", "bohnensprossen", "zucchini"],
+    "items": [ "paprika", "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", "limette", "Möhre", "Tomate", "brokkoli", "avocado", "salat", "kartoffel", "beete", "banane", "apfel", "bohnensprossen", "zucchini", "saitlinge", "champignons", "wirsing", "sellerie", "lauch" ],
     "color": "5C832F"
 },
 {
     "name": "Milch/Käse",
     "id": 2,
-    "items": ["milch", "käse", "sahne", "soja", "creme", "fraiche"],
+    "items": ["milch", "käse", "sahne", "soja", "creme", "fraiche", "eier", "butter"],
     "color": "BD8D46"
 },
 {
     "name": "TK",
     "id": 3,
-    "items": ["erbsen", "bohnen", "pizza"],
+    "items": ["erbsen", "bohnen", "pizza", "rotkohl"],
     "color": "94B6D4"
 },
 {
