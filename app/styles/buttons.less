@@ -1,9 +1,27 @@
 @import "~styles/colors";
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Lato);
 
 #buttons {
-    // border: 1px dotted @base2;
-    // border-bottom: none;
+    // position: fixed;
+    // background: @base6;
+    // background: url(~img/grapefruit.png);
+    // border: 1px solid @base2-light;
+    border-top: none;
+    border-bottom: none !important;
+    background: #fff;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.07);
+    // background-color: @base1;
+    // border-radius: 3px 3px 0 0;
+}
+
+#caption {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: absolute;
+    left: 5.1rem;
+    // margin-left: 3rem;
 }
 
 .button-unstyled.delete-all {
@@ -12,7 +30,6 @@
     padding: .5rem .7rem;
     // border: 1px solid @base2-light;
     border: 1px solid @base2;
-    // background: rgba(142, 40, 0, .05);;
     text-decoration: none;
     border-radius: 2px;
     // left: -.2rem;

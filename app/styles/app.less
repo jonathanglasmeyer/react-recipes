@@ -1,16 +1,19 @@
 // @import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 @import "~styles/colors";
 
 html {
 }
 body {
-    font: 120% 'Roboto Slab';
+    font: 110% 'Roboto Slab';
     color: @base3;
+    user-select: none;
     text-rendering: optimizelegibility;
     // line-height: 1.5;
     font-weight: normal;
-    background-color: @base1;
+    background-color: @base1-warm;
+    background: url(~img/grapefruit.png);
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
@@ -33,10 +36,12 @@ body {
 
 
 .main {
-    // padding-top: 1rem;
+    padding-top: 1rem;
+    margin: 1rem;
     // padding-left: 1rem;
     margin: 0 auto;
     display: block;
-    background-color: @base1;
+    // background-color: @base1;
     max-width: 360px;
+    // height: 280px;
 }

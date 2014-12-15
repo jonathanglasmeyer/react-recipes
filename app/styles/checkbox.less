@@ -9,6 +9,15 @@
   cursor: pointer;
 }
 
+.checkbox-animated.all {
+  position: relative;
+  top: -0.13rem;
+  left: 1.22rem;
+  margin: 0 1rem 0 1;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 
 .checkbox-animated:before {
   transition: all 0.23s ease-in-out;
@@ -21,6 +30,8 @@
   border: 2px solid @base3;
 }
 
+// .checkbox-animated.all:before {
+// }
 
 .checkbox-animated:checked:before {
   transform: rotate(-45deg);

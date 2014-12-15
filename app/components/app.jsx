@@ -12,7 +12,7 @@ var Actions = require('actions');
 
 var ItemStore = require('item_store');
 
-// var Header = require('components/header');
+var Header = require('components/header');
 var List = require('components/list');
 
 function getState() {
@@ -39,6 +39,7 @@ module.exports = React.createClass({
     render() {
         return (
             <div>
+                    <Header />
                     <div className='main'>
                         <List items={this.state.items}/>
                     </div>

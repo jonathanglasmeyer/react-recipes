@@ -8,13 +8,16 @@
 
 Input[type='text'] {
     border: 0 !important;
-    background-color: transparent;
+    // background-color: transparent;
+    // border: 2px dotted #000 !important;
+    // border: 2px #000;
     outline: 0;
     width: 15.8rem;
     margin-top: 1rem;
     padding-left: 0;
-    border-bottom: 2px dotted @base2 !important;
+    border-bottom: 1px dotted @base2 !important;
     margin-bottom: 2em;
+    background: @base1;
     color: @base3;
     font-family: "Roboto Slab";
     font-weight: 300;
@@ -28,6 +31,7 @@ form {
     overflow-x: visible;
     position: relative;
     left: .8rem;
+    top: -.5rem;
     padding-bottom: 1.5rem;
 
     display: block;
@@ -51,6 +55,7 @@ form {
 
 #li-input {
     border-left: none;
+    padding-bottom: 1rem;
     // background: rgba(0,0,0,.1);
     border-right: none;
 }

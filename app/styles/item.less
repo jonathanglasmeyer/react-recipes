@@ -2,29 +2,36 @@
 
 .items {
     list-style-type: none; padding: 0;
-    height: 600px;
-    overflow-y: auto;
+    // overflow-y: auto;
     overflow-x: hidden;
-    width: 90%;
+    width: 93%;
     margin: 0 auto;
+    margin-top: .1rem;
+    margin-bottom: 1rem;
 }
 
 .items li {
     height: 50px;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    // margin-right: 0;
     line-height: 50px;
     // margin-left: 2rem;
     position: absolute; top: 0; left: 0;
     transition: all .2s ease-out;
+    // border-left: 1px solid @base2-light;
+    // border-right: 1px solid @base2-light;
 }
 
 ul {
+    margin-top: 0;
     list-style-type: none;
     position: relative;
 }
-
 ul li {
     padding-bottom: 1.5rem;
+    border-top: 1px dotted #ccc;
     // border-left: 1px dotted @base2;
     // border-right: 1px dotted @base2;
     // box-shadow:         3px 0px 2px 2px #000;
@@ -52,6 +59,6 @@ label.item-done {
 }
 
 li.category-start {
-    border-top: 1px dotted @base2;
+    border-top: 1px double #ccc;
 }
 

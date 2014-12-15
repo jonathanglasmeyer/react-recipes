@@ -1,7 +1,7 @@
 'use strict';
-// require('styles/buttons');
+require('styles/buttons');
 
-var cx = require('react/addons').addons.classSet;
+// var cx = require('react/addons').addons.classSet;
 
 let Actions = require('actions');
 var Svg = require('components/svg');
@@ -19,9 +19,16 @@ module.exports = React.createClass({
     render() {
         return (
             <div>
-            <Svg onClick={this.onCheckAll} fname='doneall'
-                         className={cx({'doneall-icon': true, 
-                             'doneall-icon-all-done': this.props.allDone})} />
+                { this.props.listItemsExist ?
+                    <input
+                        className='checkbox-animated all'
+                        type='checkbox'
+                        checked={this.props.allDone}
+                        onChange={this.onCheckAll} />
+                : null }
+
+            <span id='caption' >Einkaufsliste</span>
+
 
             {this.props.showRemoveChecked ?
                 (<Svg onClick={this.onRemoveChecked} fname='delete'
@@ -29,8 +36,11 @@ module.exports = React.createClass({
              : null}
 
              </div>
-        )
+        );
 
     }
 });
 
+            // <Svg onClick={this.onCheckAll} fname='doneall'
+            //              className={cx({'doneall-icon': true,
+            //                  'doneall-icon-all-done': this.props.allDone})} />

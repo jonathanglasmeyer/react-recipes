@@ -15,6 +15,16 @@ module.exports = React.createClass({
         return _.all(this.props.items, 'checked');
     },
 
+    heightListItems() {
+        return this.props.items.length * 50 + 120;
+    },
+
+    heightList() {
+        let height = this.heightListItems();
+        let windowHeight = 470;
+        return height < windowHeight ? windowHeight : height;
+    },
+
 
     render() {
         let sortedItems = _.sortBy(this.props.items, item => item.category.id);
@@ -24,7 +34,7 @@ module.exports = React.createClass({
         let maxCat = -1;
 
         _.forEach(sortedItems, item => {
-            if (item.category.id > maxCat) {
+            if (item.category.id > maxCat && maxCat > -1) {
                 itemComponents.push(<ListItem
                                      categoryStart={true}
                                      key={item.key}
@@ -37,17 +47,16 @@ module.exports = React.createClass({
 
 
         return (
-            <div className='list items'>
+            <div className='list items' style={{height: this.heightList()+'px'}}>
                 <ul>
-                    {this.props.items.length > 0 ?
                         <li id='buttons'><Buttons
                             showRemoveChecked={this.checkedItemsExist()}
-                            allDone={this.allItemsDone()} /></li>
-                    : null}
+                            allDone={this.allItemsDone()}
+                            listItemsExist={this.props.items.length > 0} /></li>
 
                     {itemComponents}
 
-                    <li id='li-input'><Input /></li>
+                    <li id='li-input'><Input listHeight={this.heightListItems()}/></li>
                 </ul>
             </div>
         );

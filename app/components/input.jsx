@@ -13,6 +13,13 @@ module.exports = React.createClass({
         $(this.refs.input.getDOMNode()).focus();
     },
 
+    scrollDown() {
+        $('html body').scrollTop($(document).height());
+        // var WH = $('html body').height();
+        // var SH = $('body')[0].scrollHeight;
+        // $('html, body').stop().animate({scrollTop: SH-WH}, 1000);
+    },
+
     handleSubmit(e) {
         e.preventDefault();
         var element = this.refs.input.getDOMNode();
@@ -25,8 +32,20 @@ module.exports = React.createClass({
             $('#li-input').css({transition: 'none'});
 
             // scroll to bottom of list
-            let listDiv = $('.items');
-            listDiv.scrollTop(listDiv[0].scrollHeight);
+            // setTimeout(this.scrollDown, 0);
+            // console.log(this.props.listHeight);
+            // setTimeout(() => $('html body').scrollTop(0), 1000);
+            console.log($().prop('scrollHeight'));
+
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            console.log(this.props.listHeight+100);
+            console.log(h);
+            if (this.props.listHeight+100 > h) {
+            // $('html body').scrollTop(this.props.listHeight+300);
+ $('html, body').animate({
+                        scrollTop: this.props.listHeight-230
+                    }, 350);
+            }
 
             element.value = '';
             Actions.addItem(text);
