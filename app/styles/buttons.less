@@ -11,17 +11,51 @@
     border-bottom: none !important;
     background: #fff;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.07);
+    text-align: center;
     // background-color: @base1;
     // border-radius: 3px 3px 0 0;
 }
+.input-form-title {
+    // margin-top: .2rem;
+    // padding-left: 2.0rem;
+    overflow-x: visible;
+    position: relative;
+    left: .2rem;
+    top: -.45rem;
+    padding-bottom: 1.5rem;
+
+    min-width: 8rem;
+    display: block;
+}
 
 #caption {
+    width: 8rem;
+}
+
+#caption, #input-title {
     font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: absolute;
-    left: 5.1rem;
-    // margin-left: 3rem;
+    // text-transform: uppercase;
+    letter-spacing: 1.2px;
+
+    display: inline-block;
+
+    padding: 0rem .0rem;
+    // max-width: 14rem;
+    // border: 1px solid #000;
+    border-bottom: 1px dotted @base2 !important;
+    // for the correct height of the underline
+    height: 2.3rem;
+}
+
+#input-title {
+    background: transparent;
+    margin: auto;
+
+    margin-top: 1.3rem;
+    height: 23px;
+    // text-align: center;
+    padding: 0;
+    margin-left: 0;
 }
 
 .button-unstyled.delete-all {

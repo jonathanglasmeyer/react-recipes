@@ -1,6 +1,6 @@
 @import "~styles/colors";
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
-@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 .hidden{
     visibility: hidden;
@@ -8,14 +8,17 @@
 
 Input[type='text'] {
     border: 0 !important;
+    border-bottom: 1px dotted @base2 !important;
+    outline: 0;
+}
+
+#input-item {
     // background-color: transparent;
     // border: 2px dotted #000 !important;
     // border: 2px #000;
-    outline: 0;
     width: 15.8rem;
     margin-top: 1rem;
     padding-left: 0;
-    border-bottom: 1px dotted @base2 !important;
     margin-bottom: 2em;
     background: @base1;
     color: @base3;
@@ -25,7 +28,8 @@ Input[type='text'] {
 
 
 
-form {
+
+.input-form {
     // margin-top: .2rem;
     // padding-left: 2.0rem;
     overflow-x: visible;

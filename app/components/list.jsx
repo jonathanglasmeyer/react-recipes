@@ -1,12 +1,20 @@
 'use strict';
 require('styles/list.less');
 require('styles/buttons.less');
+require('styles/footer.less');
 
 var Input = require('components/input');
-var ListItem = require('components/item');
+var Item = require('components/item');
 var Buttons = require('components/buttons');
+var Svg = require('components/svg');
 
 module.exports = React.createClass({
+    getDefaultProps() {
+        return {
+            title: 'Einkaufsliste'
+        };
+    },
+
     checkedItemsExist() {
         return _.any(this.props.items, 'checked');
     },
@@ -35,29 +43,39 @@ module.exports = React.createClass({
 
         _.forEach(sortedItems, item => {
             if (item.category.id > maxCat && maxCat > -1) {
-                itemComponents.push(<ListItem
+                itemComponents.push(<Item
+                                     isRecipeItem={this.props.isRecipe}
                                      categoryStart={true}
                                      key={item.key}
                                      data={item} /> );
                 maxCat = item.category.id;
             } else {
-                itemComponents.push(<ListItem key={item.key} data={item} /> );
+                itemComponents.push(<Item
+                                        isRecipeItem={this.props.isRecipe}
+                                        key={item.key}
+                                        data={item} /> );
             }
         });
 
 
         return (
-            <div className='list items' style={{height: this.heightList()+'px'}}>
+            <div className='list items' style={{height: this.heightList()}}>
                 <ul>
-                        <li id='buttons'><Buttons
-                            showRemoveChecked={this.checkedItemsExist()}
-                            allDone={this.allItemsDone()}
-                            listItemsExist={this.props.items.length > 0} /></li>
+
+                    <li id='buttons'><Buttons
+                        title={this.props.title}
+                        showRemoveChecked={this.checkedItemsExist()}
+                        allDone={this.allItemsDone()}
+                        listItemsExist={this.props.items.length > 0} /></li>
 
                     {itemComponents}
 
                     <li id='li-input'><Input listHeight={this.heightListItems()}/></li>
+
                 </ul>
+                <div id='footer'>
+                     <Svg className='save-icon' fname='save' />
+                </div>
             </div>
         );
     }

@@ -1,10 +1,11 @@
+'use strict';
 require('styles/svg.less');
 
 module.exports = React.createClass({
     getDefaultProps() {
         return {
             onClick: () => {}
-        }
+        };
     },
 
     render() {

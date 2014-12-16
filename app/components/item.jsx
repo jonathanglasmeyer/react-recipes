@@ -57,6 +57,7 @@ module.exports = React.createClass({
                     {this.props.data.text}
                     { DEBUG ? this.props.data.category.id : null}
                     { DEBUG ? this.props.data.category.color : null}
+                    { this.props.isRecipeItem ? 'recipe' : null}
                     {this.props.data.checked ?
                         <Svg onClick={this.handleDelete} fname='delete'
                              className='right delete-icon' />
