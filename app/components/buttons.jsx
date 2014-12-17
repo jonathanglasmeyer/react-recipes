@@ -10,6 +10,14 @@ var Svg = require('components/svg');
 
 module.exports = React.createClass({
 
+    propTypes: {
+        title: React.PropTypes.string,
+        showDeleteButton: React.PropTypes.bool,
+        allDone: React.PropTypes.bool,          // 'all done' button -> active?
+        listItemsExist: React.PropTypes.bool,   // show 'all done' button at all?
+        isRecipe: React.PropTypes.bool,
+    },
+
     onRemoveChecked() {
         Actions.removeAllChecked();
     },
@@ -74,59 +82,103 @@ module.exports = React.createClass({
         this.setState({titleInputEmpty: text.length === 0, titleText: text});
     },
 
+    renderRecipeHeader() {
+        let title =
+            <span
+                id='caption'
+                ref='title'
+                style={{borderBottom: 0}}>
+
+                {this.props.title}
+            </span>;
+
+        let buttons =
+            <div>
+                <Svg
+                    className='header-left-icon add-icon'
+                    fname='add'
+                    onClick={this.props.onAddAll}/>
+
+                { /*
+                <Svg
+                   className='right header-right-icon edit-icon'
+                   fname='edit'
+                   onClick={this.handleDeleteRecipe} />
+                   */ }
+
+
+            </div>;
+
+        return <div> {title} {buttons} </div>;
+    },
+
+    renderTitleEdit() {
+        let inputForm =
+            <form
+                className='input-form-title'
+                onSubmit={this.handleSubmit}>
+
+                <input
+                    id='input-title'
+                    type='text'
+                    placeholder='Rezeptname'
+                    ref='input'
+                    onChange={this.handleChange}/>
+            </form>;
+
+        // the cancel and the save button
+        let buttons =
+            <div>
+                <Svg
+                    className={cx(
+                       {'right save-icon header-right-icon': true,
+                        'deactivated': this.state.titleInputEmpty })}
+                    fname='save'
+                    ref='saveButton'
+                    onClick={this.handleSubmit} />
+
+                <Svg
+                    className='header-left-icon cancel-icon'
+                    fname='cancel' />
+            </div>;
+
+        return <div> {inputForm} {buttons} </div>;
+    },
 
     render() {
+        if (this.state.titleEdit) { return this.renderTitleEdit(); }
+        if (this.props.isRecipe) { return this.renderRecipeHeader(); }
+
+        let checkAllIcon =
+            <input
+                className='checkbox-animated all'
+                type='checkbox'
+                checked={this.props.allDone}
+                onChange={this.onCheckAll} />;
+
+        let title =
+            <span
+                id='caption'
+                ref='title'
+                style={this.props.isRecipe ? {borderBottom: '0'} : null}
+                onClick={this.toggleTitleEdit}>
+
+                {this.props.title}
+            </span>;
+
+        let deleteIcon =
+            <Svg
+                onClick={this.onRemoveChecked}
+                fname='delete'
+                className={'right header-right-icon delete-icon delete-all-icon'}/>;
+
         return (
             <div>
-                { this.props.listItemsExist && !this.props.isRecipe &&
-                  !this.state.titleEdit ?
-                    <input
-                        className='checkbox-animated all'
-                        type='checkbox'
-                        checked={this.props.allDone}
-                        onChange={this.onCheckAll} />
-                : null }
+                { this.props.listItemsExist ? checkAllIcon : null }
 
-                { this.state.titleEdit ?
-                    <form className='input-form-title' onSubmit={this.handleSubmit}>
-                        <input
-                            id='input-title'
-                            type='text'
-                            placeholder='Rezeptname'
-                            ref='input'
-                            onChange={this.handleChange}/>
-                    </form>
-                :
-                    <span
-                      id='caption'
-                      className='placeholder'
-                      ref='title'
-                      style={this.props.isRecipe ? {borderBottom: '0'} : null}
-                      onClick={this.toggleTitleEdit}
-                      >{this.props.title}
-                    </span>
-                }
+                { title }
 
-
-                {this.props.showRemoveChecked && !this.state.titleEdit ?
-                    (<Svg onClick={this.onRemoveChecked} fname='delete'
-                                 className='right delete-icon delete-all-icon' />)
-                : null}
-
-                {this.state.titleEdit ?
-                <div>
-                     <Svg
-                        className={cx(
-                            {'right save-icon': true,
-                             'deactivated': this.state.titleInputEmpty })}
-                        fname='save'
-                        onClick={this.handleSubmit}
-                        ref='saveButton'
-                        />
-                     <Svg className='cancel-icon' fname='cancel' />
-                </div>
-                : null}
-
+                {this.props.showDeleteButton ? deleteIcon : null}
 
              </div>
         );
@@ -140,21 +192,21 @@ module.exports = React.createClass({
 // Gemüse-Chili-Auflauf
 
 // 27
-// .rz 
+// .rz
 // .pie
 // .veg
-// 400 Kartoffeln 15min. 
+// 400 Kartoffeln 15min.
 // (2) 40g saure Sahne, kräftig S/P
 // (3) stampfen
-// (4) gehackten Koriander unterziehen. 
+// (4) gehackten Koriander unterziehen.
 
 // Cuminsamen rösten, mörsern.
-// Topf: 
-// (1) Korianderstiele, 3 gehackte Knoblauch und 2 gehackte grüne Chili, Cumin, 1cm Würfel: Zwiebeln und Sellerie. 15min. 
-// (2) 225g trocken Schwarze-Augen-Bohnen, 1 Dose gehackte Tomaten, S/P, kleine Flamme 20min. 
+// Topf:
+// (1) Korianderstiele, 3 gehackte Knoblauch und 2 gehackte grüne Chili, Cumin, 1cm Würfel: Zwiebeln und Sellerie. 15min.
+// (2) 225g trocken Schwarze-Augen-Bohnen, 1 Dose gehackte Tomaten, S/P, kleine Flamme 20min.
 // (3) 200g gegarte Paprika.
 
-// Ofen 180°. Gemüse, Püree, oben: geräuchertes Paprikapulver, einritzen, 40g geriebener Cheddar. 30-40min. 
+// Ofen 180°. Gemüse, Püree, oben: geräuchertes Paprikapulver, einritzen, 40g geriebener Cheddar. 30-40min.
 
-// Mit Salat servieren. 
+// Mit Salat servieren.
 

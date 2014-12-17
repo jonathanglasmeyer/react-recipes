@@ -52,7 +52,7 @@ function saveAsRecipe(recipeName) {
     childRef.set({
         title: recipeName,
         key: childRef.key(),
-        items: uncheckedItems
+        items: _items
     });
 }
 

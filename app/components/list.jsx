@@ -6,7 +6,8 @@ require('styles/footer.less');
 var Input = require('components/input');
 var Item = require('components/item');
 var Buttons = require('components/buttons');
-var Svg = require('components/svg');
+// var Svg = require('components/svg');
+var Actions = require('actions');
 
 module.exports = React.createClass({
     propTypes: {
@@ -17,7 +18,7 @@ module.exports = React.createClass({
 
     getDefaultProps() {
         return {
-            title: 'Einkaufsliste'
+            title: 'Einkaufsliste',
         };
     },
 
@@ -31,6 +32,14 @@ module.exports = React.createClass({
 
     heightListItems() {
         return this.props.items.length * 50 + 120;
+    },
+
+    // adding all recipes ingredients
+    onAddAll() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 250);
+        _.each(this.props.items, item => Actions.addItem(item.text));
     },
 
     heightList() {
@@ -75,10 +84,12 @@ module.exports = React.createClass({
 
                     <li id='buttons'><Buttons
                         title={this.props.title}
-                        showRemoveChecked={this.checkedItemsExist()}
+                        showDeleteButton={this.checkedItemsExist()}
                         allDone={this.allItemsDone()}
-                        listItemsExist={this.props.items.length > 0}
-                        isRecipe={this.props.isRecipe}/></li>
+                        isRecipe={this.props.isRecipe}
+                        onAddAll={this.onAddAll}
+                        listItemsExist={this.props.items.length > 0} />
+                    </li>
 
                     {itemComponents}
 

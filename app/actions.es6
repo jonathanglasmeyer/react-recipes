@@ -46,6 +46,6 @@ module.exports = mcFly.createActions({
             actionType: 'SAVE_AS_RECIPE',
             recipeName
         };
-    }
+    },
 
 });

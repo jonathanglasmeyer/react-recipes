@@ -60,10 +60,10 @@ module.exports = React.createClass({
                                 type='checkbox'
                                 checked={this.props.data.checked}
                                 onChange={this.handleChange} />)
-                        :
-                            <Svg
-                                className='plus-icon'
-                                fname={!this.state.added ? 'add':'done'} />;
+                        : null ;
+                            // <Svg
+                            //     className='plus-icon'
+                            //     fname={!this.state.added ? 'add':'done'} />;
 
 
         let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
