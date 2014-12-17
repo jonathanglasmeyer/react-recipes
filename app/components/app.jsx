@@ -46,6 +46,7 @@ module.exports = React.createClass({
                                             <List title={recipe.title}
                                                   items={recipe.items}
                                                   key={recipe.key}
+                                                  recipeKey={recipe.key}
                                                   isRecipe={true} />)
             : null;
 

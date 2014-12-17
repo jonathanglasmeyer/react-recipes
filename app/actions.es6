@@ -48,4 +48,11 @@ module.exports = mcFly.createActions({
         };
     },
 
+    deleteRecipe(recipeKey) {
+        return {
+            actionType: 'DELETE_RECIPE',
+            recipeKey
+        };
+    }
+
 });

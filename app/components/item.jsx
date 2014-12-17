@@ -9,6 +9,8 @@ var Actions = require('actions');
 
 var Svg = require('components/svg');
 
+var {listTransformStyle} = require('helpers');
+
 module.exports = React.createClass({
 
     propTypes: {
@@ -45,6 +47,7 @@ module.exports = React.createClass({
         Actions.delete(this.props.data.key);
     },
 
+
     backgroundColor() {
         return this.props.data.category.color ?
                 {background:
@@ -61,9 +64,6 @@ module.exports = React.createClass({
                                 checked={this.props.data.checked}
                                 onChange={this.handleChange} />)
                         : null ;
-                            // <Svg
-                            //     className='plus-icon'
-                            //     fname={!this.state.added ? 'add':'done'} />;
 
 
         let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
@@ -73,8 +73,10 @@ module.exports = React.createClass({
                         : null;
 
         return (
-            <li className={cx({'category-start': this.props.categoryStart})}
-                        style={this.backgroundColor()} >
+            <li
+                className={cx({'category-start': this.props.categoryStart})}
+                style={$.extend(this.backgroundColor(),
+                                listTransformStyle(this.props.i))} >
 
                 <label
                     onClick={this.props.isRecipeItem ?

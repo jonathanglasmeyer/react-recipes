@@ -16,6 +16,7 @@ module.exports = React.createClass({
         allDone: React.PropTypes.bool,          // 'all done' button -> active?
         listItemsExist: React.PropTypes.bool,   // show 'all done' button at all?
         isRecipe: React.PropTypes.bool,
+        onRecipeDelete: React.PropTypes.func
     },
 
     onRemoveChecked() {
@@ -35,7 +36,9 @@ module.exports = React.createClass({
     },
 
     toggleTitleEdit() {
-        this.setState({titleEdit: !this.state.titleEdit});
+        if (!this.props.allDone) {
+            this.setState({titleEdit: !this.state.titleEdit});
+        }
     },
 
     componentDidUpdate() {
@@ -52,6 +55,7 @@ module.exports = React.createClass({
                setTimeout(() => this.setState({titleEdit: false}),12));
         }
     },
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -99,13 +103,10 @@ module.exports = React.createClass({
                     fname='add'
                     onClick={this.props.onAddAll}/>
 
-                { /*
                 <Svg
-                   className='right header-right-icon edit-icon'
-                   fname='edit'
-                   onClick={this.handleDeleteRecipe} />
-                   */ }
-
+                   className='right header-right-icon delete-icon'
+                   fname='delete'
+                   onClick={this.props.onDeleteRecipe} />
 
             </div>;
 
@@ -160,7 +161,7 @@ module.exports = React.createClass({
             <span
                 id='caption'
                 ref='title'
-                style={this.props.isRecipe ? {borderBottom: '0'} : null}
+                style={this.props.allDone ? {borderBottom: '0'} : null}
                 onClick={this.toggleTitleEdit}>
 
                 {this.props.title}

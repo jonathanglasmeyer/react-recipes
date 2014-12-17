@@ -9,16 +9,20 @@ var Buttons = require('components/buttons');
 // var Svg = require('components/svg');
 var Actions = require('actions');
 
+var {listTransformStyle} = require('helpers');
+
 module.exports = React.createClass({
     propTypes: {
         title: React.PropTypes.string,
         items: React.PropTypes.array,
-        isRecipe: React.PropTypes.bool
+        isRecipe: React.PropTypes.bool,
+        recipeKey: React.PropTypes.string
     },
 
     getDefaultProps() {
         return {
             title: 'Einkaufsliste',
+            items: []
         };
     },
 
@@ -42,6 +46,11 @@ module.exports = React.createClass({
         _.each(this.props.items, item => Actions.addItem(item.text));
     },
 
+    onDeleteRecipe() {
+        Actions.deleteRecipe(this.props.recipeKey);
+    },
+
+
     heightList() {
         let height = this.heightListItems();
         let windowHeight = 470;
@@ -58,25 +67,33 @@ module.exports = React.createClass({
 
         let maxCat = -1;
 
-        _.forEach(sortedItems, item => {
+        _.forEach(sortedItems, (item,i) => {
             if (item.category.id > maxCat && maxCat > -1) {
                 itemComponents.push(<Item
                                      isRecipeItem={this.props.isRecipe}
                                      categoryStart={true}
                                      key={item.key}
+                                     i={i+1}
                                      data={item} /> );
                 maxCat = item.category.id;
             } else {
                 itemComponents.push(<Item
                                         isRecipeItem={this.props.isRecipe}
                                         key={item.key}
+                                        i={i+1}
                                         data={item} /> );
             }
         });
 
 
         let input =
-            (<li id='li-input'><Input listHeight={this.heightListItems()}/></li>);
+            <li
+                id='li-input'
+                style={listTransformStyle(this.props.items.length+1)}>
+
+                <Input
+                    listHeight={this.heightListItems()}/>
+            </li>;
 
         return (
             <div className='list items' style={{height: this.heightList()}}>
@@ -88,6 +105,7 @@ module.exports = React.createClass({
                         allDone={this.allItemsDone()}
                         isRecipe={this.props.isRecipe}
                         onAddAll={this.onAddAll}
+                        onDeleteRecipe={this.onDeleteRecipe}
                         listItemsExist={this.props.items.length > 0} />
                     </li>
 

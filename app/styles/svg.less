@@ -1,10 +1,14 @@
 @import "~styles/colors";
 
 .svg {
-    fill: @base4 ;
+    fill: @base2 ;
     background-color: transparent;
     display: inline-block;
     border: none;
+}
+
+.svg:active {
+    fill: @base3 ;
 }
 
 .delete-icon {
@@ -20,18 +24,19 @@
     top: 0.3rem;
     left: 1.1rem;
     padding-right: .3rem;
-    fill: @base3;
+    fill: @base2;
 }
 .doneall-icon-all-done {
     fill: @base2;
 }
 
 .delete-all-icon, .save-icon {
-    fill: @base3;
+    fill: @base2;
 }
 
 .save-icon.deactivated {
-    fill: @base2;
+    visibility: hidden;
+    // fill: @base2-light;
 }
 
 .plus-icon {
@@ -39,7 +44,7 @@
     position: relative;
     top: 0.4rem;
     padding-right: .3rem;
-    fill: @base3 ;
+    fill: @base2 ;
 }
 
 // .plus-icon.recipe {
@@ -68,7 +73,7 @@
 }
 
 .cancel-icon {
-    fill: @base3 ;
+    fill: @base2 ;
     cursor: pointer;
     // position: relative;
     // left: -.8rem;
@@ -76,8 +81,13 @@
 }
 
 .add-icon {
-    left: .85rem;
-    fill: @base3 ;
+    left: 1.08rem;
+    fill: @base2 ;
     cursor: pointer;
 }
 
+.edit-icon {
+    fill: @base2 ;
+    position: absolute;
+    left: 18.3rem;
+}

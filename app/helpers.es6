@@ -9,5 +9,10 @@ module.exports = {
         var b = bigint & 255;
 
         return r + "," + g + "," + b;
+    },
+
+    listTransformStyle(index) {
+        return { transform: `translate3d(0, ${100*index}%, 0)` };
     }
+
 };

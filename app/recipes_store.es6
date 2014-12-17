@@ -36,6 +36,10 @@ var RecipesStore = mcFly.createStore({
             saveAsRecipe(payload.recipeName);
         break;
 
+        case 'DELETE_RECIPE':
+            deleteRecipe(payload.recipeKey);
+        break;
+
         default:
             return true;
     }
@@ -52,8 +56,12 @@ function saveAsRecipe(recipeName) {
     childRef.set({
         title: recipeName,
         key: childRef.key(),
-        items: _items
+        items: uncheckedItems
     });
+}
+
+function deleteRecipe(recipeKey) {
+    ref.child(recipeKey).remove();
 }
 
 
