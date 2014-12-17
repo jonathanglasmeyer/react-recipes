@@ -3,8 +3,7 @@
 .items {
     list-style-type: none; padding: 0;
     position: relative;
-    // overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     width: 93%;
     margin: 0 auto;
     margin-top: .1rem;
@@ -54,10 +53,22 @@ label.item {
     right: -2rem;
 }
 
+
 label.item-done {
     text-decoration: line-through;
     color: @base4;
 }
+
+label.item-recipe {
+    position: relative;
+    transition: color .5s ease;
+    left: .8rem;
+}
+
+// label.item-recipe:hover {
+//     color: green;
+//     fill: green;
+// }
 
 li.category-start {
     border-top: 1px double #ccc;

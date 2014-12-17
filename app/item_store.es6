@@ -2,7 +2,11 @@
 
 var mcFly = require('mcFly');
 
-var ref = require('firebase_ref');
+var ref = require('firebase_ref').child('items');
+
+// var RecipesStore = require('recipes_store');
+
+// var Actions = require('actions');
 
 var categories = require('data/categories.json');
 
@@ -54,7 +58,6 @@ var ItemStore = mcFly.createStore({
             checkAll();
         break;
 
-
         default:
             return true;
     }
@@ -97,7 +100,6 @@ function checkAll() {
     _.each(_items, (item,i) =>
            setTimeout(() => check(item.key, boolVal), 100*i));
 }
-
 
 function init() {
     ref.on('child_added', (dataSnapshot) => {

@@ -9,11 +9,19 @@ var Actions = require('actions');
 
 var Svg = require('components/svg');
 
-let DEBUG = 0;
-// DEBUG = 1;
-
-
 module.exports = React.createClass({
+
+    propTypes: {
+        isRecipeItem: React.PropTypes.bool,
+        categoryStart: React.PropTypes.bool,
+        data: React.PropTypes.object,
+    },
+
+    getInitialState() {
+        return {
+            added: false
+        };
+    },
 
     getDefaultProps() {
         return {
@@ -23,6 +31,11 @@ module.exports = React.createClass({
 
     handleChange() {
         Actions.check(this.props.data.key, !this.props.data.checked);
+    },
+
+    handleIngredientAdd() {
+        this.setState({added: true});
+        Actions.addItem(this.props.data.text);
     },
 
     handleDelete(e) {
@@ -40,28 +53,38 @@ module.exports = React.createClass({
     },
 
     render() {
+        let checkbox = !this.props.isRecipeItem ?
+                            (<input
+                                className='checkbox-animated'
+                                style={this.backgroundColor()}
+                                type='checkbox'
+                                checked={this.props.data.checked}
+                                onChange={this.handleChange} />)
+                        :
+                            <Svg
+                                className='plus-icon'
+                                fname={!this.state.added ? 'add':'done'} />;
+
+
+        let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
+                            <Svg onClick={this.handleDelete}
+                                 fname='delete'
+                                 className='right delete-icon' />
+                        : null;
+
         return (
             <li className={cx({'category-start': this.props.categoryStart})}
                         style={this.backgroundColor()} >
 
-                <label className={
-                    cx({'item': true,
-                        'item-done': this.props.data.checked })} >
-                    <input
-                        className='checkbox-animated'
-                        style={this.backgroundColor()}
-                        type='checkbox'
-                        checked={this.props.data.checked}
-                        onChange={this.handleChange}
-                    />
+                <label
+                    onClick={this.props.isRecipeItem ?
+                                this.handleIngredientAdd : this.handleChange}
+                    className={cx({'item': true,
+                                   'item-done': this.props.data.checked,
+                                   'item-recipe': this.props.isRecipeItem})} >
+                    {checkbox}
                     {this.props.data.text}
-                    { DEBUG ? this.props.data.category.id : null}
-                    { DEBUG ? this.props.data.category.color : null}
-                    { this.props.isRecipeItem ? 'recipe' : null}
-                    {this.props.data.checked ?
-                        <Svg onClick={this.handleDelete} fname='delete'
-                             className='right delete-icon' />
-                    : null}
+                    {deleteIcon}
                 </label>
             </li>
         );

@@ -9,6 +9,12 @@ var Buttons = require('components/buttons');
 var Svg = require('components/svg');
 
 module.exports = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string,
+        items: React.PropTypes.array,
+        isRecipe: React.PropTypes.bool
+    },
+
     getDefaultProps() {
         return {
             title: 'Einkaufsliste'
@@ -30,7 +36,9 @@ module.exports = React.createClass({
     heightList() {
         let height = this.heightListItems();
         let windowHeight = 470;
-        return height < windowHeight ? windowHeight : height;
+        return this.props.isRecipe ?
+            height - 65:
+            height < windowHeight ? windowHeight : height;
     },
 
 
@@ -58,6 +66,9 @@ module.exports = React.createClass({
         });
 
 
+        let input =
+            (<li id='li-input'><Input listHeight={this.heightListItems()}/></li>);
+
         return (
             <div className='list items' style={{height: this.heightList()}}>
                 <ul>
@@ -66,16 +77,14 @@ module.exports = React.createClass({
                         title={this.props.title}
                         showRemoveChecked={this.checkedItemsExist()}
                         allDone={this.allItemsDone()}
-                        listItemsExist={this.props.items.length > 0} /></li>
+                        listItemsExist={this.props.items.length > 0}
+                        isRecipe={this.props.isRecipe}/></li>
 
                     {itemComponents}
 
-                    <li id='li-input'><Input listHeight={this.heightListItems()}/></li>
+                    {!this.props.isRecipe ? input : null }
 
                 </ul>
-                <div id='footer'>
-                     <Svg className='save-icon' fname='save' />
-                </div>
             </div>
         );
     }

@@ -22,7 +22,7 @@ module.exports = React.createClass({
         return {
             titleEdit: false,
             titleInputEmpty: true,
-            titleEdited: ''
+            titleText: ''
         };
     },
 
@@ -34,22 +34,22 @@ module.exports = React.createClass({
         if (this.refs.input !== undefined) {
             let inputElement = this.refs.input.getDOMNode();
             $(inputElement).focus();
+            var saveButton = this.refs.saveButton.getDOMNode();
+
+            $(saveButton).on('click', this.handleSubmit);
             $(inputElement).on('focusout', () =>
-               this.setState({titleEdit: false}));
-            // handle keypresses
-            // $(inputElement).keypress((e) => {
-            //     var text = inputElement.value.trim();
-            //     this.setState({titleInputEmpty: text.length === 0});
-            //     console.log(e.key);
-            // });
+                // hack so that the save button works.
+                // if this doesn't happen, the onClick event can not fire,
+                // because it isn't rendered anymore because of titleEdit = false
+               setTimeout(() => this.setState({titleEdit: false}),12));
         }
     },
 
     handleSubmit(e) {
         e.preventDefault();
-        var element = this.refs.input.getDOMNode();
-        var text = element.value.trim();
-        if (!text) {
+        // var element = this.refs.input.getDOMNode();
+        // var text = element.value.trim();
+        if (!this.state.titleText) {
             return;
         } else {
             this.setState({titleEdit: false});
@@ -61,23 +61,25 @@ module.exports = React.createClass({
             //     }, 350);
             // }
 
-            element.value = '';
-            console.log('submit', text);
+            // element.value = '';
+
+            Actions.saveAsRecipe(this.state.titleText);
+            this.state.titleText = '';
         }
-            // Actions.addItem(text);
     },
 
     handleChange() {
         var element = this.refs.input.getDOMNode();
         var text = element.value.trim();
-        this.setState({titleInputEmpty: text.length === 0});
+        this.setState({titleInputEmpty: text.length === 0, titleText: text});
     },
 
 
     render() {
         return (
             <div>
-                { this.props.listItemsExist  && !this.state.titleEdit ?
+                { this.props.listItemsExist && !this.props.isRecipe &&
+                  !this.state.titleEdit ?
                     <input
                         className='checkbox-animated all'
                         type='checkbox'
@@ -99,6 +101,7 @@ module.exports = React.createClass({
                       id='caption'
                       className='placeholder'
                       ref='title'
+                      style={this.props.isRecipe ? {borderBottom: '0'} : null}
                       onClick={this.toggleTitleEdit}
                       >{this.props.title}
                     </span>
@@ -116,7 +119,10 @@ module.exports = React.createClass({
                         className={cx(
                             {'right save-icon': true,
                              'deactivated': this.state.titleInputEmpty })}
-                        fname='save' />
+                        fname='save'
+                        onClick={this.handleSubmit}
+                        ref='saveButton'
+                        />
                      <Svg className='cancel-icon' fname='cancel' />
                 </div>
                 : null}
@@ -131,3 +137,24 @@ module.exports = React.createClass({
             // <Svg onClick={this.onCheckAll} fname='doneall'
             //              className={cx({'doneall-icon': true,
             //                  'doneall-icon-all-done': this.props.allDone})} />
+// Gemüse-Chili-Auflauf
+
+// 27
+// .rz 
+// .pie
+// .veg
+// 400 Kartoffeln 15min. 
+// (2) 40g saure Sahne, kräftig S/P
+// (3) stampfen
+// (4) gehackten Koriander unterziehen. 
+
+// Cuminsamen rösten, mörsern.
+// Topf: 
+// (1) Korianderstiele, 3 gehackte Knoblauch und 2 gehackte grüne Chili, Cumin, 1cm Würfel: Zwiebeln und Sellerie. 15min. 
+// (2) 225g trocken Schwarze-Augen-Bohnen, 1 Dose gehackte Tomaten, S/P, kleine Flamme 20min. 
+// (3) 200g gegarte Paprika.
+
+// Ofen 180°. Gemüse, Püree, oben: geräuchertes Paprikapulver, einritzen, 40g geriebener Cheddar. 30-40min. 
+
+// Mit Salat servieren. 
+

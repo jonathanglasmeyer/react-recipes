@@ -39,6 +39,13 @@ module.exports = mcFly.createActions({
         return {
             actionType: 'CHECK_ALL'
         };
+    },
+
+    saveAsRecipe(recipeName) {
+        return {
+            actionType: 'SAVE_AS_RECIPE',
+            recipeName
+        };
     }
 
 });
