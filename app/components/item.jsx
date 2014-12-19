@@ -61,32 +61,32 @@ module.exports = React.createClass({
                                 className='checkbox-animated'
                                 style={this.backgroundColor()}
                                 type='checkbox'
-                                checked={this.props.data.checked}
-                                onChange={this.handleChange} />)
+                                readOnly
+                                checked={this.props.data.checked}/>)
+
                         : null ;
 
 
-        let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
-                            <Svg onClick={this.handleDelete}
-                                 fname='delete'
-                                 className='right delete-icon' />
-                        : null;
+        // let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
+        //                     <Svg onClick={this.handleDelete}
+        //                          fname='delete'
+        //                          className='right delete-icon' />
+        //                 : null;
 
         return (
             <li
                 className={cx({'category-start': this.props.categoryStart})}
                 style={$.extend(this.backgroundColor(),
-                                listTransformStyle(this.props.i))} >
+                                listTransformStyle(this.props.i))} 
+                onTouchStart={this.handleChange} >
 
                 <label
-                    onClick={this.props.isRecipeItem ?
-                                this.handleIngredientAdd : this.handleChange}
                     className={cx({'item': true,
                                    'item-done': this.props.data.checked,
-                                   'item-recipe': this.props.isRecipeItem})} >
+                                   'item-recipe': this.props.isRecipeItem})}>
                     {checkbox}
                     {this.props.data.text}
-                    {deleteIcon}
+                    {/*deleteIcon*/}
                 </label>
             </li>
         );

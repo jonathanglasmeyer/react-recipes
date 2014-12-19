@@ -6,20 +6,20 @@
 html {
 }
 body {
-    font: 100% 'Roboto Slab';
+    font: 110% 'Roboto Slab';
     color: @base3;
     user-select: none;
     text-rendering: optimizelegibility;
     // line-height: 1.5;
     font-weight: normal;
-    background-color: @base1-warm;
-    background: url(~img/grapefruit.png);
+    background-color: #333;
+    // background: url(~img/grapefruit.png);
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 #background-image {
-    background: url(~img/fruit.jpg) no-repeat center center fixed;
+    // background: url(~img/fruit.jpg) no-repeat center center fixed;
     background-size: cover;
     width: 100%;
     top: 0;
@@ -44,4 +44,22 @@ body {
     // background-color: @base1;
     max-width: 360px;
     // height: 280px;
+}
+
+.example-enter {
+  opacity: 0;
+  transition: opacity .4s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .4s ease-out;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0;
 }

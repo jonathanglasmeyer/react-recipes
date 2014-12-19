@@ -12,6 +12,9 @@ var categories = require('data/categories.json');
 
 var _items = [];
 
+var Velocity = require('imports?this=>window!velocity-animate/velocity');
+
+
 function contains(string1, string2) {
     // case independent
    return string1.toLowerCase().indexOf(string2.toLowerCase()) > -1;
@@ -88,7 +91,7 @@ function deleteItem(key) {
 
 function removeAllChecked() {
     let checkedItems = _.filter(_items, 'checked');
-    _.each(checkedItems, (item,i) => setTimeout(() => deleteItem(item.key), 100*i));
+    _.each(checkedItems, item => deleteItem(item.key));
 }
 
 function checkAll() {
@@ -97,8 +100,7 @@ function checkAll() {
     // this is to uncheck all items if all are already checked
     let boolVal = uncheckedItems.length !== 0;
 
-    _.each(_items, (item,i) =>
-           setTimeout(() => check(item.key, boolVal), 100*i));
+    _.each(_items, (item,i) => check(item.key, boolVal));
 }
 
 function init() {

@@ -24,6 +24,9 @@ module.exports = React.createClass({
     },
 
     onCheckAll() {
+        // this.refs.checkbox.checked = !this.refs.checkbox.checked;
+        // this.refs.checkbox.props.checked = true;
+        // this.refs.checkbox.checked = !this.refs.checkbox.checked;
         Actions.checkAll();
     },
 
@@ -101,12 +104,12 @@ module.exports = React.createClass({
                 <Svg
                     className='header-left-icon add-icon'
                     fname='add'
-                    onClick={this.props.onAddAll}/>
+                    onTouchStart={this.props.onAddAll}/>
 
                 <Svg
                    className='right header-right-icon delete-icon'
                    fname='delete'
-                   onClick={this.props.onDeleteRecipe} />
+                   onTouchStart={this.props.onDeleteRecipe} />
 
             </div>;
 
@@ -136,7 +139,7 @@ module.exports = React.createClass({
                         'deactivated': this.state.titleInputEmpty })}
                     fname='save'
                     ref='saveButton'
-                    onClick={this.handleSubmit} />
+                    onTouchStart={this.handleSubmit} />
 
                 <Svg
                     className='header-left-icon cancel-icon'
@@ -151,27 +154,32 @@ module.exports = React.createClass({
         if (this.props.isRecipe) { return this.renderRecipeHeader(); }
 
         let checkAllIcon =
-            <input
-                className='checkbox-animated all'
-                type='checkbox'
-                checked={this.props.allDone}
-                onChange={this.onCheckAll} />;
+            <div className='checkbox-wrap'
+                onTouchStart={this.onCheckAll}>
+
+                <input
+                    className='checkbox-animated all'
+                    type='checkbox'
+                    checked={this.props.allDone}
+                    readOnly
+                    ref='checkbox'/>
+            </div>;
 
         let title =
             <span
                 id='caption'
                 ref='title'
-                style={this.props.allDone ? {borderBottom: '0'} : null}
-                onClick={this.toggleTitleEdit}>
+                // style={this.props.allDone ? {borderBottom: '0'} : null}
+                onTouchStart={this.toggleTitleEdit}>
 
                 {this.props.title}
             </span>;
 
-        let deleteIcon =
-            <Svg
-                onClick={this.onRemoveChecked}
-                fname='delete'
-                className={'right header-right-icon delete-icon delete-all-icon'}/>;
+        // let deleteIcon =
+        //     <Svg
+        //         onClick={this.onRemoveChecked}
+        //         fname='delete'
+        //         className={'right header-right-icon delete-icon delete-all-icon'}/>;
 
         return (
             <div>
@@ -179,7 +187,7 @@ module.exports = React.createClass({
 
                 { title }
 
-                {this.props.showDeleteButton ? deleteIcon : null}
+                {/*this.props.showDeleteButton ? deleteIcon : null*/}
 
              </div>
         );

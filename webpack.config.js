@@ -39,6 +39,7 @@ module.exports = {
       { test: /\.svg/, loader: "raw-loader" },
       { test: /\.jpg/, loader: "file-loader" },
       { test: /\.json/, loader: "json-loader" },
+      { test: /\.eot$/,    loader: "file-loader" },
       { test: /[\\\/]bower_components[\\\/]modernizr[\\\/]modernizr\.js$/, loader: "imports?this=>window!exports?window.Modernizr" }
     ]
   },

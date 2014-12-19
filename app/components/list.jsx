@@ -1,13 +1,14 @@
 'use strict';
 require('styles/list.less');
 require('styles/buttons.less');
-require('styles/footer.less');
 
 var Input = require('components/input');
 var Item = require('components/item');
 var Buttons = require('components/buttons');
-// var Svg = require('components/svg');
+var Svg = require('components/svg');
+var Footer = require('components/footer');
 var Actions = require('actions');
+
 
 var {listTransformStyle} = require('helpers');
 
@@ -35,7 +36,7 @@ module.exports = React.createClass({
     },
 
     heightListItems() {
-        return this.props.items.length * 50 + 120;
+        return this.props.items.length * 50 + 160;
     },
 
     // adding all recipes ingredients
@@ -60,8 +61,18 @@ module.exports = React.createClass({
     },
 
 
+
     render() {
-        let sortedItems = _.sortBy(this.props.items, item => item.category.id);
+
+        let sortedItems = _.sortBy(this.props.items, item => {
+            try {
+                return item.category.id;
+            } catch (err) {
+                console.log(err);
+                return 999;
+            }
+        });
+            // return 'category' in item ? item.category.id : 999;}) ;
 
         let itemComponents = [];
 
@@ -114,6 +125,7 @@ module.exports = React.createClass({
                     {!this.props.isRecipe ? input : null }
 
                 </ul>
+                <Footer {...this.props}/>
             </div>
         );
     }

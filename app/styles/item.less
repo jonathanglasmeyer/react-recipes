@@ -3,8 +3,9 @@
 .items {
     list-style-type: none; padding: 0;
     position: relative;
+    border-radius: 2px;
     overflow: hidden;
-    width: 93%;
+    width: 94%;
     margin: 0 auto;
     margin-top: .1rem;
     margin-bottom: 1rem;
@@ -30,12 +31,16 @@ ul {
     position: relative;
 }
 ul li {
-    padding-bottom: 1.5rem;
-    border-top: 1px dotted #ccc;
+    // padding-bottom: 1.5rem;
+    // border-top: 1px dotted #ccc;
     // border-left: 1px dotted @base2;
     // border-right: 1px dotted @base2;
     // box-shadow:         3px 0px 2px 2px #000;
     // margin-bottom: 1.5rem;
+}
+
+li:first-child {
+    border-radius: 2px;
 }
 
 li:last-child {

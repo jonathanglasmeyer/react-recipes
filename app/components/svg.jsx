@@ -13,7 +13,7 @@ module.exports = React.createClass({
             <div className={"svg " + this.props.className}
                 dangerouslySetInnerHTML={
                     {__html: require('img/' + this.props.fname + '.svg')}}
-                onClick={this.props.onClick} />
+                onTouchStart={this.props.onClick} />
         );
     }
 });

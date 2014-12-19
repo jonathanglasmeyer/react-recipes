@@ -13,8 +13,15 @@ var Actions = require('actions');
 var ItemStore = require('item_store');
 var RecipesStore = require('recipes_store');
 
+var ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
+
 // var Header = require('components/header');
 var List = require('components/list');
+
+// var Fab = require('components/fab');
+
+// var  mui = require('material-ui'),
+//   RaisedButton = mui.RaisedButton;
 
 function getState() {
     return {
@@ -40,7 +47,7 @@ module.exports = React.createClass({
 
     render() {
         console.log(this.state.recipes);
-        let recipesComponents = 
+        let recipesComponents =
             this.state.recipes.length > 0 ?
                 _.map(this.state.recipes, recipe =>
                                             <List title={recipe.title}
@@ -54,7 +61,9 @@ module.exports = React.createClass({
             <div>
                     <div className='main'>
                         <List items={this.state.items}/>
-                        {recipesComponents}
+                        <ReactCSSTransitionGroup transitionName="example">
+                            {recipesComponents}
+                        </ReactCSSTransitionGroup>
                     </div>
             </div>
         );

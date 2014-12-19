@@ -1,0 +1,5 @@
+- 200g + 400g Kartoffeln kombinieren
+- alle delete buttons notwendig?
+- Rezept speichern als Button unten
+- Suche (mehrere Zutaten? / Genres?)
+- Zutaten 

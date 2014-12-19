@@ -1,5 +1,19 @@
 @import "~styles/colors";
 
+.checkbox-wrap {
+    // margin: 16px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    margin-right: 0 !important;
+    width: 78px;
+    height: 48px;
+    // background: transparent;
+    // visibility: hidden;
+}
+
 .checkbox-animated {
   position: relative;
   top: -0.13rem;
@@ -9,9 +23,9 @@
   cursor: pointer;
 }
 
-.checkbox-animated.all {
+.checkbox-animated.all, .cancel-icon {
   position: absolute;
-  top: 1.1rem;
+  top: 1rem;
   left: 1.22rem;
   margin: 0 1rem 0 1;
   margin-right: 20px;
@@ -20,7 +34,7 @@
 
 
 .checkbox-animated:before {
-  transition: all 0.23s ease-in-out;
+  transition: all 0s ease-in-out;
   content: "";
   position: absolute;
   left: 0;
