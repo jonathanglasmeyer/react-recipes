@@ -6,19 +6,11 @@ var ref = require('firebase_ref').child('recipes');
 
 var ItemStore = require('item_store');
 
+var {category} = require('helpers');
+
 var _recipes = [];
 
-// just read
-var _items = [];
-
 var RecipesStore = mcFly.createStore({
-    addListener() {
-        ItemStore.addChangeListener(this.onChange);
-    },
-
-    onChange() {
-        _items = ItemStore.getItems();
-    },
 
     getRecipes() {
         return _recipes;
@@ -29,15 +21,18 @@ var RecipesStore = mcFly.createStore({
     switch(payload.actionType) {
         case 'INIT':
             init();
-            RecipesStore.addListener();
         break;
 
-        case 'SAVE_AS_RECIPE':
-            saveAsRecipe(payload.recipeName);
+        case 'NEW_RECIPE':
+            newRecipe();
         break;
 
         case 'DELETE_RECIPE':
             deleteRecipe(payload.recipeKey);
+        break;
+
+        case 'ADD_TO_RECIPE':
+            addToRecipe(payload.itemText, payload.recipeKey);
         break;
 
         default:
@@ -50,13 +45,22 @@ var RecipesStore = mcFly.createStore({
 
 });
 
-function saveAsRecipe(recipeName) {
+function newRecipe() {
     var childRef = ref.push();
-    let uncheckedItems = _.filter(_items, item => !item.checked);
     childRef.set({
-        title: recipeName,
+        title: 'Unbenannt2',
         key: childRef.key(),
-        items: uncheckedItems
+    });
+}
+
+function addToRecipe(itemText, recipeKey) {
+
+    let newItemRef = ref.child(recipeKey).child('items').push();
+    newItemRef.set({
+        checked: false,
+        text: itemText,
+        key: newItemRef.key(),
+        category: category(itemText)
     });
 }
 
@@ -66,25 +70,46 @@ function deleteRecipe(recipeKey) {
 
 
 function init() {
-    ref.on('child_added', (dataSnapshot) => {
-        _recipes.push(dataSnapshot.val());
+    ref.on('value', snap => {
+        let recipes = snap.val();
+        _recipes = _.map(recipes, r => {
+            return {
+                key: r.key,
+                title: r.title,
+                items: _.toArray(r.items)
+            };
+        });
+
         RecipesStore.emitChange();
     });
 
-    ref.on('child_changed', (dataSnapshot) => {
-        var key = dataSnapshot.key();
-        var data = dataSnapshot.val();
-        var position = (_.findKey(_recipes, {key: key}));
-        _recipes[position] = data;
-        RecipesStore.emitChange();
-    });
+    // ref.on('child_added', (dataSnapshot) => {
+    //     let data = dataSnapshot.val();
+    //     var key = dataSnapshot.key();
+    //     let items = _.values(_.map(data.items, item => item));
 
-    ref.on('child_removed', (dataSnapshot) => {
-        var key = dataSnapshot.key();
-        var position = (_.findKey(_recipes, {key: key}));
-        _recipes.splice(position, 1);
-        RecipesStore.emitChange();
-    });
+
+    //     _recipes.push({title: data.title, key, items});
+    //     RecipesStore.emitChange();
+    // });
+
+    // ref.on('child_changed', (dataSnapshot) => {
+    //     var key = dataSnapshot.key();
+    //     var data = dataSnapshot.val();
+    //     let items = _.values(_.map(data.items, item => item));
+
+    //     var position = (_.findKey(_recipes, {key: key}));
+    //     _recipes[position] = {key, items};
+    //     RecipesStore.emitChange();
+    // });
+
+    // ref.on('child_removed', (dataSnapshot) => {
+    //     var key = dataSnapshot.key();
+    //     var position = (_.findKey(_recipes, {key: key}));
+    //     _recipes.splice(position, 1);
+    //     RecipesStore.emitChange();
+    // });
+
 }
 
 module.exports = RecipesStore;

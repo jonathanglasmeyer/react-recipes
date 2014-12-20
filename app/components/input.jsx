@@ -49,7 +49,11 @@ module.exports = React.createClass({
             }
 
             element.value = '';
+            if (this.props.recipeKey !== '') {
+                Actions.addToRecipe(text, this.props.recipeKey);
+            } else {
             Actions.addItem(text);
+            }
         }
     },
 
@@ -57,7 +61,7 @@ module.exports = React.createClass({
         return (
                 <form className='input-form' onSubmit={this.handleSubmit}>
                      <Svg className='plus-icon' fname='add' />
-                     <input type='text' id='input-item' placeholder='Item' ref='input' />
+                     <input type='text' id='input-item' placeholder='Artikel' ref='input' />
                 </form>
         );
     }

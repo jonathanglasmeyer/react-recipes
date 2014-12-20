@@ -3,6 +3,7 @@
 require('styles/footer.less');
 var Actions = require('actions');
 var Button = require('components/button');
+var cx = require('react/addons').addons.classSet;
 
 module.exports = React.createClass({
 
@@ -22,7 +23,7 @@ module.exports = React.createClass({
         return (
             <div id='footer'>
                <div className='footer-content'>
-                    <Button text='clear completed' onClick={this.onClear}/>
+                    <Button text='aufräumen' onClick={this.onClear}/>
                </div>
             </div>
         );

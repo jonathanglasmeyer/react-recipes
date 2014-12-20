@@ -15,7 +15,7 @@ var {listTransformStyle} = require('helpers');
 module.exports = React.createClass({
     propTypes: {
         title: React.PropTypes.string,
-        items: React.PropTypes.array,
+        // items: React.PropTypes.array,
         isRecipe: React.PropTypes.bool,
         recipeKey: React.PropTypes.string
     },
@@ -23,6 +23,7 @@ module.exports = React.createClass({
     getDefaultProps() {
         return {
             title: 'Einkaufsliste',
+            recipeKey: '',
             items: []
         };
     },
@@ -56,13 +57,16 @@ module.exports = React.createClass({
         let height = this.heightListItems();
         let windowHeight = 470;
         return this.props.isRecipe ?
-            height - 65:
+            height :
             height < windowHeight ? windowHeight : height;
     },
 
 
 
     render() {
+        // let items = typeof this.props.items === 'object' ? 
+                // _.toArray(this.props.items) : this.props.items;
+        // console.log('list.jsx', items);
 
         let sortedItems = _.sortBy(this.props.items, item => {
             try {
@@ -103,6 +107,7 @@ module.exports = React.createClass({
                 style={listTransformStyle(this.props.items.length+1)}>
 
                 <Input
+                    recipeKey={this.props.recipeKey}
                     listHeight={this.heightListItems()}/>
             </li>;
 
@@ -122,7 +127,7 @@ module.exports = React.createClass({
 
                     {itemComponents}
 
-                    {!this.props.isRecipe ? input : null }
+                    {input}
 
                 </ul>
                 <Footer {...this.props}/>

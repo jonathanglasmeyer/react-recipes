@@ -41,10 +41,9 @@ module.exports = mcFly.createActions({
         };
     },
 
-    saveAsRecipe(recipeName) {
+    newRecipe() {
         return {
-            actionType: 'SAVE_AS_RECIPE',
-            recipeName
+            actionType: 'NEW_RECIPE',
         };
     },
 
@@ -52,6 +51,13 @@ module.exports = mcFly.createActions({
         return {
             actionType: 'DELETE_RECIPE',
             recipeKey
+        };
+    },
+
+    addToRecipe(itemText, recipeKey) {
+        return {
+            actionType: 'ADD_TO_RECIPE',
+            itemText, recipeKey
         };
     }
 

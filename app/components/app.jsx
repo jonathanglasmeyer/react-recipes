@@ -17,11 +17,14 @@ var ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 // var Header = require('components/header');
 var List = require('components/list');
+var NewRecipeButton = require('components/new_recipe_button');
 
 // var Fab = require('components/fab');
 
 // var  mui = require('material-ui'),
 //   RaisedButton = mui.RaisedButton;
+
+var Immutable = require('immutable');
 
 function getState() {
     return {
@@ -46,21 +49,26 @@ module.exports = React.createClass({
     },
 
     render() {
-        console.log(this.state.recipes);
+        let recipes = Immutable.List(this.state.recipes);
+        let reversed = recipes.reverse().toArray();
         let recipesComponents =
-            this.state.recipes.length > 0 ?
-                _.map(this.state.recipes, recipe =>
-                                            <List title={recipe.title}
-                                                  items={recipe.items}
-                                                  key={recipe.key}
-                                                  recipeKey={recipe.key}
-                                                  isRecipe={true} />)
+            _.size(this.state.recipes) > 0 ?
+                _.map(reversed, recipe =>
+                                        <List title={recipe.title}
+                                              items={recipe.items}
+                                              key={recipe.key}
+                                              recipeKey={recipe.key}
+                                              isRecipe={true} />)
             : null;
+        // console.log('app.js', _.map(_.toArray(this.state.recipes), r=>r.items));
+
+
 
         return (
             <div>
                     <div className='main'>
                         <List items={this.state.items}/>
+                        <NewRecipeButton />
                         <ReactCSSTransitionGroup transitionName="example">
                             {recipesComponents}
                         </ReactCSSTransitionGroup>
