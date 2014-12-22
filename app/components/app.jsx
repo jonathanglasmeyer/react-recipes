@@ -20,6 +20,7 @@ var List = require('components/list');
 var NewRecipeButton = require('components/new_recipe_button');
 
 // var Fab = require('components/fab');
+var Reflux = require('reflux');
 
 // var  mui = require('material-ui'),
 //   RaisedButton = mui.RaisedButton;
@@ -28,13 +29,14 @@ var Immutable = require('immutable');
 
 function getState() {
     return {
-        items: ItemStore.getItems(),
-        recipes: RecipesStore.getRecipes()
+        items: [],
+        recipes: []
     };
 }
 
 module.exports = React.createClass({
-    mixins: [ItemStore.mixin, RecipesStore.mixin],
+    // mixins: [ItemStore.mixin, RecipesStore.mixin],
+    mixins: [Reflux.connect(ItemStore,'items')],
 
     getInitialState() {
         return getState();

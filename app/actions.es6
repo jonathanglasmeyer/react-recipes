@@ -1,64 +1,79 @@
 'use strict';
 
-var mcFly = require('mcFly');
+// var mcFly = require('mcFly');
 
-module.exports = mcFly.createActions({
-    addItem(text) {
-        return {
-            actionType: 'ADD_ITEM',
-            text: text
-        };
-    },
+var Reflux = require('reflux');
 
-    init() {
-        return { actionType: 'INIT' };
-    },
+module.exports = Reflux.createActions([
+    'init',
+    'addItem',
+    'check',
+    'delete',
+    'removeAllChecked',
+    'checkAll',
+    // recipes
+    'newRecipe',
+    'deleteRecipe',
+    'addToRecipe'
+  ]);
 
-    check(key, state) {
-        return {
-            actionType: 'CHECK',
-            key: key,
-            state: state
-        };
-    },
+// module.exports = mcFly.createActions({
+//     addItem(text) {
+//         return {
+//             actionType: 'ADD_ITEM',
+//             text: text
+//         };
+//     },
 
-    delete(key) {
-        return {
-            actionType: 'DELETE',
-            key: key
-        };
-    },
+//     init() {
+//         return { actionType: 'INIT' };
+//     },
 
-    removeAllChecked() {
-        return {
-            actionType: 'REMOVE_ALL_CHECKED'
-        };
-    },
+//     check(key, state) {
+//         return {
+//             actionType: 'CHECK',
+//             key: key,
+//             state: state
+//         };
+//     },
 
-    checkAll() {
-        return {
-            actionType: 'CHECK_ALL'
-        };
-    },
+//     delete(key) {
+//         return {
+//             actionType: 'DELETE',
+//             key: key
+//         };
+//     },
 
-    newRecipe() {
-        return {
-            actionType: 'NEW_RECIPE',
-        };
-    },
+//     removeAllChecked() {
+//         return {
+//             actionType: 'REMOVE_ALL_CHECKED'
+//         };
+//     },
 
-    deleteRecipe(recipeKey) {
-        return {
-            actionType: 'DELETE_RECIPE',
-            recipeKey
-        };
-    },
+//     checkAll() {
+//         return {
+//             actionType: 'CHECK_ALL'
+//         };
+//     },
 
-    addToRecipe(itemText, recipeKey) {
-        return {
-            actionType: 'ADD_TO_RECIPE',
-            itemText, recipeKey
-        };
-    }
+//     newRecipe() {
+//         return {
+//             actionType: 'NEW_RECIPE',
+//         };
+//     },
 
-});
+//     deleteRecipe(recipeKey) {
+//         return {
+//             actionType: 'DELETE_RECIPE',
+//             recipeKey
+//         };
+//     },
+
+//     addToRecipe(itemText, recipeKey) {
+//         return {
+//             actionType: 'ADD_TO_RECIPE',
+//             itemText, recipeKey
+//         };
+//     }
+
+// });
