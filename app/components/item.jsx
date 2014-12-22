@@ -1,33 +1,24 @@
+/* @flow */
 'use strict';
 require('styles/item.less');
 require('styles/checkbox.less');
 
 var cx = require('react/addons').addons.classSet;
+
 var {hexToRgb} = require('helpers');
-
 var Actions = require('actions');
-
-var Svg = require('components/svg');
-
 var {listTransformStyle} = require('helpers');
 
 module.exports = React.createClass({
 
     propTypes: {
         isRecipeItem: React.PropTypes.bool,
-        categoryStart: React.PropTypes.bool,
         data: React.PropTypes.object,
     },
 
     getInitialState() {
         return {
             added: false
-        };
-    },
-
-    getDefaultProps() {
-        return {
-            categoryStart: false
         };
     },
 
@@ -47,12 +38,11 @@ module.exports = React.createClass({
         Actions.delete(this.props.data.key);
     },
 
-
     backgroundColor() {
         return this.props.data.category.color ?
-                {background:
-                    `rgba(${hexToRgb(this.props.data.category.color)}, .15)`} :
-                {};
+            {background:
+                `rgba(${hexToRgb(this.props.data.category.color)}, .15)`} :
+            {};
     },
 
     render() {
@@ -66,18 +56,10 @@ module.exports = React.createClass({
 
                         : null ;
 
-
-        // let deleteIcon = this.props.data.checked && !this.props.isRecipeItem ?
-        //                     <Svg onClick={this.handleDelete}
-        //                          fname='delete'
-        //                          className='right delete-icon' />
-        //                 : null;
-
         return (
             <li
-                className={cx({'category-start': this.props.categoryStart})}
-                style={$.extend(this.backgroundColor(),
-                                listTransformStyle(this.props.i))} 
+                style={_.extend(this.backgroundColor(),
+                                listTransformStyle(this.props.i))}
                 onTouchStart={this.handleChange} >
 
                 <label
@@ -86,7 +68,6 @@ module.exports = React.createClass({
                                    'item-recipe': this.props.isRecipeItem})}>
                     {checkbox}
                     {this.props.data.text}
-                    {/*deleteIcon*/}
                 </label>
             </li>
         );

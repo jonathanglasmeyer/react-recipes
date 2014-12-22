@@ -6,22 +6,19 @@ let ref = require('firebase_ref').child('recipes');
 let {category} = require('helpers');
 let actions = require('actions');
 
-let _recipes = [];
-
 module.exports = Reflux.createStore({
     listenables: actions,
 
     onInit() {
         ref.on('value', snap => {
             let recipes = snap.val();
-            this.recipes = _.map(recipes, r => {
-                return {
-                    key: r.key,
-                    title: r.title,
-                    items: _.toArray(r.items)
-                };
-            });
-            this.trigger(_recipes);
+            this.recipes = _.map(recipes, r => ({
+                key: r.key,
+                title: r.title,
+                items: _.toArray(r.items)
+            }
+            ));
+            this.trigger(this.recipes);
         });
     },
 

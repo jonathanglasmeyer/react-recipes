@@ -5,6 +5,7 @@ var Actions = require('actions');
 var Button = require('components/button');
 
 module.exports = React.createClass({
+
     onAddRecipe() {
         Actions.newRecipe();
     },

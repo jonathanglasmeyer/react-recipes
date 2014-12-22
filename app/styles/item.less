@@ -1,42 +1,19 @@
 @import "~styles/colors";
 
-.items {
-    list-style-type: none; padding: 0;
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-    width: 94%;
-    margin: 0 auto;
-    margin-top: .1rem;
-    margin-bottom: 1rem;
-}
-
 .items li {
     height: 50px;
     width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
-    // margin-right: 0;
     line-height: 50px;
-    // margin-left: 2rem;
     position: absolute; top: 0; left: 0;
     transition: all .2s ease-out;
-    // border-left: 1px solid @base2-light;
-    // border-right: 1px solid @base2-light;
 }
 
 ul {
     margin-top: 0;
     list-style-type: none;
     position: relative;
-}
-ul li {
-    // padding-bottom: 1.5rem;
-    // border-top: 1px dotted #ccc;
-    // border-left: 1px dotted @base2;
-    // border-right: 1px dotted @base2;
-    // box-shadow:         3px 0px 2px 2px #000;
-    // margin-bottom: 1.5rem;
 }
 
 li:first-child {
@@ -48,16 +25,10 @@ li:last-child {
 }
 
 
-
-.delete-icon:active {
-    fill: @base3 ;
-}
-
 label.item {
     position: relative;
     right: -2rem;
 }
-
 
 label.item-done {
     text-decoration: line-through;
@@ -68,13 +39,3 @@ label.item-recipe {
     position: relative;
     left: 1.5rem;
 }
-
-// label.item-recipe:hover {
-//     color: green;
-//     fill: green;
-// }
-
-li.category-start {
-    border-top: 1px double #ccc;
-}
-

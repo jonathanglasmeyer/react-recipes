@@ -1,57 +1,32 @@
 'use strict';
 require('styles/list.less');
-require('styles/buttons.less');
 
-var Input = require('components/input');
-var Item = require('components/item');
-var Buttons = require('components/buttons');
-var Svg = require('components/svg');
-var Footer = require('components/footer');
-var Actions = require('actions');
+let pt = require('react').PropTypes;
 
-
-var {listTransformStyle} = require('helpers');
+let Input = require('components/input');
+let Item = require('components/item');
+let ListHeader = require('components/list_header');
+let Footer = require('components/footer');
+let {listTransformStyle} = require('helpers');
 
 module.exports = React.createClass({
+
     propTypes: {
-        title: React.PropTypes.string,
-        // items: React.PropTypes.array,
-        isRecipe: React.PropTypes.bool,
-        recipeKey: React.PropTypes.string
+        i: pt.number, // index for calculating height of li element
+        title: pt.string,
+        items: pt.array,
+        isRecipe: pt.bool,
+        recipeKey: pt.string
     },
 
-    getDefaultProps() {
-        return {
-            title: 'Einkaufsliste',
-            recipeKey: '',
-            items: []
-        };
-    },
-
-    checkedItemsExist() {
-        return _.any(this.props.items, 'checked');
-    },
-
-    allItemsDone() {
-        return _.all(this.props.items, 'checked');
-    },
+    getDefaultProps: () => ({
+        title: 'Einkaufsliste',
+        recipeKey: '',
+    }),
 
     heightListItems() {
         return this.props.items.length * 50 + 160;
     },
-
-    // adding all recipes ingredients
-    onAddAll() {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 250);
-        _.each(this.props.items, item => Actions.addItem(item.text));
-    },
-
-    onDeleteRecipe() {
-        Actions.deleteRecipe(this.props.recipeKey);
-    },
-
 
     heightList() {
         let height = this.heightListItems();
@@ -61,45 +36,14 @@ module.exports = React.createClass({
             height < windowHeight ? windowHeight : height;
     },
 
-
-
     render() {
-        // let items = typeof this.props.items === 'object' ? 
-                // _.toArray(this.props.items) : this.props.items;
-        // console.log('list.jsx', items);
+        let {items} = this.props;
 
-        let sortedItems = _.sortBy(this.props.items, item => {
-            try {
-                return item.category.id;
-            } catch (err) {
-                console.log(err);
-                return 999;
-            }
-        });
-            // return 'category' in item ? item.category.id : 999;}) ;
+        let sortedItems = _.sortBy(items, item => item.category.id);
 
-        let itemComponents = [];
-
-        let maxCat = -1;
-
-        _.forEach(sortedItems, (item,i) => {
-            if (item.category.id > maxCat && maxCat > -1) {
-                itemComponents.push(<Item
-                                     isRecipeItem={this.props.isRecipe}
-                                     categoryStart={true}
-                                     key={item.key}
-                                     i={i+1}
-                                     data={item} /> );
-                maxCat = item.category.id;
-            } else {
-                itemComponents.push(<Item
-                                        isRecipeItem={this.props.isRecipe}
-                                        key={item.key}
-                                        i={i+1}
-                                        data={item} /> );
-            }
-        });
-
+        let itemComponents = _.map(sortedItems, (item, i) =>
+            <Item key={item.key} i={i+1} data={item} />
+        );
 
         let input =
             <li
@@ -114,21 +58,9 @@ module.exports = React.createClass({
         return (
             <div className='list items' style={{height: this.heightList()}}>
                 <ul>
-
-                    <li id='buttons'><Buttons
-                        title={this.props.title}
-                        showDeleteButton={this.checkedItemsExist()}
-                        allDone={this.allItemsDone()}
-                        isRecipe={this.props.isRecipe}
-                        onAddAll={this.onAddAll}
-                        onDeleteRecipe={this.onDeleteRecipe}
-                        listItemsExist={this.props.items.length > 0} />
-                    </li>
-
+                    <ListHeader {...this.props} />
                     {itemComponents}
-
                     {input}
-
                 </ul>
                 <Footer {...this.props}/>
             </div>
@@ -136,4 +68,4 @@ module.exports = React.createClass({
     }
 });
 
-                    // <li id='li-symbols'><Buttons /></li>
+                    // <li id='li-symbols'><ListHeader /></li>

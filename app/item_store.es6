@@ -6,7 +6,6 @@ let ref = require('firebase_ref').child('items');
 let actions = require('actions');
 let {category} = require('helpers');
 
-var _items = [];
 
 module.exports = Reflux.createStore({
 
@@ -24,8 +23,8 @@ module.exports = Reflux.createStore({
 
     onInit() {
         ref.on('value', snap => {
-            _items = _.toArray(snap.val());
-            this.trigger(_items);
+            this.items = _.toArray(snap.val());
+            this.trigger(this.items);
         });
     },
 
@@ -38,15 +37,15 @@ module.exports = Reflux.createStore({
     },
 
     onRemoveAllChecked() {
-        let checkedItems = _.filter(_items, 'checked');
+        let checkedItems = _.filter(this.items, 'checked');
         _.each(checkedItems, item => this.onDeleteItem(item.key));
     },
 
     onCheckAll() {
-        let uncheckedItems = _.filter(_items, item => !item.checked);
+        let uncheckedItems = _.filter(this.items, item => !item.checked);
         // this is to uncheck all items if all are already checked
         let boolVal = uncheckedItems.length !== 0;
-        _.each(_items, (item) => this.onCheck(item.key, boolVal));
+        _.each(this.items, (item) => this.onCheck(item.key, boolVal));
     }
 
 });

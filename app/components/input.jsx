@@ -11,9 +11,8 @@ module.exports = React.createClass({
     getDefaultProps() {
         return {
             isRecipe: false
-        }
+        };
     },
-
 
     componentDidMount() {
         // keyboard focus on input
