@@ -37,12 +37,12 @@ module.exports = React.createClass({
     },
 
     render() {
-        let {items} = this.props;
+        let {items, isRecipe} = this.props;
 
         let sortedItems = _.sortBy(items, item => item.category.id);
 
         let itemComponents = _.map(sortedItems, (item, i) =>
-            <Item key={item.key} i={i+1} data={item} />
+            <Item key={item.key} i={i+1} data={item} isRecipeItem={isRecipe} />
         );
 
         let input =
