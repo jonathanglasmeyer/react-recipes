@@ -7,11 +7,17 @@ let cx = require('react/addons').addons.classSet;
 
 let Actions = require('actions');
 let Button = require('components/button');
-let {scrollTo, viewportHeight} = require('helpers');
+let {offset, scrollTo, viewportHeight} = require('helpers');
 
 let NewRecipeButton = React.createClass({
     handleNewRecipe() {
         Actions.newRecipe();
+        setTimeout(() => {
+            let buttonElement = this.refs.button.getDOMNode();
+            if (offset(buttonElement) > viewportHeight()) {
+              $('.main').scrollTop($('.main').scrollTop()+140);
+            }
+        }, 0);
     },
 
     getInitialState: () => ({
@@ -24,16 +30,6 @@ let NewRecipeButton = React.createClass({
 
     handleTouchEnd() {
         this.setState({active: false});
-
-
-        // scroll offset of big button main div (that has offset-y: auto set)
-
-        // let h=$(this.refs.button.getDOMNode()).offset().top - $('.main').offset().top;
-        // console.log(h, viewportHeight());
-        // if (viewportHeight() - h < 280) {
-        //     scrollTo(h-180, 1400);
-        // }
-
     },
 
     render() {

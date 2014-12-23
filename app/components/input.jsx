@@ -8,8 +8,6 @@ let Actions = require('actions');
 
 let {scrollTo, viewportHeight, offset} = require('helpers');
 
-require('jquery-scrollintoview/jquery.scrollintoview');
-
 module.exports = React.createClass({
 
     getDefaultProps() {
