@@ -39,8 +39,6 @@ module.exports = React.createClass({
 
             // scroll to bottom of list
             var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            // console.log(this.props.listHeight+100);
-            // console.log(h);
             if (this.props.listHeight+100 > h) {
                 $('html, body').animate({
                     scrollTop: this.props.listHeight-230

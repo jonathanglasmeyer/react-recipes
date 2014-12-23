@@ -2,18 +2,21 @@
 require('styles/svg.less');
 
 module.exports = React.createClass({
+
     getDefaultProps() {
         return {
-            onClick: () => {}
+            handleClick: () => {}
         };
     },
 
     render() {
+        let {handleClick, fname, className} = this.props;
+
         return (
-            <div className={"svg " + this.props.className}
+            <div className={"svg " + className}
                 dangerouslySetInnerHTML={
-                    {__html: require('img/' + this.props.fname + '.svg')}}
-                onTouchStart={this.props.onClick} />
+                    {__html: require('img/' + fname + '.svg')}}
+                onTouchEnd={handleClick} />
         );
     }
 });

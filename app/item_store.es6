@@ -29,7 +29,11 @@ module.exports = Reflux.createStore({
     },
 
     onCheck(key, state) {
-        ref.child(key).update({checked: state});
+        let childRef = ref.child(key);
+        childRef.once('value', snap => {
+            if ('checked' in snap.val()) {
+                childRef.update({checked: state}); }
+        });
     },
 
     onDeleteItem(key) {

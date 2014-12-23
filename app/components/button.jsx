@@ -2,14 +2,21 @@
 
 require('styles/button.less');
 
-// var Ripple = require('library/ripple');
+let cx = require('react/addons').addons.classSet;
 
-module.exports = React.createClass({
+const COLORS = {red: '#F44336'};
+
+let Button = React.createClass({
     render() {
+        let {noActive, text, handleClick, color} = this.props;
+        let className = cx({'button-flat': !noActive, 'button-no-active': noActive});
+
         return (
-            <div className='button-flat' onTouchStart={this.props.onClick}>
-                <div className='text-center uppercase'>{this.props.text}</div>
+            <div className={className} onTouchEnd={handleClick}>
+                <div style={{color: COLORS[color]}} className='text-center uppercase'>{text}</div>
             </div>
         );
     }
 });
+
+module.exports = Button;

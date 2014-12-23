@@ -6,7 +6,6 @@ require('styles/app');
 
 let Reflux = require('reflux');
 let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
-let Immutable = require('immutable');
 let pt = require('react').PropTypes;
 
 let Actions = require('actions');
@@ -15,7 +14,9 @@ let RecipesStore = require('recipes_store');
 let List = require('components/list');
 let NewRecipeButton = require('components/new_recipe_button');
 
-module.exports = React.createClass({
+let Fade = require('mixins/fade');
+
+let App = React.createClass({
     propTypes: {
         title: pt.string,
         items: pt.array,
@@ -26,6 +27,7 @@ module.exports = React.createClass({
     mixins: [
         Reflux.connect(ItemStore,'items'),
         Reflux.connect(RecipesStore,'recipes'),
+        Fade
     ],
 
     getInitialState() {
@@ -58,10 +60,10 @@ module.exports = React.createClass({
 
               <NewRecipeButton />
 
-              <ReactCSSTransitionGroup transitionName="example">
-                  {recipesComponents}
-              </ReactCSSTransitionGroup>
+              {this.fading(recipesComponents)}
           </div>
         );
     }
 });
+
+module.exports = App;

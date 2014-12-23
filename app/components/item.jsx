@@ -9,7 +9,9 @@ var {hexToRgb} = require('helpers');
 var Actions = require('actions');
 var {listTransformStyle} = require('helpers');
 
+
 module.exports = React.createClass({
+
 
     propTypes: {
         isRecipeItem: React.PropTypes.bool,
@@ -60,7 +62,7 @@ module.exports = React.createClass({
             <li
                 style={_.extend(this.backgroundColor(),
                                 listTransformStyle(this.props.i))}
-                onTouchStart={this.handleChange} >
+                onTouchEnd={this.handleChange} >
 
                 <label
                     className={cx({'item': true,

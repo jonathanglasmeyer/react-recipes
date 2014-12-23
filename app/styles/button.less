@@ -1,8 +1,9 @@
 @import "~styles/colors";
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-.button-flat {
+
+.button-flat, .button-no-active  {
     display: inline-block;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 600;
     // letter-spacing: 1.2px;
     position: relative;
@@ -11,16 +12,16 @@
     line-height: 32px;
     border-radius: 2px;
     margin: 8px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0 8px;
     // background-color: red;
     color: @base3;
 }
 
 .button-flat:active {
-    color: @base5;
+    // color: @base5;
+    background: @base7-light;
 }
-
 
 .paper-ripple {
   position: absolute;

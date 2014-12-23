@@ -4,14 +4,15 @@ require('styles/input');
 
 let Actions = require('actions');
 
-module.exports = React.createClass({
+let ListHeader = React.createClass({
 
     render() {
+
         let {title, items, isRecipe} = this.props;
 
         let checkAllIcon =
             <div className='checkbox-wrap'
-                onTouchStart={Actions.checkAll}>
+                onTouchEnd={Actions.checkAll}>
 
                 <input
                     className='checkbox-animated all'
@@ -37,4 +38,4 @@ module.exports = React.createClass({
     }
 });
 
-
+module.exports = ListHeader;

@@ -9,7 +9,7 @@ let ListHeader = require('components/list_header');
 let Footer = require('components/footer');
 let {listTransformStyle} = require('helpers');
 
-module.exports = React.createClass({
+let List = React.createClass({
 
     propTypes: {
         i: pt.number, // index for calculating height of li element
@@ -37,7 +37,7 @@ module.exports = React.createClass({
     },
 
     render() {
-        let {items, isRecipe} = this.props;
+        let {items, isRecipe, recipeKey} = this.props;
 
         let sortedItems = _.sortBy(items, item => item.category.id);
 
@@ -48,15 +48,15 @@ module.exports = React.createClass({
         let input =
             <li
                 id='li-input'
-                style={listTransformStyle(this.props.items.length+1)}>
+                style={listTransformStyle(items.length+1)}>
 
                 <Input
-                    recipeKey={this.props.recipeKey}
+                    recipeKey={recipeKey}
                     listHeight={this.heightListItems()}/>
             </li>;
 
         return (
-            <div className='list items' style={{height: this.heightList()}}>
+            <div className='items' style={{height: this.heightList()}}>
                 <ul>
                     <ListHeader {...this.props} />
                     {itemComponents}
@@ -68,4 +68,5 @@ module.exports = React.createClass({
     }
 });
 
+module.exports = List;
                     // <li id='li-symbols'><ListHeader /></li>
