@@ -36,6 +36,10 @@ let List = React.createClass({
             height < windowHeight ? windowHeight : height;
     },
 
+    // componentDidUpdate() {
+    //     console.log(this.getDOMNode());
+    // },
+
     render() {
         let {items, isRecipe, recipeKey} = this.props;
 
@@ -51,7 +55,7 @@ let List = React.createClass({
                 style={listTransformStyle(items.length+1)}>
 
                 <Input
-                    recipeKey={recipeKey}
+                    {...this.props}
                     listHeight={this.heightListItems()}/>
             </li>;
 

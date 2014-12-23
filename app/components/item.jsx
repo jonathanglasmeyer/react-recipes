@@ -62,7 +62,7 @@ module.exports = React.createClass({
             <li
                 style={_.extend(this.backgroundColor(),
                                 listTransformStyle(this.props.i))}
-                onTouchEnd={this.handleChange} >
+                onTouchStart={this.handleChange} >
 
                 <label
                     className={cx({'item': true,

@@ -16,7 +16,7 @@ module.exports = React.createClass({
             <div className={"svg " + className}
                 dangerouslySetInnerHTML={
                     {__html: require('img/' + fname + '.svg')}}
-                onTouchEnd={handleClick} />
+                onTouchStart={handleClick} />
         );
     }
 });

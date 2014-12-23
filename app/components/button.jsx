@@ -12,7 +12,7 @@ let Button = React.createClass({
         let className = cx({'button-flat': !noActive, 'button-no-active': noActive});
 
         return (
-            <div className={className} onTouchEnd={handleClick}>
+            <div className={className} onTouchStart={handleClick}>
                 <div style={{color: COLORS[color]}} className='text-center uppercase'>{text}</div>
             </div>
         );

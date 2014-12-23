@@ -1,5 +1,6 @@
 'use strict';
 require('styles/fade');
+require('styles/slidein');
 
 let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 

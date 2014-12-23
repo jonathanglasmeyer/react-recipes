@@ -27,6 +27,12 @@ module.exports = {
         return cat === undefined ?
             { name: 'undefined', id: 999, color: ''} :
             { name: cat.name, id: cat.id, color: cat.color };
-    }
+    },
 
+    scrollTo(pos, speed) {
+        $('html, body').animate({
+                // scrollTop: this.props.listHeight-230
+                scrollTop: pos
+        }, speed);
+    }
 };

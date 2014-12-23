@@ -13,7 +13,7 @@ let RecipesStore = require('recipes_store');
 let List = require('components/list');
 let NewRecipeButton = require('components/new_recipe_button');
 
-let Slidein = require('mixins/slidein');
+let {slidein} = require('animate');
 
 let App = React.createClass({
     propTypes: {
@@ -26,7 +26,6 @@ let App = React.createClass({
     mixins: [
         Reflux.connect(ItemStore,'items'),
         Reflux.connect(RecipesStore,'recipes'),
-        Slidein
     ],
 
     getInitialState() {
@@ -55,11 +54,11 @@ let App = React.createClass({
 
         return (
           <div className='main'>
-              <List items={this.state.items}/>
+              <List items={this.state.items} />
 
               <NewRecipeButton />
 
-              {this.slidein(recipesComponents)}
+              {slidein(recipesComponents)}
           </div>
         );
     }

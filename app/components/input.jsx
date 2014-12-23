@@ -2,9 +2,11 @@
 
 require('styles/input');
 
-var Svg = require('components/svg');
+let Svg = require('components/svg');
 
-var Actions = require('actions');
+let Actions = require('actions');
+
+let {scrollTo} = require('helpers');
 
 module.exports = React.createClass({
 
@@ -15,8 +17,10 @@ module.exports = React.createClass({
     },
 
     componentDidMount() {
-        // keyboard focus on input
-        $(this.refs.input.getDOMNode()).focus();
+        // keyboard focus on input on shopping list
+        if (!this.props.isRecipe) {
+            $(this.refs.input.getDOMNode()).focus();
+        }
     },
 
     scrollDown() {
@@ -38,11 +42,11 @@ module.exports = React.createClass({
             $('#li-input').css({transition: 'none'});
 
             // scroll to bottom of list
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            let inputPosition = $(element).offset().top;
+
             if (this.props.listHeight+100 > h) {
-                $('html, body').animate({
-                    scrollTop: this.props.listHeight-230
-                }, 350);
+                scrollTo(inputPosition-180, 150);
             }
 
             element.value = '';

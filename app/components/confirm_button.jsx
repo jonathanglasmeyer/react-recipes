@@ -3,10 +3,9 @@
 require('styles/button');
 
 let Button = require('components/button');
-let Fade = require('mixins/fade');
+let {slideinSmallLeft, slideinSmall} = require('animate');
 
 module.exports = React.createClass({
-    mixins: [Fade],
 
     getInitialState: () => ({
         confirmMode: false
@@ -34,10 +33,12 @@ module.exports = React.createClass({
 
         let confirmal =
             <div className='confirmal' ref='confirmal'>
-                <Button key={1} handleClick={this.toggleConfirmMode} text='abbrechen' />
-                <Button key={2} handleClick={handleClick} text={'löschen'} color='red' />
+                <Button key={1} noActive={true} handleClick={this.toggleConfirmMode} text='abbrechen' />
+                <Button key={2} noActive={true} handleClick={handleClick} text={'löschen'} color='red' />
             </div>;
 
-        return this.fading(confirmMode ? confirmal : button);
+        let animation = confirmMode ? slideinSmall : slideinSmallLeft;
+
+        return animation(confirmMode ? confirmal : button);
     }
 });

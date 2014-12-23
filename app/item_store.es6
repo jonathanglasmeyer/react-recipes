@@ -6,18 +6,26 @@ let ref = require('firebase_ref').child('items');
 let actions = require('actions');
 let {category} = require('helpers');
 
+const categories = require('data/categories.json');
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 
 module.exports = Reflux.createStore({
 
     listenables: actions,
 
     onAddItem(text) {
-        var childRef = ref.push();
+        let childRef = ref.push();
+        let itemTexts = _.flatten(categories, 'items');
+        let text_ = capitalize(_.sample(itemTexts));
+
         childRef.set({
             checked: false,
-            text: text,
+            text: text_,
             key: childRef.key(),
-            category: category(text)
+            category: category(text_)
         });
     },
 

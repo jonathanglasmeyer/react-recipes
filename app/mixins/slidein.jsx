@@ -5,7 +5,7 @@ let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 module.exports = {
     slidein(component) {
-        return <ReactCSSTransitionGroup transitionName='slidein'>
+        return <ReactCSSTransitionGroup transitionName='fade'>
                   {component}
               </ReactCSSTransitionGroup>;
     }

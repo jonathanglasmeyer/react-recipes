@@ -12,7 +12,7 @@ let ListHeader = React.createClass({
 
         let checkAllIcon =
             <div className='checkbox-wrap'
-                onTouchEnd={Actions.checkAll}>
+                onTouchStart={Actions.checkAll}>
 
                 <input
                     className='checkbox-animated all'
