@@ -5,7 +5,6 @@ require('base/less/style.less');
 require('styles/app');
 
 let Reflux = require('reflux');
-let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 let pt = require('react').PropTypes;
 
 let Actions = require('actions');
@@ -14,7 +13,7 @@ let RecipesStore = require('recipes_store');
 let List = require('components/list');
 let NewRecipeButton = require('components/new_recipe_button');
 
-let Fade = require('mixins/fade');
+let Slidein = require('mixins/slidein');
 
 let App = React.createClass({
     propTypes: {
@@ -27,7 +26,7 @@ let App = React.createClass({
     mixins: [
         Reflux.connect(ItemStore,'items'),
         Reflux.connect(RecipesStore,'recipes'),
-        Fade
+        Slidein
     ],
 
     getInitialState() {
@@ -60,7 +59,7 @@ let App = React.createClass({
 
               <NewRecipeButton />
 
-              {this.fading(recipesComponents)}
+              {this.slidein(recipesComponents)}
           </div>
         );
     }
