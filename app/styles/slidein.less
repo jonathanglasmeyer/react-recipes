@@ -1,18 +1,18 @@
 .slidein-enter {
     position: relative;
-    bottom: -25rem;
-    transition: bottom .8s ease-in;
+    left: -25rem;
+    transition: transform .3s ease-out;
 }
 
 .slidein-enter.slidein-enter-active {
-    bottom: 0;
+    transform: translate3d(25rem, 0,0);
 }
 
 .slidein-leave {
     opacity: 1;
-    transition: opacity .3s ease-out;
+    transition: opacity .2s ease-in;
 }
 
 .slidein-leave.slidein-leave-active {
-    opacity: 0.01;
+    opacity: 0;
 }

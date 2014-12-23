@@ -25,7 +25,7 @@ let List = React.createClass({
     }),
 
     heightListItems() {
-        return this.props.items.length * 50 + 160;
+        return this.props.items.length * 50 + 154;
     },
 
     heightList() {
@@ -46,13 +46,13 @@ let List = React.createClass({
         let sortedItems = _.sortBy(items, item => item.category.id);
 
         let itemComponents = _.map(sortedItems, (item, i) =>
-            <Item key={item.key} i={i+1} data={item} isRecipeItem={isRecipe} />
+            <Item key={item.key} i={i+2} data={item} isRecipeItem={isRecipe} />
         );
 
         let input =
             <li
                 id='li-input'
-                style={listTransformStyle(items.length+1)}>
+                style={listTransformStyle(1)}>
 
                 <Input
                     {...this.props}
@@ -63,8 +63,8 @@ let List = React.createClass({
             <div className='items' style={{height: this.heightList()}}>
                 <ul>
                     <ListHeader {...this.props} />
-                    {itemComponents}
                     {input}
+                    {itemComponents}
                 </ul>
                 <Footer {...this.props}/>
             </div>

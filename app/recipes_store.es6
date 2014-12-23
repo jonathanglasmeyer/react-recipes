@@ -3,8 +3,10 @@
 let Reflux = require('reflux');
 let ref = require('firebase_ref').child('recipes');
 
-let {category} = require('helpers');
+let {capitalize,category} = require('helpers');
 let actions = require('actions');
+
+const categories = require('data/categories.json');
 
 module.exports = Reflux.createStore({
     listenables: actions,
@@ -30,11 +32,14 @@ module.exports = Reflux.createStore({
     onAddToRecipe(itemText, recipeKey) {
         let newItemRef = ref.child(recipeKey).child('items').push();
 
+        let itemTexts = _.flatten(categories, 'items');
+        let text_ = capitalize(_.sample(itemTexts));
+
         newItemRef.set({
-            checked:  false,
-            text:     itemText,
-            key:      newItemRef.key(),
-            category: category(itemText)
+            checked: false,
+            text: text_,
+            key: newItemRef.key(),
+            category: category(text_)
         });
     },
 

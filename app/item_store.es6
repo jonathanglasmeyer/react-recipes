@@ -4,13 +4,10 @@ let Reflux = require('reflux');
 let ref = require('firebase_ref').child('items');
 
 let actions = require('actions');
-let {category} = require('helpers');
+let {capitalize,category} = require('helpers');
 
 const categories = require('data/categories.json');
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}
 
 module.exports = Reflux.createStore({
 

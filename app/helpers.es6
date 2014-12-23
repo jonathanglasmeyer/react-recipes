@@ -7,6 +7,8 @@ function contains(string1, string2) {
    return string1.toLowerCase().indexOf(string2.toLowerCase()) > -1;
 }
 
+// require("imports?this=>window!jquery-smooth-scroll");
+
 module.exports = {
     hexToRgb(hex) {
         var bigint = parseInt(hex, 16);
@@ -29,10 +31,24 @@ module.exports = {
             { name: cat.name, id: cat.id, color: cat.color };
     },
 
+    capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    },
+
+    viewportHeight() {
+        return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    },
+
+    offset(element) {
+        return $(element).offset().top - $('.main').offset().top + 200;
+    },
+
     scrollTo(pos, speed) {
-        $('html, body').animate({
+        $('.main').animate({
                 // scrollTop: this.props.listHeight-230
                 scrollTop: pos
         }, speed);
-    }
+    },
+
+
 };

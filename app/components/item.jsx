@@ -43,34 +43,38 @@ module.exports = React.createClass({
     backgroundColor() {
         return this.props.data.category.color ?
             {background:
-                `rgba(${hexToRgb(this.props.data.category.color)}, .15)`} :
+                `rgba(${hexToRgb(this.props.data.category.color)}, .20)`} :
             {};
     },
 
     render() {
         let checkbox = !this.props.isRecipeItem ?
-                            (<input
-                                className='checkbox-animated'
-                                style={this.backgroundColor()}
-                                type='checkbox'
-                                readOnly
-                                checked={this.props.data.checked}/>)
+                            <div className='checkbox-wrap'>
+                                <input
+                                    className='checkbox-animated'
+                                    style={this.backgroundColor()}
+                                    type='checkbox'
+                                    readOnly
+                                    checked={this.props.data.checked}/>
+                            </div>
 
                         : null ;
 
         return (
             <li
                 style={_.extend(this.backgroundColor(),
-                                listTransformStyle(this.props.i))}
-                onTouchStart={this.handleChange} >
+                                listTransformStyle(this.props.i))}>
 
-                <label
-                    className={cx({'item': true,
-                                   'item-done': this.props.data.checked,
-                                   'item-recipe': this.props.isRecipeItem})}>
-                    {checkbox}
-                    {this.props.data.text}
-                </label>
+                <div className='label-wrap'
+                     onTouchStart={this.handleChange} >
+                    <label
+                        className={cx({'item': true,
+                                       'item-done': this.props.data.checked,
+                                       'item-recipe': this.props.isRecipeItem})}>
+                        {checkbox}
+                        <span className='label-text'>{this.props.data.text}</span>
+                    </label>
+                </div>
             </li>
         );
     }

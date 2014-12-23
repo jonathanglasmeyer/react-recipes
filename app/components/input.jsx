@@ -6,7 +6,9 @@ let Svg = require('components/svg');
 
 let Actions = require('actions');
 
-let {scrollTo} = require('helpers');
+let {scrollTo, viewportHeight, offset} = require('helpers');
+
+require('jquery-scrollintoview/jquery.scrollintoview');
 
 module.exports = React.createClass({
 
@@ -23,13 +25,6 @@ module.exports = React.createClass({
         }
     },
 
-    scrollDown() {
-        $('html body').scrollTop($(document).height());
-        // var WH = $('html body').height();
-        // var SH = $('body')[0].scrollHeight;
-        // $('html, body').stop().animate({scrollTop: SH-WH}, 1000);
-    },
-
     handleSubmit(e) {
         e.preventDefault();
         var element = this.refs.input.getDOMNode();
@@ -42,12 +37,10 @@ module.exports = React.createClass({
             $('#li-input').css({transition: 'none'});
 
             // scroll to bottom of list
-            let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            let inputPosition = $(element).offset().top;
+            let inputPosition = offset(element);
+            console.log(inputPosition);
+            console.log(inputPosition, viewportHeight());
 
-            if (this.props.listHeight+100 > h) {
-                scrollTo(inputPosition-180, 150);
-            }
 
             element.value = '';
             if (this.props.recipeKey !== '') {
