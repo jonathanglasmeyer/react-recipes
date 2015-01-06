@@ -32,14 +32,13 @@ module.exports = Reflux.createStore({
     onAddToRecipe(itemText, recipeKey) {
         let newItemRef = ref.child(recipeKey).child('items').push();
 
-        let itemTexts = _.flatten(categories, 'items');
-        let text_ = capitalize(_.sample(itemTexts));
+        // let itemTexts = _.flatten(categories, 'items');
+        // let text_ = capitalize(_.sample(itemTexts));
 
         newItemRef.set({
             checked: false,
-            text: text_,
+            text: itemText,
             key: newItemRef.key(),
-            category: category(text_)
         });
     },
 

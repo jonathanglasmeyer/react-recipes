@@ -15,14 +15,13 @@ module.exports = Reflux.createStore({
 
     onAddItem(text) {
         let childRef = ref.push();
-        let itemTexts = _.flatten(categories, 'items');
-        let text_ = capitalize(_.sample(itemTexts));
+        // let itemTexts = _.flatten(categories, 'items');
+        // let text_ = capitalize(_.sample(itemTexts));
 
         childRef.set({
             checked: false,
-            text: text_,
+            text: text,
             key: childRef.key(),
-            category: category(text_)
         });
     },
 

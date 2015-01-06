@@ -7,7 +7,7 @@ let Input = require('components/input');
 let Item = require('components/item');
 let ListHeader = require('components/list_header');
 let Footer = require('components/footer');
-let {listTransformStyle} = require('helpers');
+let {listTransformStyle, category} = require('helpers');
 
 let List = React.createClass({
 
@@ -43,7 +43,9 @@ let List = React.createClass({
     render() {
         let {items, isRecipe, recipeKey} = this.props;
 
-        let sortedItems = _.sortBy(items, item => item.category.id);
+        let categorizedItems = _.each(items, item =>
+                                         item.category = category(item.text));
+        let sortedItems = _.sortBy(categorizedItems, item => item.category.id);
 
         let itemComponents = _.map(sortedItems, (item, i) =>
             <Item key={item.key} i={i+2} data={item} isRecipeItem={isRecipe} />

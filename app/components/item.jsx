@@ -3,14 +3,14 @@
 require('styles/item.less');
 require('styles/checkbox.less');
 
-var cx = require('react/addons').addons.classSet;
+let cx = require('react/addons').addons.classSet;
 
-var {hexToRgb} = require('helpers');
-var Actions = require('actions');
-var {listTransformStyle} = require('helpers');
+let {hexToRgb} = require('helpers');
+let Actions = require('actions');
+let {listTransformStyle} = require('helpers');
 
 
-module.exports = React.createClass({
+let Item = React.createClass({
 
 
     propTypes: {
@@ -80,3 +80,4 @@ module.exports = React.createClass({
     }
 });
 
+module.exports = Item;
