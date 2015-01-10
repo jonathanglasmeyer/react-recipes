@@ -1,5 +1,6 @@
 'use strict';
 require('styles/list.less');
+// require('styles/item.less');
 
 let pt = require('react').PropTypes;
 
@@ -7,8 +8,13 @@ let Input = require('components/input');
 let Item = require('components/item');
 let ListHeader = require('components/list_header');
 let Footer = require('components/footer');
-let {listTransformStyle, category} = require('helpers');
+let {counterColor_, listTransformStyle, category} = require('helpers');
+let helpers = require('helpers');
+let {fadingSlow} = require('animate');
+let animate = require('animate');
 
+const IMAGE_HEIGHT=250;
+const HEADER_HEIGHT=50;
 let List = React.createClass({
 
     propTypes: {
@@ -24,8 +30,30 @@ let List = React.createClass({
         recipeKey: '',
     }),
 
+    showInput() {
+        return  this.props.activeItem ||
+                !this.props.isRecipe ||
+                this.props.items.length === 0;
+    },
+
+    showBody() {
+        return this.props.openRecipe || !this.props.isRecipe;
+    },
+
+    showPic() {
+        return false;
+        // return !this.showBody();
+    },
+
     heightListItems() {
-        return this.props.items.length * 50 + 154;
+        if (this.showPic()) {
+            return IMAGE_HEIGHT+50;
+        }
+        if (this.props.isRecipe && !this.props.openRecipe) {
+            return HEADER_HEIGHT;
+        }
+        return this.props.items.length * 50 + 104 +
+            (this.showInput() ? 50 : 0);
     },
 
     heightList() {
@@ -36,19 +64,25 @@ let List = React.createClass({
             height < windowHeight ? windowHeight : height;
     },
 
-    // componentDidUpdate() {
-    //     console.log(this.getDOMNode());
-    // },
+
 
     render() {
-        let {items, isRecipe, recipeKey} = this.props;
+        let {items, meta, counter, isRecipe, recipeKey, activeRecipe,
+             openRecipe, activeItem, activeTitle, activeConfirm} = this.props;
+        // console.log(meta);
 
         let categorizedItems = _.each(items, item =>
                                          item.category = category(item.text));
         let sortedItems = _.sortBy(categorizedItems, item => item.category.id);
 
         let itemComponents = _.map(sortedItems, (item, i) =>
-            <Item key={item.key} i={i+2} data={item} isRecipeItem={isRecipe} />
+            <Item
+                key={item.key}
+                i={this.showInput() ? i+2 : i+1}
+                data={item}
+                isRecipeItem={isRecipe}
+                edit={activeItem===item.key}
+                recipeKey={recipeKey}/>
         );
 
         let input =
@@ -61,14 +95,25 @@ let List = React.createClass({
                     listHeight={this.heightListItems()}/>
             </li>;
 
+        let pic =
+            <li className='picture' >
+                <img src={require('img/bild.jpg')}/>
+            </li>;
+
         return (
-            <div className='items' style={{height: this.heightList()}}>
+            <div
+                className='items'
+                style={{
+                    height: this.heightList(),
+                    background: helpers.mergeColors(counterColor_(this.props.counter), [255, 250, 245])
+                }}>
                 <ul>
                     <ListHeader {...this.props} />
-                    {input}
-                    {itemComponents}
+                    {this.showPic() ? pic : null}
+                    {this.showInput() ? input : null}
+                    {animate.fadingSlow(this.showBody() ? itemComponents : null)}
                 </ul>
-                <Footer {...this.props}/>
+                {this.showBody() ? <Footer {...this.props}/> : null}
             </div>
         );
     }

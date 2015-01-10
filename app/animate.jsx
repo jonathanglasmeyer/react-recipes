@@ -1,5 +1,6 @@
 'use strict';
 require('styles/fade');
+require('styles/fade-slow');
 require('styles/slidein');
 require('styles/slidein-small');
 require('styles/slidein-small-left');
@@ -7,8 +8,15 @@ require('styles/slidein-small-left');
 let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 module.exports = {
+
     fading(component) {
         return <ReactCSSTransitionGroup transitionName='fade'>
+                  {component}
+              </ReactCSSTransitionGroup>;
+    },
+
+    fadingSlow(component) {
+        return <ReactCSSTransitionGroup transitionName='fade-slow'>
                   {component}
               </ReactCSSTransitionGroup>;
     },

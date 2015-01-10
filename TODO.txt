@@ -3,3 +3,7 @@
 - Rezept speichern als Button unten
 - Suche (mehrere Zutaten? / Genres?)
 - Zutaten 
+
+
+- zutaten fliegen nach unten nach add
+- refactor activeMeta/ blablub: specify ONE active ui item

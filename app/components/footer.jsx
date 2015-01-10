@@ -8,19 +8,41 @@ var ConfirmButton = require('components/confirm_button');
 
 let Footer = React.createClass({
 
+    handleEndEditMode() {
+        Actions.setActiveItem(null, null);
+    },
+
+    handleStartEditMode() {
+        Actions.setActiveItem(this.props.recipeKey, null);
+    },
 
     render() {
-        let {isRecipe, recipeKey} = this.props;
+        let {items, isRecipe, recipeKey, activeRecipe,
+            activeItem, activeConfirm} = this.props;
+        // let {isRecipe, recipeKey} = this.props;
 
         let buttonLeft = isRecipe ?
-            <ConfirmButton text='löschen'
+            <ConfirmButton
+                text='löschen'
+                recipeKey={recipeKey}
+                activeConfirm={activeConfirm}
                 handleClick={() => Actions.deleteRecipe(recipeKey)} /> :
             <Button text={'aufräumen'} handleClick={Actions.removeAllChecked} />;
+
+        let buttonRight = isRecipe ?
+            <div className='button-right'>
+                { activeRecipe ?
+                    <Button text='fertig' color='green' handleClick={this.handleEndEditMode}/> : 
+                    <Button text='bearbeiten' handleClick={this.handleStartEditMode}/>
+                }
+            </div>
+            : null;
 
         return (
             <div id='footer'>
                <div className='footer-content'>
                     {buttonLeft}
+                    {buttonRight}
                </div>
             </div>
         );
@@ -29,6 +51,4 @@ let Footer = React.createClass({
 });
 
 module.exports = Footer;
-                    // <div className='button-right'>
-                    //     <Button text='save' onClick={Actions.deleteRecipe}/>
-                    // </div>
+

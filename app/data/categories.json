@@ -1,18 +1,19 @@
 [{
     "name": "Kräuter",
     "id": 0,
-    "items": [ "basilikum", "rosmarin", "thymian", "salbei", "zitronengras", "koriander"], "color": "96CA2D"
+    "items": [ "basilikum", "rosmarin", "thymian", "salbei", "zitronengras", "koriander", "minze", "petersilie"],
+    "color": "96CA2D"
 },
 {
     "name": "Gemüse",
     "id": 1,
-    "items": [ "paprika", "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", "limette", "Möhre", "Tomate", "brokkoli", "avocado", "salat", "kartoffel", "beete", "banane", "apfel", "bohnensprossen", "zucchini", "saitlinge", "champignons", "wirsing", "sellerie", "lauch" ],
+    "items": [ "paprika", "zwiebel", "schalotte", "knoblauch", "chili", "zitrone", "ingwer", "limette", "Möhre", "Tomate", "brokkoli", "avocado", "salat", "kartoffel", "beete", "banane", "apfel", "bohnensprossen", "zucchini", "saitlinge", "champignons", "wirsing", "sellerie", "lauch", "blumenkohl", "fenchel", "kohl" ],
     "color": "5C832F"
 },
 {
     "name": "Milch/Käse",
     "id": 2,
-    "items": ["milch", "käse", "sahne", "soja", "creme", "fraiche", "eier", "butter"],
+    "items": ["milch", "käse", "sahne", "soja", "creme", "fraiche", "eier", "butter", "Joghurt", "parmesan"],
     "color": "BD8D46"
 },
 {

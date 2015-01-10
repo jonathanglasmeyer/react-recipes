@@ -16,12 +16,19 @@ module.exports = React.createClass({
         };
     },
 
-    componentDidMount() {
-        // keyboard focus on input on shopping list
-        if (!this.props.isRecipe) {
-            $(this.refs.input.getDOMNode()).focus();
-        }
-    },
+    // componentDidMount() {
+    //     // keyboard focus on input on shopping list
+    //     if (!this.props.isRecipe) {
+    //         $(this.refs.input.getDOMNode()).focus();
+    //     }
+    // },
+
+    // componentDidUpdate() {
+    //     if (!this.props.activeItem && !this.props.activeTitle && this.props.isRecipe) {
+    //         $(this.refs.input.getDOMNode()).focus();
+    //     }
+    // },
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -43,8 +50,9 @@ module.exports = React.createClass({
             element.value = '';
             if (this.props.recipeKey !== '') {
                 Actions.addToRecipe(text, this.props.recipeKey);
+                Actions.setActiveItem(this.props.recipeKey, null);
             } else {
-            Actions.addItem(text);
+                Actions.addItem(text);
             }
         }
     },

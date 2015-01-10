@@ -34,10 +34,12 @@ module.exports = Reflux.createStore({
 
     onCheck(key, state) {
         let childRef = ref.child(key);
-        childRef.once('value', snap => {
-            if ('checked' in snap.val()) {
-                childRef.update({checked: state}); }
-        });
+        childRef.update({checked: state});
+
+        // childRef.once('value', snap => {
+            // if ('checked' in snap.val()) {
+                // childRef.update({checked: state}); }
+        // });
     },
 
     onDeleteItem(key) {
@@ -51,9 +53,14 @@ module.exports = Reflux.createStore({
 
     onCheckAll() {
         let uncheckedItems = _.filter(this.items, item => !item.checked);
+
+        let categorizedItems = _.each(this.items, item =>
+                                         item.category = category(item.text));
+        let sortedItems = _.sortBy(categorizedItems, item => item.category.id);
+
         // this is to uncheck all items if all are already checked
         let boolVal = uncheckedItems.length !== 0;
-        _.each(this.items, (item) => this.onCheck(item.key, boolVal));
+        _.each(sortedItems, item => this.onCheck(item.key, boolVal));
     }
 
 });

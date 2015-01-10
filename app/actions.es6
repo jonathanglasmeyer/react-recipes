@@ -5,6 +5,13 @@
 var Reflux = require('reflux');
 
 module.exports = Reflux.createActions([
+    // global state
+    'setActiveItem',
+    'setOpenRecipe',
+    'setActiveTitle',
+    'setActiveConfirm',
+    'setActiveMeta',
+    // items
     'init',
     'addItem',
     'check',
@@ -13,7 +20,12 @@ module.exports = Reflux.createActions([
     'checkAll',
     // recipes
     'newRecipe',
+    'renameRecipe',
     'deleteRecipe',
+    'setMeta',
+    // recipe items
+    'deleteFromRecipe',
+    'renameRecipeItem',
     'addToRecipe'
   ]);
 

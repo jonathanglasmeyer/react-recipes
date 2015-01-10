@@ -2,6 +2,7 @@
 
 let Reflux = require('reflux');
 let ref = require('firebase_ref').child('recipes');
+let Actions = require('actions');
 
 let {capitalize,category} = require('helpers');
 let actions = require('actions');
@@ -17,6 +18,7 @@ module.exports = Reflux.createStore({
             this.recipes = _.map(recipes, r => ({
                 key: r.key,
                 title: r.title,
+                meta: r.meta,
                 items: _.toArray(r.items)
             }
             ));
@@ -27,7 +29,18 @@ module.exports = Reflux.createStore({
     onNewRecipe() {
         let childRef = ref.push();
         childRef.set({ title: 'Unbenannt', key: childRef.key()});
+        setTimeout(()=> {
+                   Actions.setActiveItem(childRef.key());
+                   Actions.setActiveTitle(childRef.key());
+        }, 50);
     },
+
+    onSetMeta(recipeKey, meta) {
+        // console.log('setMeta', meta, recipeKey);
+        let metaRef = ref.child(recipeKey);
+        metaRef.update({meta});
+    },
+
 
     onAddToRecipe(itemText, recipeKey) {
         let newItemRef = ref.child(recipeKey).child('items').push();
@@ -42,7 +55,19 @@ module.exports = Reflux.createStore({
         });
     },
 
+    onRenameRecipeItem(recipeKey, itemKey, text) {
+        ref.child(recipeKey).child('items').child(itemKey).update({text});
+    },
+
     onDeleteRecipe(recipeKey) {
         ref.child(recipeKey).remove();
+    },
+
+    onDeleteFromRecipe(recipeKey, itemKey) {
+        ref.child(recipeKey).child('items').child(itemKey).remove();
+    },
+
+    onRenameRecipe(recipeKey, title) {
+        ref.child(recipeKey).update({title: title});
     }
 });
