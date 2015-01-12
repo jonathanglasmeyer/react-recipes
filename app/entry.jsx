@@ -10,7 +10,8 @@ window.jQuery = window.$ = require('jquery');
 // injectTapEventPlugin();
 
 
-
 React.initializeTouchEvents(true);
+
+s.inject();
 
 React.render(<App />, document.getElementById('content'));

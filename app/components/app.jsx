@@ -9,11 +9,14 @@ let pt = require('react').PropTypes;
 
 let Actions = require('actions');
 let ItemStore = require('item_store');
-let RecipesStore = require('recipes_store');
-let List = require('components/list');
+// let RecentsStore = require('recents_store');
+// let RecipesStore = require('recipes_store');
+let ShoppingList = require('components/shopping_list');
+// let Recents = require('components/recents');
 let NewRecipeButton = require('components/new_recipe_button');
 
 let {slidein} = require('animate');
+
 
 let App = React.createClass({
     propTypes: {
@@ -25,7 +28,8 @@ let App = React.createClass({
 
     mixins: [
         Reflux.connect(ItemStore,'items'),
-        Reflux.connect(RecipesStore,'recipes'),
+        // Reflux.connect(RecipesStore,'recipes'),
+        // Reflux.connect(RecentsStore,'recents'),
         Reflux.listenTo(Actions.setActiveItem, 'onActiveItemChange'),
         Reflux.listenTo(Actions.setOpenRecipe, 'onOpenRecipeChange'),
         Reflux.listenTo(Actions.setActiveTitle, 'onActiveTitleChange'),
@@ -37,15 +41,16 @@ let App = React.createClass({
         return {
             items: [],
             recipes: [],
+            recents: [],
             activeItem: null,
             openRecipe: null,
-            activeUIElement: null,
             activeRecipe: null,
             activeMeta: null,
             activeTitle: null,
             activeConfirm: null
         };
     },
+
 
     onOpenRecipeChange(recipeKey) {
         this.setState({
@@ -107,9 +112,10 @@ let App = React.createClass({
         Actions.init();
     },
 
-    componentDidUpdate() {
-        let newRecipe = _.find(this.state.recipes, recipe =>
-           recipe.title === 'Unbenannt');
+    // componentDidUpdate() {
+
+        // let newRecipe = _.find(this.state.recipes, recipe =>
+        //    recipe.title === 'Unbenannt');
 
        // if (newRecipe) {
        //     if (this.state.activeTitle === null) {
@@ -117,39 +123,45 @@ let App = React.createClass({
        //     }
        // }
 
-    },
+    // },
 
     render() {
-        let recipes = this.state.recipes;
-        let reversed = recipes.slice().reverse();
-        let recipesComponents =
-            recipes.length > 0 ?
-                _.map(reversed, recipe =>
-                      <List title={recipe.title}
-                      meta={recipe.meta || ''}
-                      items={recipe.items}
-                      counter={recipe.counter || 0}
-                      key={recipe.key}
-                      recipeKey={recipe.key}
-                      openRecipe={this.state.openRecipe === recipe.key}
-                      activeRecipe={this.state.activeRecipe === recipe.key}
-                      activeConfirm={this.state.activeConfirm === recipe.key}
-                      activeItem={this.state.activeItem}
-                      activeMeta={this.state.activeMeta}
-                      activeTitle={this.state.activeTitle === recipe.key}
-                      isRecipe={true} />) :
-                null;
+        // let recipes = this.state.recipes;
 
-        return (
-          <div className='main'>
-              <List items={this.state.items} />
+        // let reversed = recipes.slice().reverse();
 
-              <NewRecipeButton />
+        // let recipesComponents =
+        //     recipes.length > 0 ?
+        //         _.map(reversed, recipe =>
+        //               <List title={recipe.title}
+        //               meta={recipe.meta || ''}
+        //               items={recipe.items}
+        //               counter={recipe.counter || 0}
+        //               key={recipe.key}
+        //               recipeKey={recipe.key}
+        //               openRecipe={this.state.openRecipe === recipe.key}
+        //               activeRecipe={this.state.activeRecipe === recipe.key}
+        //               activeConfirm={this.state.activeConfirm === recipe.key}
+        //               activeItem={this.state.activeItem}
+        //               activeMeta={this.state.activeMeta}
+        //               activeTitle={this.state.activeTitle === recipe.key}
+        //               isRecipe={true} />) :
+        //         null;
 
-              {slidein(recipesComponents)}
-          </div>
-        );
+    // let recentObjects = _.map(_.take(this.state.recents.slice().reverse(),5),
+    //   recent =>
+    //       _.find(this.state.recipes, recipe => recipe.key === recent.recipeKey));
+
+    return <div className='main'>
+          <ShoppingList items={this.state.items} />
+    </div>;
     }
 });
 
 module.exports = App;
+
+          // <NewRecipeButton />
+          // {slidein(recipesComponents)}
+
+          // <Recents
+          //   recents={recentObjects} />

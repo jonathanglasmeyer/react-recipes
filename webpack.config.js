@@ -21,7 +21,13 @@ module.exports = {
         jQuery: "jquery",
         "window.jQuery": "jquery",
         React: 'react',
-        "_": 'lodash'
+        "_": 'lodash',
+        Actions: 'actions',
+        h: 'helpers',
+        a: 'animate',
+        s: 'react-style',
+        colors: 'colors'
+
     })
   ],
   resolve: {
@@ -31,6 +37,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx$/, loaders: ['react-hot', 'es6', 'jsx?harmony'] },
+      { test: /\.js$/, loaders: ['jsx?harmony'] },
       { test: /\.es6$/, loader: "es6" },
       { test: /\.css/, loader: "style-loader!css-loader" },
 	    { test: /\.less$/, loader: "style-loader!css-loader!autoprefixer!less-loader" },

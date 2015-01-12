@@ -23,6 +23,8 @@ module.exports = Reflux.createActions([
     'renameRecipe',
     'deleteRecipe',
     'setMeta',
+    'pushRecentRecipe',
+    'incrementCounter',
     // recipe items
     'deleteFromRecipe',
     'renameRecipeItem',

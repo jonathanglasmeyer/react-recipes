@@ -47,7 +47,10 @@ let ListHeader = React.createClass({
     handleAddAll() {
         // console.log(this.props.items);
         _.each(this.props.items, item => Actions.addItem(item.text));
+        Actions.pushRecentRecipe(this.props.recipeKey);
+        Actions.incrementCounter(this.props.recipeKey);
         this.setState({addedAll: true});
+        setTimeout(()=>this.setState({addedAll: false}), 1000);
     },
 
     handleTitleClick() {
@@ -91,8 +94,28 @@ let ListHeader = React.createClass({
         }
     },
 
+    renderSimple() {
+        let titleElement =
+            <span
+                id='caption'>
+                { this.props.title }
+            </span>;
+
+        return (
+            <li
+                id='list-header'>
+                {titleElement}
+            </li>
+        );
+
+    },
+
     render() {
-        let {title, meta, counter, items, isRecipe, recipeKey, 
+        if (this.props.simple) {
+            return this.renderSimple();
+        }
+
+        let {title, meta, counter, items, isRecipe, recipeKey,
             activeTitle, activeRecipe, activeMeta, openRecipe} = this.props;
 
         let checkAllIcon =
@@ -145,13 +168,13 @@ let ListHeader = React.createClass({
             </form>;
 
         let metaElement = !activeMeta ?
-            <span 
+            <span
                 className='meta'
                 onClick={this.handleMetaClick}>
-                {this.props.meta}
+                {this.props.meta != '' ? '#':''}{this.props.meta}
             </span> :
-            <form 
-                className='input-form-meta meta' 
+            <form
+                className='input-form-meta meta'
                 onSubmit={this.handleMetaEdited}>
 
                 <input
@@ -161,8 +184,8 @@ let ListHeader = React.createClass({
             </form>;
 
 
-        let counterElement = 
-            <span 
+        let counterElement =
+            <span
                 className='counter'
                 style={{color: counterColor(this.props.counter, .8)}}>
                 {this.props.counter}
@@ -170,8 +193,8 @@ let ListHeader = React.createClass({
 
         let className = cx({'active': this.state.active });
         return (
-            <li 
-                id='list-header' 
+            <li
+                id='list-header'
                 className={className}
                 onTouchStart={this.handleTouchStart}
                 onTouchEnd={this.handleTouchEnd}>

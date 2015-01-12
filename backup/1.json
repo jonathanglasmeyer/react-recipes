@@ -1,0 +1,760 @@
+{
+  "recipes" : {
+    "-Jf3UoshTLOr-ijxF-31" : {
+      "items" : {
+        "-Jf3Vn5KG4TUy_uog4Y4" : {
+          "checked" : false,
+          "key" : "-Jf3Vn5KG4TUy_uog4Y4",
+          "text" : "Weißwein"
+        },
+        "-Jf3VnktIJx1pXKG8udk" : {
+          "checked" : false,
+          "key" : "-Jf3VnktIJx1pXKG8udk",
+          "text" : "Pinienkerne"
+        },
+        "-Jf3VoxokxtLgqEewwGR" : {
+          "checked" : false,
+          "key" : "-Jf3VoxokxtLgqEewwGR",
+          "text" : "Blumenkohl"
+        },
+        "-Jf3VpfXCm18ZVHb5AdG" : {
+          "checked" : false,
+          "key" : "-Jf3VpfXCm18ZVHb5AdG",
+          "text" : "Parmesan"
+        },
+        "-Jf3VqM-Kbn9GkwcVdCS" : {
+          "checked" : false,
+          "key" : "-Jf3VqM-Kbn9GkwcVdCS",
+          "text" : "Butter"
+        },
+        "-Jf3VqglYdIyiQVxjt4Q" : {
+          "checked" : false,
+          "key" : "-Jf3VqglYdIyiQVxjt4Q",
+          "text" : "Safran"
+        },
+        "-Jf3VrRv6ZRIXvhluT2u" : {
+          "checked" : false,
+          "key" : "-Jf3VrRv6ZRIXvhluT2u",
+          "text" : "Knoblauch"
+        },
+        "-Jf3Vst1FEiUsPcSZcHI" : {
+          "checked" : false,
+          "key" : "-Jf3Vst1FEiUsPcSZcHI",
+          "text" : "Zwiebel"
+        },
+        "-Jf3Vtuxg3pNX1ALNJon" : {
+          "checked" : false,
+          "key" : "-Jf3Vtuxg3pNX1ALNJon",
+          "text" : "400g Kartoffeln"
+        }
+      },
+      "key" : "-Jf3UoshTLOr-ijxF-31",
+      "title" : "Safran-Kartoffelrisotto"
+    },
+    "-Jf3XIA3m80dyVL8aHOe" : {
+      "items" : {
+        "-Jf3XKSWdeKqH8L0mKfe" : {
+          "checked" : false,
+          "key" : "-Jf3XKSWdeKqH8L0mKfe",
+          "text" : "Sojageschnetzeltes"
+        },
+        "-Jf3XMK4Pfx5Ft_lq9oz" : {
+          "checked" : false,
+          "key" : "-Jf3XMK4Pfx5Ft_lq9oz",
+          "text" : "Paprika rot/grün"
+        },
+        "-Jf3XNiH6nIBVuBXUsTd" : {
+          "checked" : false,
+          "key" : "-Jf3XNiH6nIBVuBXUsTd",
+          "text" : "Champignons"
+        },
+        "-Jf3XOXg-gFmlKUx30SM" : {
+          "checked" : false,
+          "key" : "-Jf3XOXg-gFmlKUx30SM",
+          "text" : "Rotwein"
+        },
+        "-Jf3XQunWu_WVccV_kEl" : {
+          "checked" : false,
+          "key" : "-Jf3XQunWu_WVccV_kEl",
+          "text" : "O-Saft"
+        },
+        "-Jf3XSOT__cY5T_CsNeH" : {
+          "checked" : false,
+          "key" : "-Jf3XSOT__cY5T_CsNeH",
+          "text" : "Bio-Zitrone"
+        },
+        "-Jf3XT7MOOxEZRSfAtTx" : {
+          "checked" : false,
+          "key" : "-Jf3XT7MOOxEZRSfAtTx",
+          "text" : "Kartoffeln"
+        },
+        "-Jf3XWQ2QjhO0lvAZ_lx" : {
+          "checked" : false,
+          "key" : "-Jf3XWQ2QjhO0lvAZ_lx",
+          "text" : "Joghurt"
+        }
+      },
+      "key" : "-Jf3XIA3m80dyVL8aHOe",
+      "title" : "Veganes Gulasch"
+    },
+    "-Jf3X_VASEFF2160X6Yo" : {
+      "items" : {
+        "-Jf3XeoqNFMIwuLdZOpa" : {
+          "checked" : false,
+          "key" : "-Jf3XeoqNFMIwuLdZOpa",
+          "text" : "Salat / Erbsen"
+        },
+        "-Jf3XfgH3TLV_gIch_kM" : {
+          "checked" : false,
+          "key" : "-Jf3XfgH3TLV_gIch_kM",
+          "text" : "Zitrone"
+        },
+        "-Jf3XhJ57KEKKDqmB_dG" : {
+          "checked" : false,
+          "key" : "-Jf3XhJ57KEKKDqmB_dG",
+          "text" : "600g Süßkartoffeln"
+        },
+        "-Jf3XjAPjJxdDaOirS2P" : {
+          "checked" : false,
+          "key" : "-Jf3XjAPjJxdDaOirS2P",
+          "text" : "Kartoffeln"
+        },
+        "-Jf3XjywkXr2BtQzsWvD" : {
+          "checked" : false,
+          "key" : "-Jf3XjywkXr2BtQzsWvD",
+          "text" : "Zwiebeln"
+        },
+        "-Jf3XkrqmTH9IQlAGz8K" : {
+          "checked" : false,
+          "key" : "-Jf3XkrqmTH9IQlAGz8K",
+          "text" : "Möhren"
+        },
+        "-Jf3Xlgv8DmYUvMq33Rd" : {
+          "checked" : false,
+          "key" : "-Jf3Xlgv8DmYUvMq33Rd",
+          "text" : "Sellerien"
+        },
+        "-Jf3XmLta3eN-dwpDCrK" : {
+          "checked" : false,
+          "key" : "-Jf3XmLta3eN-dwpDCrK",
+          "text" : "Thymian"
+        },
+        "-Jf3XnW2xIesAi53ZzEG" : {
+          "checked" : false,
+          "key" : "-Jf3XnW2xIesAi53ZzEG",
+          "text" : "350g Pilze"
+        },
+        "-Jf3XphBqq0fnucLGdBf" : {
+          "checked" : false,
+          "key" : "-Jf3XphBqq0fnucLGdBf",
+          "text" : "sundried tomatoes"
+        },
+        "-Jf3XqWxcs37bT-j6HQX" : {
+          "checked" : false,
+          "key" : "-Jf3XqWxcs37bT-j6HQX",
+          "text" : "Rosmarin"
+        },
+        "-Jf3XrXASIGb2aqleEza" : {
+          "checked" : false,
+          "key" : "-Jf3XrXASIGb2aqleEza",
+          "text" : "Balsamico"
+        },
+        "-Jf3XsiQkTgm_e6vzYpn" : {
+          "checked" : false,
+          "key" : "-Jf3XsiQkTgm_e6vzYpn",
+          "text" : "Rotwein"
+        },
+        "-Jf3Xt18WinINVZN_8vl" : {
+          "checked" : false,
+          "key" : "-Jf3Xt18WinINVZN_8vl",
+          "text" : "Linsen"
+        },
+        "-Jf3Xu6AHkJMmxTsvYB1" : {
+          "checked" : false,
+          "key" : "-Jf3Xu6AHkJMmxTsvYB1",
+          "text" : "Kichererbsen"
+        }
+      },
+      "key" : "-Jf3X_VASEFF2160X6Yo",
+      "title" : "Vegan Shepherds Pie"
+    },
+    "-Jf3Y0hNSCyXRyHaTZbg" : {
+      "items" : {
+        "-Jf3Y3RYq7xXDri9_S3W" : {
+          "checked" : false,
+          "key" : "-Jf3Y3RYq7xXDri9_S3W",
+          "text" : "Salat"
+        },
+        "-Jf3Y4gg35Q00yPLaBYt" : {
+          "checked" : false,
+          "key" : "-Jf3Y4gg35Q00yPLaBYt",
+          "text" : "2 grüne Chili"
+        },
+        "-Jf3Y5ZQ1d7s5HtXKl_h" : {
+          "checked" : false,
+          "key" : "-Jf3Y5ZQ1d7s5HtXKl_h",
+          "text" : "Sellerie"
+        },
+        "-Jf3Y6JPn0mahTwoggcI" : {
+          "checked" : false,
+          "key" : "-Jf3Y6JPn0mahTwoggcI",
+          "text" : "Koriander"
+        },
+        "-Jf3Y778fpzjnbFkNUsL" : {
+          "checked" : false,
+          "key" : "-Jf3Y778fpzjnbFkNUsL",
+          "text" : "saure Sahne"
+        },
+        "-Jf3Y7v1I0PkMDjVK-4S" : {
+          "checked" : false,
+          "key" : "-Jf3Y7v1I0PkMDjVK-4S",
+          "text" : "gehackte Tomaten"
+        },
+        "-Jf3Y8tGs5MHVMnjUCZo" : {
+          "checked" : false,
+          "key" : "-Jf3Y8tGs5MHVMnjUCZo",
+          "text" : "Tomatenpaprika"
+        },
+        "-Jf3Y9kEi_F0vYagm-fc" : {
+          "checked" : false,
+          "key" : "-Jf3Y9kEi_F0vYagm-fc",
+          "text" : "Cheddar"
+        },
+        "-Jf3YApvFKWbPRZy3Mmj" : {
+          "checked" : false,
+          "key" : "-Jf3YApvFKWbPRZy3Mmj",
+          "text" : "Schwarzaugenbohnen"
+        },
+        "-Jf3YBqn3YiU_7zid19f" : {
+          "checked" : false,
+          "key" : "-Jf3YBqn3YiU_7zid19f",
+          "text" : "Kartoffeln"
+        }
+      },
+      "key" : "-Jf3Y0hNSCyXRyHaTZbg",
+      "title" : "Gemüse-Chili-Auflauf"
+    },
+    "-Jf3YGo6L9hSW2KFxA9z" : {
+      "items" : {
+        "-Jf3YJoHSW444Bylnf7y" : {
+          "checked" : false,
+          "key" : "-Jf3YJoHSW444Bylnf7y",
+          "text" : "Sojageschnetzeltes"
+        },
+        "-Jf3YKLc9sZ5qu47GyFZ" : {
+          "checked" : false,
+          "key" : "-Jf3YKLc9sZ5qu47GyFZ",
+          "text" : "Kartoffeln"
+        },
+        "-Jf3YKt_7cU5ywm_R4q_" : {
+          "checked" : false,
+          "key" : "-Jf3YKt_7cU5ywm_R4q_",
+          "text" : "Tomatenmark"
+        },
+        "-Jf3YLMO1oA4Fv9yOUKx" : {
+          "checked" : false,
+          "key" : "-Jf3YLMO1oA4Fv9yOUKx",
+          "text" : "Zwiebel"
+        },
+        "-Jf3YMR5WQvdCKUIZwFH" : {
+          "checked" : false,
+          "key" : "-Jf3YMR5WQvdCKUIZwFH",
+          "text" : "2 Auberginen"
+        },
+        "-Jf3YNjybr0lp39JFjzq" : {
+          "checked" : false,
+          "key" : "-Jf3YNjybr0lp39JFjzq",
+          "text" : "Käse"
+        },
+        "-Jf3YOthL9U6O1yiB_x3" : {
+          "checked" : false,
+          "key" : "-Jf3YOthL9U6O1yiB_x3",
+          "text" : "2 Dosentomaten"
+        }
+      },
+      "key" : "-Jf3YGo6L9hSW2KFxA9z",
+      "title" : "Moussaka"
+    },
+    "-Jf3YRIogx641RdutbHB" : {
+      "items" : {
+        "-Jf3YUhUaeDnKbIA9DpT" : {
+          "checked" : false,
+          "key" : "-Jf3YUhUaeDnKbIA9DpT",
+          "text" : "Räuchertofu"
+        },
+        "-Jf3YV6p2TIFviTZBHkc" : {
+          "checked" : false,
+          "key" : "-Jf3YV6p2TIFviTZBHkc",
+          "text" : "Schalotten"
+        },
+        "-Jf3YVsl2PZ5cEc9HEDg" : {
+          "checked" : false,
+          "key" : "-Jf3YVsl2PZ5cEc9HEDg",
+          "text" : "Tomatenmark"
+        },
+        "-Jf3YWfVShZ7Qnd6p9qn" : {
+          "checked" : false,
+          "key" : "-Jf3YWfVShZ7Qnd6p9qn",
+          "text" : "Berglinsen"
+        },
+        "-Jf3YXa6McgLZh6kcczM" : {
+          "checked" : false,
+          "key" : "-Jf3YXa6McgLZh6kcczM",
+          "text" : "gehackte Tomaten"
+        },
+        "-Jf3YYhttpq3yiuzp3FH" : {
+          "checked" : false,
+          "key" : "-Jf3YYhttpq3yiuzp3FH",
+          "text" : "Thymian"
+        },
+        "-Jf3YZ4in3QqAOaYd-ak" : {
+          "checked" : false,
+          "key" : "-Jf3YZ4in3QqAOaYd-ak",
+          "text" : "Steinsalz"
+        }
+      },
+      "key" : "-Jf3YRIogx641RdutbHB",
+      "title" : "Berglinsen mit Tomatensauce"
+    },
+    "-Jf3YaRzxxJVLZXZwR_p" : {
+      "items" : {
+        "-Jf3YfxSr_4FW8YbfXk4" : {
+          "checked" : false,
+          "key" : "-Jf3YfxSr_4FW8YbfXk4",
+          "text" : "Pilze"
+        },
+        "-Jf3YggD-nBtFLZaK-1f" : {
+          "checked" : false,
+          "key" : "-Jf3YggD-nBtFLZaK-1f",
+          "text" : "Möhren"
+        },
+        "-Jf3Yh5a1uuyJoEa2zTt" : {
+          "checked" : false,
+          "key" : "-Jf3Yh5a1uuyJoEa2zTt",
+          "text" : "Rotwein"
+        }
+      },
+      "key" : "-Jf3YaRzxxJVLZXZwR_p",
+      "title" : "Pilzbolognese"
+    },
+    "-Jf3uDTxYEI8G4IEG1pS" : {
+      "items" : {
+        "-Jf3uLdPfEsjuI2KyUCS" : {
+          "checked" : false,
+          "key" : "-Jf3uLdPfEsjuI2KyUCS",
+          "text" : "Schalotten"
+        },
+        "-Jf3uN1cKyOAGLHrCZd9" : {
+          "checked" : false,
+          "key" : "-Jf3uN1cKyOAGLHrCZd9",
+          "text" : "1 Dose Sauerkraut"
+        },
+        "-Jf3uOCavQjjRhWujehy" : {
+          "checked" : false,
+          "key" : "-Jf3uOCavQjjRhWujehy",
+          "text" : "Butter"
+        },
+        "-Jf3uRj3MSlEqwAwyEOk" : {
+          "checked" : false,
+          "key" : "-Jf3uRj3MSlEqwAwyEOk",
+          "text" : "Honig"
+        },
+        "-Jf3uVp7rkmI7FGvepEI" : {
+          "checked" : false,
+          "key" : "-Jf3uVp7rkmI7FGvepEI",
+          "text" : "weißer Portwein/Weißwein"
+        },
+        "-Jf3uY1-aBGHXm3Pr_sE" : {
+          "checked" : false,
+          "key" : "-Jf3uY1-aBGHXm3Pr_sE",
+          "text" : "150ml Quittensaft (Apfelsaft)"
+        },
+        "-Jf3uZPuz-Z27NqT9CY8" : {
+          "checked" : false,
+          "key" : "-Jf3uZPuz-Z27NqT9CY8",
+          "text" : "Sahne"
+        },
+        "-Jf3ubphZtArTF6B9nvL" : {
+          "checked" : false,
+          "key" : "-Jf3ubphZtArTF6B9nvL",
+          "text" : "Fleischtomate (groß)"
+        },
+        "-Jf3ue1D5gTGOi9WX3dl" : {
+          "checked" : false,
+          "key" : "-Jf3ue1D5gTGOi9WX3dl",
+          "text" : "150g Gruyere"
+        },
+        "-Jf3ufLr07WX0gkWbSuR" : {
+          "checked" : false,
+          "key" : "-Jf3ufLr07WX0gkWbSuR",
+          "text" : "Lasagneplatten"
+        }
+      },
+      "key" : "-Jf3uDTxYEI8G4IEG1pS",
+      "title" : "Rahmsauerkraut-Lasagne"
+    },
+    "-Jf3v9jFAG3927gYCTqY" : {
+      "items" : {
+        "-Jf3vIcU46A8su_GTHP2" : {
+          "checked" : false,
+          "key" : "-Jf3vIcU46A8su_GTHP2",
+          "text" : "8 Ofenkartoffeln"
+        },
+        "-Jf3vLG5So3zYEO1gMnC" : {
+          "checked" : false,
+          "key" : "-Jf3vLG5So3zYEO1gMnC",
+          "text" : "Petersilie"
+        },
+        "-Jf3vM9Eh-LPno9wCS7N" : {
+          "checked" : false,
+          "key" : "-Jf3vM9Eh-LPno9wCS7N",
+          "text" : "Basilikum"
+        },
+        "-Jf3vMuCuFIhg1SoU9yw" : {
+          "checked" : false,
+          "key" : "-Jf3vMuCuFIhg1SoU9yw",
+          "text" : "Minze"
+        },
+        "-Jf3vNarniGasH8XU35D" : {
+          "checked" : false,
+          "key" : "-Jf3vNarniGasH8XU35D",
+          "text" : "Kapern"
+        },
+        "-Jf3vNr3vjh6wR1gY8wt" : {
+          "checked" : false,
+          "key" : "-Jf3vNr3vjh6wR1gY8wt",
+          "text" : "Senf"
+        },
+        "-Jf3vOPAAhqBd13kZA01" : {
+          "checked" : false,
+          "key" : "-Jf3vOPAAhqBd13kZA01",
+          "text" : "Rotweinessig"
+        },
+        "-Jf3vPLBzoHXyvibua5U" : {
+          "checked" : false,
+          "key" : "-Jf3vPLBzoHXyvibua5U",
+          "text" : "Cornichons"
+        }
+      },
+      "key" : "-Jf3v9jFAG3927gYCTqY",
+      "title" : "Ofenkartoffel m. Salsa Verde"
+    },
+    "-Jf3vanQPdqCPTpmWC59" : {
+      "items" : {
+        "-Jf3vgfv3blOEnTo0ElY" : {
+          "checked" : false,
+          "key" : "-Jf3vgfv3blOEnTo0ElY",
+          "text" : "8 weiße Zwiebeln"
+        },
+        "-Jf3vhUacfNM_rPB6SmY" : {
+          "checked" : false,
+          "key" : "-Jf3vhUacfNM_rPB6SmY",
+          "text" : "4 rote Zwiebeln"
+        },
+        "-Jf3viCfbGXaqDPp8WKK" : {
+          "checked" : false,
+          "key" : "-Jf3viCfbGXaqDPp8WKK",
+          "text" : "Thymian"
+        },
+        "-Jf3vilq2WzSDPwIqBXE" : {
+          "checked" : false,
+          "key" : "-Jf3vilq2WzSDPwIqBXE",
+          "text" : "Majoran"
+        },
+        "-Jf3vkDlSiOdB_oWGl8w" : {
+          "checked" : false,
+          "key" : "-Jf3vkDlSiOdB_oWGl8w",
+          "text" : "Blätterteig (frisch)"
+        },
+        "-Jf3vlneCiw_Aym8swZ9" : {
+          "checked" : false,
+          "key" : "-Jf3vlneCiw_Aym8swZ9",
+          "text" : "Creme fraiche"
+        },
+        "-Jf3vm_sYDOYaswBA9hL" : {
+          "checked" : false,
+          "key" : "-Jf3vm_sYDOYaswBA9hL",
+          "text" : "Honig"
+        }
+      },
+      "key" : "-Jf3vanQPdqCPTpmWC59",
+      "title" : "Zwiebel-Tarte"
+    },
+    "-Jf3voFcJShLAJAEIH4p" : {
+      "items" : {
+        "-Jf3vsbzqnt4sl0BEUTy" : {
+          "checked" : false,
+          "key" : "-Jf3vsbzqnt4sl0BEUTy",
+          "text" : "500g gemischte Pilze"
+        },
+        "-Jf3vt_PmsQnmZ38yGWb" : {
+          "checked" : false,
+          "key" : "-Jf3vt_PmsQnmZ38yGWb",
+          "text" : "2 Möhren"
+        },
+        "-Jf3vvB4F_07OmMUuyod" : {
+          "checked" : false,
+          "key" : "-Jf3vvB4F_07OmMUuyod",
+          "text" : "2 Sellerie"
+        },
+        "-Jf3vwK3XehSMYniWwn1" : {
+          "checked" : false,
+          "key" : "-Jf3vwK3XehSMYniWwn1",
+          "text" : "1 Zwiebel"
+        },
+        "-Jf3vx6rLM8manlLfFHm" : {
+          "checked" : false,
+          "key" : "-Jf3vx6rLM8manlLfFHm",
+          "text" : "1 Knoblauch"
+        },
+        "-Jf3vxh5-s3yyLKbiydk" : {
+          "checked" : false,
+          "key" : "-Jf3vxh5-s3yyLKbiydk",
+          "text" : "Tomatenmark"
+        },
+        "-Jf3vyqnN20vA_Irt7V5" : {
+          "checked" : false,
+          "key" : "-Jf3vyqnN20vA_Irt7V5",
+          "text" : "Weißwein"
+        },
+        "-Jf3w-tNu1r_C4RK6GVB" : {
+          "checked" : false,
+          "key" : "-Jf3w-tNu1r_C4RK6GVB",
+          "text" : "2 Dosen gehackte Tomaten"
+        },
+        "-Jf3w1oLAdjLvVM2VRwb" : {
+          "checked" : false,
+          "key" : "-Jf3w1oLAdjLvVM2VRwb",
+          "text" : "Parmesan"
+        }
+      },
+      "key" : "-Jf3voFcJShLAJAEIH4p",
+      "meta" : "123",
+      "title" : "Ragu \"Especial\""
+    },
+    "-Jf3wGwmV6uxpNANzkoC" : {
+      "items" : {
+        "-Jf3wL0HdVijScgnRb6F" : {
+          "checked" : false,
+          "key" : "-Jf3wL0HdVijScgnRb6F",
+          "text" : "500g Pfifferlinge"
+        },
+        "-Jf3wN9jj4frDo5ywgJ_" : {
+          "checked" : false,
+          "key" : "-Jf3wN9jj4frDo5ywgJ_",
+          "text" : "Frisee-Salat"
+        },
+        "-Jf3wPEeIregDW-3IOIt" : {
+          "checked" : false,
+          "key" : "-Jf3wPEeIregDW-3IOIt",
+          "text" : "getrocknete Aprikosen"
+        },
+        "-Jf3wQ133mp4WIInfk_P" : {
+          "checked" : false,
+          "key" : "-Jf3wQ133mp4WIInfk_P",
+          "text" : "rote Zwiebel"
+        },
+        "-Jf3wQeIUpR49YYQucQ6" : {
+          "checked" : false,
+          "key" : "-Jf3wQeIUpR49YYQucQ6",
+          "text" : "Rotweinessig"
+        },
+        "-Jf3wR7-ilhjiIEuP1dv" : {
+          "checked" : false,
+          "key" : "-Jf3wR7-ilhjiIEuP1dv",
+          "text" : "Rosmarin"
+        },
+        "-Jf3wRprtKUFH3RklZci" : {
+          "checked" : false,
+          "key" : "-Jf3wRprtKUFH3RklZci",
+          "text" : "Sahne"
+        },
+        "-Jf3wSm3s4eHG8bUMKjh" : {
+          "checked" : false,
+          "key" : "-Jf3wSm3s4eHG8bUMKjh",
+          "text" : "Polenta"
+        },
+        "-Jf3wUU-bgjUbesZlj1G" : {
+          "checked" : false,
+          "key" : "-Jf3wUU-bgjUbesZlj1G",
+          "text" : "Fontina/Gruyere/Parmesan"
+        },
+        "-Jf3wVZb1cLYJPBs-QQ1" : {
+          "checked" : false,
+          "key" : "-Jf3wVZb1cLYJPBs-QQ1",
+          "text" : "Butter"
+        }
+      },
+      "key" : "-Jf3wGwmV6uxpNANzkoC",
+      "title" : "Käse-Polenta m. Pfifferlingen"
+    },
+    "-Jf3wXXQQU216-3QxaOP" : {
+      "items" : {
+        "-Jf3waKZLdpvZ1FRDvQi" : {
+          "checked" : false,
+          "key" : "-Jf3waKZLdpvZ1FRDvQi",
+          "text" : "rote Paprika"
+        },
+        "-Jf3wb8S1P0f3eiDzUKl" : {
+          "checked" : false,
+          "key" : "-Jf3wb8S1P0f3eiDzUKl",
+          "text" : "Zwiebel"
+        },
+        "-Jf3wcL9oZZo3EgvOJcA" : {
+          "checked" : false,
+          "key" : "-Jf3wcL9oZZo3EgvOJcA",
+          "text" : "200g Champignons"
+        },
+        "-Jf3wctehrKeK2tJmGhW" : {
+          "checked" : false,
+          "key" : "-Jf3wctehrKeK2tJmGhW",
+          "text" : "Knoblauch"
+        },
+        "-Jf3wdhpRc_1gFA48UPj" : {
+          "checked" : false,
+          "key" : "-Jf3wdhpRc_1gFA48UPj",
+          "text" : "Erbsen TK"
+        },
+        "-Jf3wf6QX0RZb9JoG9qP" : {
+          "checked" : false,
+          "key" : "-Jf3wf6QX0RZb9JoG9qP",
+          "text" : "Safran"
+        },
+        "-Jf3wgTL7TDGI1mIZ_vU" : {
+          "checked" : false,
+          "key" : "-Jf3wgTL7TDGI1mIZ_vU",
+          "text" : "Fadennudeln"
+        },
+        "-Jf3wifMmxDy7f51XGv3" : {
+          "checked" : false,
+          "key" : "-Jf3wifMmxDy7f51XGv3",
+          "text" : "Sambal Olek / Chilisauce"
+        }
+      },
+      "key" : "-Jf3wXXQQU216-3QxaOP",
+      "meta" : "32",
+      "title" : "Nudel-Paella"
+    },
+    "-Jf3wn6bcPIUM_mOQ8C6" : {
+      "items" : {
+        "-Jf3wptA2iWBmCqClJfV" : {
+          "checked" : false,
+          "key" : "-Jf3wptA2iWBmCqClJfV",
+          "text" : "Wirsing"
+        },
+        "-Jf3wqjiD12NZ0tfWDKu" : {
+          "checked" : false,
+          "key" : "-Jf3wqjiD12NZ0tfWDKu",
+          "text" : "2 Zwiebeln"
+        },
+        "-Jf3wrvhb_QLdEgsPBb-" : {
+          "checked" : false,
+          "key" : "-Jf3wrvhb_QLdEgsPBb-",
+          "text" : "Knoblauch"
+        },
+        "-Jf3wuPsR438kUoUaDd4" : {
+          "checked" : false,
+          "key" : "-Jf3wuPsR438kUoUaDd4",
+          "text" : "600g jung/mittelalt Bergkäse"
+        },
+        "-Jf3wvYhwRy97N0BzZmv" : {
+          "checked" : false,
+          "key" : "-Jf3wvYhwRy97N0BzZmv",
+          "text" : "Weißwein"
+        },
+        "-Jf3wxFkFA_gL75knJOi" : {
+          "checked" : false,
+          "key" : "-Jf3wxFkFA_gL75knJOi",
+          "text" : "Weißbrot"
+        }
+      },
+      "key" : "-Jf3wn6bcPIUM_mOQ8C6",
+      "meta" : "321",
+      "title" : "Wirsing-Fonduetopf"
+    },
+    "-Jf3x6Hp39x-O5hY1uHk" : {
+      "items" : {
+        "-Jf3xBJuro1vnzXzLfFn" : {
+          "checked" : false,
+          "key" : "-Jf3xBJuro1vnzXzLfFn",
+          "text" : "4 Schalotten"
+        },
+        "-Jf3xBvCrat7TqpjCqf1" : {
+          "checked" : false,
+          "key" : "-Jf3xBvCrat7TqpjCqf1",
+          "text" : "Ingwer"
+        },
+        "-Jf3xCWGSrW_lneQmvAH" : {
+          "checked" : false,
+          "key" : "-Jf3xCWGSrW_lneQmvAH",
+          "text" : "Chinakohl"
+        },
+        "-Jf3xD3ga6EQ-SrK5T15" : {
+          "checked" : false,
+          "key" : "-Jf3xD3ga6EQ-SrK5T15",
+          "text" : "Buttermilch"
+        },
+        "-Jf3xFNU9St-ROy7dgfn" : {
+          "checked" : false,
+          "key" : "-Jf3xFNU9St-ROy7dgfn",
+          "text" : "2 Kräutersaitlinge"
+        },
+        "-Jf3xHoW9VQ7dcIJykFP" : {
+          "checked" : false,
+          "key" : "-Jf3xHoW9VQ7dcIJykFP",
+          "text" : "Paniermehl/Semmelbrösel"
+        },
+        "-Jf3xK51mp5Pb-6HB7YH" : {
+          "checked" : false,
+          "key" : "-Jf3xK51mp5Pb-6HB7YH",
+          "text" : "Burgerbrötchen m. Sesam"
+        },
+        "-Jf3xLpr0t4SpcViyMYq" : {
+          "checked" : false,
+          "key" : "-Jf3xLpr0t4SpcViyMYq",
+          "text" : "Paprika-Ketchup"
+        },
+        "-Jf3xMW98-elBaMR9ueS" : {
+          "checked" : false,
+          "key" : "-Jf3xMW98-elBaMR9ueS",
+          "text" : "Fleischtomate"
+        }
+      },
+      "key" : "-Jf3x6Hp39x-O5hY1uHk",
+      "meta" : "87",
+      "title" : "Knusperburger m. Ingwer-Schalotten"
+    },
+    "-Jf3xNqsgn5Dj03Dprlc" : {
+      "items" : {
+        "-Jf3xTGM_Jd3MtQiUrBv" : {
+          "checked" : false,
+          "key" : "-Jf3xTGM_Jd3MtQiUrBv",
+          "text" : "Spaghetti"
+        },
+        "-Jf3xU2COWKhxsOYpu6s" : {
+          "checked" : false,
+          "key" : "-Jf3xU2COWKhxsOYpu6s",
+          "text" : "Fenchel"
+        },
+        "-Jf3xUywFqneSXXCLZGf" : {
+          "checked" : false,
+          "key" : "-Jf3xUywFqneSXXCLZGf",
+          "text" : "4 gr. Tomaten"
+        },
+        "-Jf3xVN1bE4y_HDLXMJ7" : {
+          "checked" : false,
+          "key" : "-Jf3xVN1bE4y_HDLXMJ7",
+          "text" : "Zitrone"
+        },
+        "-Jf3x_C75PAPimjDjdnj" : {
+          "checked" : false,
+          "key" : "-Jf3x_C75PAPimjDjdnj",
+          "text" : "Räucherricotta/Parmesan/Pecorino"
+        }
+      },
+      "key" : "-Jf3xNqsgn5Dj03Dprlc",
+      "meta" : "12",
+      "title" : "Pasta m. Fenchel-Tomaten-Sauce"
+    }
+  }
+}

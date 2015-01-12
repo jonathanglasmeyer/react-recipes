@@ -18,6 +18,7 @@ module.exports = Reflux.createStore({
             this.recipes = _.map(recipes, r => ({
                 key: r.key,
                 title: r.title,
+                counter: r.counter || 0,
                 meta: r.meta,
                 items: _.toArray(r.items)
             }
@@ -69,5 +70,14 @@ module.exports = Reflux.createStore({
 
     onRenameRecipe(recipeKey, title) {
         ref.child(recipeKey).update({title: title});
-    }
+    },
+
+    onIncrementCounter(recipeKey) {
+        ref.child(recipeKey).child('counter').transaction(current=>(current||0)+1);
+    },
+
+    onDecrementCounter(recipeKey) {
+        ref.child(recipeKey).child('counter').transaction(current=>(current||0)-1);
+    },
+
 });

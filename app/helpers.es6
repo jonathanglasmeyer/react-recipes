@@ -63,12 +63,10 @@ module.exports = {
     },
 
     mergeColors(c1,c2) {
-        console.log(c1);
-        console.log(c2);
 
         // weight of the first, 10 based
         // first: accent color;
-        let weightFirst = .20;
+        let weightFirst = .10;
         let f = (a,b,w) => Math.floor((a*w + b*(1-w)));
         let r = f(c1[0], c2[0], weightFirst);
         let g = f(c1[1], c2[1], weightFirst);
