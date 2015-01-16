@@ -46,7 +46,8 @@ let ShoppingList = React.createClass({
         return d(ListWrap, {footer: d(ShoppingListFooter)}, [
             d(ShoppingListHeader, this.props),
             d(ListInput),
-            h.itemComponentList(this.props.items, ShoppingListItem, 2)]);
+            a.fadingSlow(
+                h.itemComponentList(this.props.items, ShoppingListItem, 2))]);
 
     }
 });

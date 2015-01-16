@@ -16,10 +16,13 @@ let InputWrap = React.createClass({
     propTypes: {
         initial: pt.string,
         onSubmit: pt.func.isRequired,
-        drawSymbol: pt.bool,
         placeholder: pt.string,
-        resetAfterSubmit: pt.bool,
-        id: pt.string.isRequired, // html id
+
+        drawSymbol: pt.bool, // default: false
+        resetAfterSubmit: pt.bool, // default: false
+        autoSubmit: pt.bool, //default: false
+
+        id: pt.string, // html id
         className: pt.string
     },
 
@@ -27,20 +30,20 @@ let InputWrap = React.createClass({
         return {
             initial: '',
             drawSymbol: false,
-            className: '',
+            id: null,
             placeholder: null,
-            resetAfterSubmit: false
+            resetAfterSubmit: false,
+            autoSubmit: false
         };
     },
 
     getInitialState() {
-        return {
-            inputText: this.props.initial
-        };
+        return { inputText: this.props.initial };
     },
 
     handleFocus() {
         Actions.setActiveInput();
+        Actions.startEditMode();
     },
 
     handleSubmit(e) {
@@ -51,10 +54,17 @@ let InputWrap = React.createClass({
 
             if (this.props.resetAfterSubmit) {
                 this.setState({inputText: this.props.initial});
+            } else {
+                this.refs.input.getDOMNode().blur();
             }
         }
     },
 
+    componentWillUnmount() {
+        if (this.props.autoSubmit && this.state.inputText !== this.props.initial) {
+            this.props.onSubmit(this.state.inputText);
+        }
+    },
 
     render() {
 
@@ -66,12 +76,12 @@ let InputWrap = React.createClass({
            {className: 'plus-icon', fname: 'add', onClick: this.handleSubmit});
 
         return d('form', {
-            className: 'input-form ' + this.props.className,
+            className: this.props.className || 'input-form ',
             autoComplete: 'off',
             onSubmit: this.handleSubmit}, [
 
             this.props.drawSymbol ? plusSymbol : null,
-            d('input:text', {id, onFocus, placeholder, valueLink})]);
+            d('input:text', {id, onFocus, ref: 'input', placeholder, valueLink})]);
 
     }
 });

@@ -7,22 +7,23 @@ require('styles/slidein-small-left');
 
 let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
+
 module.exports = {
 
     fading(component) {
-        return <ReactCSSTransitionGroup transitionName='fade'>
+        return <ReactCSSTransitionGroup transitionName='fade' key={3}>
                   {component}
               </ReactCSSTransitionGroup>;
     },
 
     fadingSlow(component) {
-        return <ReactCSSTransitionGroup transitionName='fade-slow'>
+        return <ReactCSSTransitionGroup transitionName='fade-slow' key={3}>
                   {component}
               </ReactCSSTransitionGroup>;
     },
 
     slidein(component) {
-        return <ReactCSSTransitionGroup transitionName='slidein'>
+        return <ReactCSSTransitionGroup transitionName='slidein' key={3}>
                   {component}
               </ReactCSSTransitionGroup>;
     },

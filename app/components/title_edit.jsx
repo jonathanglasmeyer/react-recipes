@@ -4,11 +4,8 @@ let InputWrap = require('components/input_wrap');
 
 let pt = require('react').PropTypes;
 
-let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 let TitleEdit = React.createClass({
     displayName: 'TitleEdit',
-
-    mixins: [LinkedStateMixin],
 
     contextTypes: {
         recipe: pt.object.isRequired
@@ -25,8 +22,10 @@ let TitleEdit = React.createClass({
         return d(InputWrap, {
             onSubmit: this.handleSubmit,
             initial: this.context.recipe.title,
+            autoSubmit: true,
+            placeholder: 'Neues Rezept',
             id: 'input-title',
-            className: 'input-form-title' });
+            className: 'input-form input-form-title' });
     }
 });
 module.exports = TitleEdit;

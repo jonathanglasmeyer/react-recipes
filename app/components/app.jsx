@@ -12,9 +12,10 @@ let UIStore = require('ui_store');
 let RecipesStore = require('recipes_store');
 let ShoppingList = require('components/shopping_list');
 let RecipeList = require('components/recipe_list');
+let NewRecipeButton = require('components/new_recipe_button');
 // let Recents = require('components/recents');
 
-// let NewRecipeButton = require('components/new_recipe_button');
+
 let pt = require('react').PropTypes;
 
 let {slidein} = require('animate');
@@ -62,8 +63,9 @@ let App = React.createClass({
     //       _.find(this.state.recipes, recipe => recipe.key === recent.recipeKey));
 
         return d('div.main', {}, [
-            d(ShoppingList, {items: this.state.items}),
-            recipes.length > 0 ? recipesLists : null]);
+            d(ShoppingList, {key: 0, items: this.state.items}),
+            d(NewRecipeButton, {key: 1}),
+            recipes.length > 0 ? a.slidein(recipesLists) : null]);
     }
 });
 

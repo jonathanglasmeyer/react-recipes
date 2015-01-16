@@ -29,10 +29,10 @@ module.exports = Reflux.createStore({
 
     onNewRecipe() {
         let childRef = ref.push();
-        childRef.set({ title: 'Unbenannt', key: childRef.key()});
+        childRef.set({ title: '', key: childRef.key()});
         setTimeout(()=> {
-                   Actions.setActiveItem(childRef.key());
-                   Actions.setActiveTitle(childRef.key());
+                   Actions.setOpenRecipe(childRef.key());
+                   Actions.startEditMode();
         }, 50);
     },
 

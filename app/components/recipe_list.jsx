@@ -44,7 +44,7 @@ let RecipeList = React.createClass({
     itemCount()  { return this.props.recipe.items.length; },
     itemStartI() { return this.editMode() ? 2 : 1; },
     isOpen()     { return this.context.ui.openRecipe === this.props.recipe.key; },
-    editMode()   { return this.context.ui.editMode; },
+    editMode()   { return this.context.ui.editMode || this.itemCount() === 0; },
     height()     {
         return this.isOpen() ? this.itemCount()*50+6+50*(this.itemStartI()+1) : 50;
     },
@@ -64,10 +64,10 @@ let RecipeList = React.createClass({
 
             this.editMode() ? d(ListInput) : null,
 
-            h.itemComponentList(
+            a.fadingSlow(h.itemComponentList(
                 this.props.recipe.items,
                 RecipeListItem,
-                this.itemStartI())
+                this.itemStartI()))
         ]);
 
     }

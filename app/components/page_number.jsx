@@ -3,47 +3,38 @@ require('styles/list_header');
 require('styles/input');
 
 let pt = require('react').PropTypes;
-let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
+// let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
+let InputWrap = require('components/input_wrap');
 
 let PageNumber = React.createClass({
-
-    mixins: [LinkedStateMixin],
     displayName: 'PageNumber',
 
     contextTypes: {
         recipe: pt.object.isRequired,
     },
 
-    getInitialState() {
-        return {
-            inputText: this.context.recipe.meta
-        };
+    // getInitialState() {
+    //     return {
+    //         inputText: this.context.recipe.meta
+    //     };
+    // },
+
+    handleSubmit(text) {
+        Actions.setMeta(this.context.recipe.key, text);
     },
 
-    handleFocus() {
-        Actions.setActiveInput();
-    },
-
-    handleSubmit(e) {
-        e.preventDefault();
-        if (this.state.inputText) {
-            Actions.setMeta(this.context.recipe.key, this.state.inputText);
-            this.refs.input.getDOMNode().blur();
-        }
-    },
-
-    componentWillUnmount() {
-        if (this.state.inputText !== this.props.children) {
-            Actions.setMeta(this.context.recipe.key, this.state.inputText);
-        }
-    },
 
     render() {
-        let onSubmit = this.handleSubmit,
-            onFocus = this.handleFocus;
-        return d('form.input-form-meta.meta', {onSubmit},
-            d('input:text#input-meta',
-              {ref: 'input', onFocus, valueLink: this.linkState('inputText')}));
+        // return d('form.input-form-meta.meta', {onSubmit},
+        //     d('input:text#input-meta',
+        //       {ref: 'input', onFocus, valueLink: this.linkState('inputText')}));
+        return d(InputWrap, {
+            onSubmit: this.handleSubmit,
+            initial: this.context.recipe.meta,
+            placeholder: 'ID',
+            autoSubmit: true,
+            className: 'input-form-meta meta',
+            id: 'input-meta'});
     }
 });
 module.exports = PageNumber;

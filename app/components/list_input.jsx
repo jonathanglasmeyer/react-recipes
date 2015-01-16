@@ -18,13 +18,6 @@ let ListInput = React.createClass({
         recipeKey: pt.string
     },
 
-    getInitialState() {
-        return {
-            inputText: ''
-        };
-    },
-
-    handleFocus: Actions.setActiveInput,
 
     handleSubmit(text) {
         if (_.isUndefined(this.context.recipeKey)) {
@@ -41,6 +34,7 @@ let ListInput = React.createClass({
                 placeholder: 'Artikel',
                 drawSymbol: true,
                 resetAfterSubmit: true,
+                className: 'input-form input-form-item',
                 id: 'input-item'}));
 
     }

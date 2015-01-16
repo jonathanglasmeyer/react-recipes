@@ -15,6 +15,7 @@ let ListWrap = React.createClass({
     }),
 
     contextTypes: {
+        ui: pt.object.isRequired,
         isOpen: pt.bool.isRequired,
         height: pt.number.isRequired
     },
@@ -22,9 +23,8 @@ let ListWrap = React.createClass({
     render() {
         let style = {height: this.context.height};
 
-
         return d('div.items', {style}, [
-            d('ul', {}, this.props.children), 
+            d('ul', {}, this.props.children),
             this.context.isOpen ? this.props.footer : null
         ]);
 

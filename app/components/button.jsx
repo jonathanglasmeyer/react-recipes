@@ -13,7 +13,7 @@ let Button = React.createClass({
 
     propTypes: {
         children: pt.string.isRequired,
-        onClick: pt.func.isRequired
+        onClick: pt.func
     },
 
     getDefaultProps: () => ({

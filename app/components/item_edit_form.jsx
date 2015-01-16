@@ -35,7 +35,7 @@ let ItemEditForm = React.createClass({
         let onSubmit = this.handleSubmit;
         let style = {border: 'none'};
 
-        return d('form.input-form-title.input-form-item', {onSubmit},
+        return d('form.input-form-title.input-form-edit-item', {onSubmit},
             d('input:text#input-title.input-item',
               {valueLink: this.linkState('inputText'), style, ref:'input'}));
 
