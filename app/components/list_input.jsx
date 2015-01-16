@@ -1,9 +1,9 @@
 'use strict';
-
 require('styles/input');
+require('styles/item');
 
-let Svg = require('components/svg');
 let ItemWrap = require('components/item_wrap');
+let InputWrap = require('components/input_wrap');
 
 let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 
@@ -24,29 +24,25 @@ let ListInput = React.createClass({
         };
     },
 
+    handleFocus: Actions.setActiveInput,
 
-    handleSubmit(e) {
-        e.preventDefault();
-
-        if (this.state.inputText) {
-            if (_.isUndefined(this.context.recipeKey)) {
-                Actions.addItem(this.state.inputText);
+    handleSubmit(text) {
+        if (_.isUndefined(this.context.recipeKey)) {
+                Actions.addItem(text);
             } else {
-                Actions.addToRecipe(this.state.inputText, this.context.recipeKey);
-            }
-            this.setState({inputText:''});
+                Actions.addToRecipe(text, this.context.recipeKey);
         }
     },
 
     render() {
-        let onSubmit = this.handleSubmit,
-            placeholder = 'Artikel',
-            valueLink = this.linkState('inputText');
-
         return d(ItemWrap, {id: 'li-input', i: 1},
-            d('form.input-form', {onSubmit}, [
-                d(Svg, {className: 'plus-icon', fname: 'add'}),
-                d('input:text#input-item', {placeholder, valueLink})]));
+            d(InputWrap, {
+                onSubmit: this.handleSubmit,
+                placeholder: 'Artikel',
+                drawSymbol: true,
+                resetAfterSubmit: true,
+                id: 'input-item'}));
+
     }
 });
 module.exports = ListInput;

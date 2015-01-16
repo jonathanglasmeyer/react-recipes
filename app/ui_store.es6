@@ -19,6 +19,11 @@ module.exports = Reflux.createStore({
         this.trigger(this.ui);
     },
 
+    onSetActiveInput() {
+        this.ui.modal = 'input';
+        this.trigger(this.ui);
+    },
+
     // onSetEditPageNumber(itemKey) {
     //     this.ui.activeItem = null;
     //     this.ui.editPageNumber = true;
@@ -27,11 +32,13 @@ module.exports = Reflux.createStore({
 
     onStartEditMode() {
         this.ui.editMode = true;
+        this.ui.modal = null;
         this.trigger(this.ui);
     },
 
     onEndEditMode() {
         this.ui.editMode = false;
+        this.ui.activeItem = null;
         this.trigger(this.ui);
     },
 

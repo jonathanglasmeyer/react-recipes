@@ -20,6 +20,10 @@ let PageNumber = React.createClass({
         };
     },
 
+    handleFocus() {
+        Actions.setActiveInput();
+    },
+
     handleSubmit(e) {
         e.preventDefault();
         if (this.state.inputText) {
@@ -35,10 +39,11 @@ let PageNumber = React.createClass({
     },
 
     render() {
-        let onSubmit = this.handleSubmit;
+        let onSubmit = this.handleSubmit,
+            onFocus = this.handleFocus;
         return d('form.input-form-meta.meta', {onSubmit},
             d('input:text#input-meta',
-              {ref: 'input', valueLink: this.linkState('inputText')}));
+              {ref: 'input', onFocus, valueLink: this.linkState('inputText')}));
     }
 });
 module.exports = PageNumber;

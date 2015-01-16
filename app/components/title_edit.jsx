@@ -1,5 +1,6 @@
 'use strict';
 require('styles/list_header');
+let InputWrap = require('components/input_wrap');
 
 let pt = require('react').PropTypes;
 
@@ -13,25 +14,19 @@ let TitleEdit = React.createClass({
         recipe: pt.object.isRequired
     },
 
-    getInitialState() {
-        return {
-            inputText: this.context.recipe.title
-        };
-    },
-
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        if (this.state.inputText) {
-            Actions.renameRecipe(this.state.inputText);
+    handleSubmit(text) {
+        Actions.renameRecipe(this.context.recipe.key, text);
+        if (this.context.recipe.items.length > 0) {
+            Actions.endEditMode();
         }
     },
 
     render() {
-        let valueLink = this.linkState('inputText');
-        return d('form.input-form-title', {onSubmit: this.handleSubmit},
-            d('input:text#input-title', {valueLink}));
+        return d(InputWrap, {
+            onSubmit: this.handleSubmit,
+            initial: this.context.recipe.title,
+            id: 'input-title',
+            className: 'input-form-title' });
     }
 });
 module.exports = TitleEdit;

@@ -5,8 +5,9 @@
 var Reflux = require('reflux');
 
 module.exports = Reflux.createActions([
-    // global state
+    // global ui state
     'setActiveItem',
+    'setActiveInput',
     'startEditMode',
     'endEditMode',
     'setOpenRecipe',

@@ -23,7 +23,9 @@ let EditableLabel = React.createClass({
 
     render() {
         let style = {cursor: 'text'},
-            itemIsActive = this.context.ui.activeItem === this.context.item.key;
+            itemIsActive = 
+                this.context.ui.modal === 'item' && 
+                this.context.ui.activeItem === this.context.item.key;
 
         let spanOrEditForm = itemIsActive ?
             d(ItemEditForm, {item: this.context.item}) :

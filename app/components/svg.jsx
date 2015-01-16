@@ -1,7 +1,14 @@
 'use strict';
 require('styles/svg.less');
 
-module.exports = React.createClass({
+let pt = require('react').PropTypes;
+
+let Svg = React.createClass({
+    displayName: 'Svg',
+
+    propTypes: {
+        onClick: pt.func
+    },
 
     getDefaultProps() {
         return {
@@ -10,14 +17,12 @@ module.exports = React.createClass({
     },
 
     render() {
-        let {handleClick, fname, className} = this.props;
-
-        return (
-            <div className={"svg " + className} style={{cursor: 'pointer'}}
-                dangerouslySetInnerHTML={
-                    {__html: require('img/' + fname + '.svg')}}
-                onClick={this.props.onClick} />
-        );
+        let {fname, className} = this.props,
+            style = {cursor: 'pointer'},
+            dangerouslySetInnerHTML = {__html: require('img/' + fname + '.svg')},
+            onClick = this.props.onClick;
+        return d('div.svg', {className, style, dangerouslySetInnerHTML, onClick});
     }
 });
+module.exports = Svg;
 
