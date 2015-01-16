@@ -3,11 +3,8 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-let Svg = require('components/svg');
-let ListHeaderWrap = require('components/list_header_wrap');
-
 let Actions = require('actions');
-
+let Svg = require('components/svg');
 let animate = require('animate');
 let cx = require('react/addons').addons.classSet;
 let {counterColor} = require('helpers');
@@ -194,12 +191,21 @@ let ListHeader = React.createClass({
                 {this.props.counter}
             </span>
 
-        return <ListHeaderWrap>
+        let className = cx({'active': this.state.active });
+        return (
+            <li
+                id='list-header'
+                className={className}
+                onTouchStart={this.handleTouchStart}
+                onTouchEnd={this.handleTouchEnd}>
+
                 { isRecipe  ?
                     addAllIcon : items.length > 0 ? checkAllIcon : null }
                 {activeTitle ? titleEdit: titleElement}
                 {openRecipe ? metaElement : isRecipe? counterElement:null}
-        </ListHeaderWrap>;
+            </li>
+        );
+                // { titleElement}
 
     }
 });

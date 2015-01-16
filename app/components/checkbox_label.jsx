@@ -10,24 +10,25 @@ let cx = require('react/addons').addons.classSet;
 let CheckboxLabel = React.createClass({
 
     propTypes: {
-        item: pt.object,
-        onClick: pt.func,
         color: pt.object // needed for background of checkbox ..
     },
 
+    contextTypes: {
+        item: pt.object,
+    },
+
+    handleCheck() {
+        Actions.check(this.context.item.key, !this.context.item.checked);
+    },
+
     render() {
-        let item = this.props.item;
+        let item = this.context.item,
+            className = cx({'item': true, 'item-done': item.checked});
 
-        return <div
-            className='label-wrap'
-            onClick={this.props.onClick}>
-
-            <label
-                className={cx({'item': true, 'item-done': item.checked })}>
-                <Checkbox color={this.props.color} checked={item.checked} />
-                <span className='label-text'>{item.text}</span>
-            </label>
-        </div>;
+        return d('div.label-wrap', {onClick: this.handleCheck},
+            d('label', {className}, [
+                d(Checkbox, {color: this.props.color, checked: item.checked}),
+                d('span.label-text', {}, item.text)]));
     },
 });
 

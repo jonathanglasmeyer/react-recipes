@@ -5,36 +5,28 @@ require('base/less/style.less');
 require('styles/app');
 
 let Reflux = require('reflux');
-let pt = require('react').PropTypes;
 
-let Actions = require('actions');
 let ItemStore = require('item_store');
+let UIStore = require('ui_store');
 // let RecentsStore = require('recents_store');
-// let RecipesStore = require('recipes_store');
+let RecipesStore = require('recipes_store');
 let ShoppingList = require('components/shopping_list');
+let RecipeList = require('components/recipe_list');
 // let Recents = require('components/recents');
-let NewRecipeButton = require('components/new_recipe_button');
+
+// let NewRecipeButton = require('components/new_recipe_button');
+let pt = require('react').PropTypes;
 
 let {slidein} = require('animate');
 
 
 let App = React.createClass({
-    propTypes: {
-        title: pt.string,
-        items: pt.array,
-        isRecipe: pt.bool,
-        recipeKey: pt.string
-    },
 
     mixins: [
         Reflux.connect(ItemStore,'items'),
-        // Reflux.connect(RecipesStore,'recipes'),
+        Reflux.connect(RecipesStore,'recipes'),
+        Reflux.connect(UIStore,'ui'),
         // Reflux.connect(RecentsStore,'recents'),
-        Reflux.listenTo(Actions.setActiveItem, 'onActiveItemChange'),
-        Reflux.listenTo(Actions.setOpenRecipe, 'onOpenRecipeChange'),
-        Reflux.listenTo(Actions.setActiveTitle, 'onActiveTitleChange'),
-        Reflux.listenTo(Actions.setActiveConfirm, 'onActiveConfirmChange'),
-        Reflux.listenTo(Actions.setActiveMeta, 'onActiveMetaChange')
     ],
 
     getInitialState() {
@@ -42,119 +34,36 @@ let App = React.createClass({
             items: [],
             recipes: [],
             recents: [],
-            activeItem: null,
-            openRecipe: null,
-            activeRecipe: null,
-            activeMeta: null,
-            activeTitle: null,
-            activeConfirm: null
+            ui: {openRecipe: null},
         };
     },
 
-
-    onOpenRecipeChange(recipeKey) {
-        this.setState({
-            openRecipe: recipeKey,
-            activeRecipe: null,
-            activeItem: null,
-            activeMeta: null,
-            activeConfirm: null
-        });
-
-        console.log('onOpenRecipeChange', this.state.openRecipe);
+    childContextTypes: {
+        ui: pt.object.isRequired,
     },
 
-    onActiveItemChange(recipeKey, itemKey) {
-        this.setState(
-            { activeRecipe: recipeKey,
-              activeItem: itemKey,
-              activeConfirm: null,
-              activeTitle: recipeKey});
-
-        console.log('onactiveitem', this.state.activeRecipe);
-    },
-
-    onActiveTitleChange(recipeKey) {
-        if (recipeKey) {
-            this.setState({activeTitle: recipeKey,
-                           activeRecipe: recipeKey,
-                           activeConfirm: null,
-                           activeMeta: null,
-                           activeItem: null});
-        } else {
-            this.setState({activeTitle: recipeKey,
-                           activeConfirm: null,
-                           activeMeta: null,
-                           activeItem: null});
-        }
-
-
-        console.log('onactivetitle', this.state.activeTitle);
-    },
-
-    onActiveConfirmChange(recipeKey) {
-        this.setState({activeTitle: null,
-                       activeItem: null,
-                       activeMeta: null,
-                       activeConfirm: recipeKey});
-        console.log('onactiveconfirm', this.state.activeTitle);
-    },
-
-    onActiveMetaChange(recipeKey) {
-        this.setState({activeTitle: null,
-                       activeItem: null,
-                       activeConfirm: null,
-                       activeMeta: recipeKey});
-        console.log('onactivemeta', this.state.activeMeta);
+    getChildContext() {
+        return {
+            ui: this.state.ui
+        };
     },
 
     componentWillMount() {
         Actions.init();
     },
 
-    // componentDidUpdate() {
-
-        // let newRecipe = _.find(this.state.recipes, recipe =>
-        //    recipe.title === 'Unbenannt');
-
-       // if (newRecipe) {
-       //     if (this.state.activeTitle === null) {
-       //          Actions.setActiveTitle(newRecipe.key);
-       //     }
-       // }
-
-    // },
-
     render() {
-        // let recipes = this.state.recipes;
-
-        // let reversed = recipes.slice().reverse();
-
-        // let recipesComponents =
-        //     recipes.length > 0 ?
-        //         _.map(reversed, recipe =>
-        //               <List title={recipe.title}
-        //               meta={recipe.meta || ''}
-        //               items={recipe.items}
-        //               counter={recipe.counter || 0}
-        //               key={recipe.key}
-        //               recipeKey={recipe.key}
-        //               openRecipe={this.state.openRecipe === recipe.key}
-        //               activeRecipe={this.state.activeRecipe === recipe.key}
-        //               activeConfirm={this.state.activeConfirm === recipe.key}
-        //               activeItem={this.state.activeItem}
-        //               activeMeta={this.state.activeMeta}
-        //               activeTitle={this.state.activeTitle === recipe.key}
-        //               isRecipe={true} />) :
-        //         null;
+        let recipes = this.state.recipes.slice().reverse();
+        let recipesLists = _.map(recipes, recipe =>
+                d(RecipeList, {key: recipe.key, recipe}));
 
     // let recentObjects = _.map(_.take(this.state.recents.slice().reverse(),5),
     //   recent =>
     //       _.find(this.state.recipes, recipe => recipe.key === recent.recipeKey));
 
-    return <div className='main'>
-          <ShoppingList items={this.state.items} />
-    </div>;
+        return d('div.main', {}, [
+            d(ShoppingList, {items: this.state.items}),
+            recipes.length > 0 ? recipesLists : null]);
     }
 });
 

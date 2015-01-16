@@ -3,48 +3,46 @@
 require('styles/button');
 
 let Button = require('components/button');
-let {slideinSmallLeft, slideinSmall} = require('animate');
 let Actions = require('actions');
 
-module.exports = React.createClass({
+let pt = require('react').PropTypes;
 
-    // getInitialState: () => ({
-    //     confirmMode: false
-    // }),
+let ConfirmButton = React.createClass({
 
-    // toggleConfirmMode() {
-    //     this.setState({confirmMode: !this.state.confirmMode}); },
+    contextTypes: {
+        recipeKey: pt.string.isRequired,
+        ui: pt.object.isRequired
+    },
 
-    // componentWillUpdate() {
-    //     if (this.state.confirmMode) {
-    //         let confirmalElement = $(this.refs.confirmal.getDOMNode());
-    //         // confirmalElement.hide(0, () => this.setState({confirmMode: false}));
-    //         confirmalElement.hide(0, () => console.log('hide'));
-    //     }
-    // },
+    handleStartConfirm() {
+        Actions.setConfirm(true);
+    },
+
+    handleCancel() {
+        Actions.setConfirm(false);
+    },
+
+    handleDelete() {
+        Actions.deleteRecipe(this.context.recipeKey);
+    },
+
 
     render() {
-        let {text, handleClick, recipeKey, activeConfirm} = this.props;
-        // let confirmMode = this.state.confirmMode;
+        let activeConfirm = this.context.ui.modal === 'confirm';
 
-        let button = <Button noActive={true} key={3}
-                          handleClick={()=>Actions.setActiveConfirm(recipeKey)}
-                          text={text}/>;
+        let button = d(Button, {key:3, onClick:this.handleStartConfirm},'löschen');
 
+        let confirmal = d('div.confirmal', {}, [
+            d(Button,
+              {key: 1, onClick: this.handleCancel}, 'abbrechen'),
+            d(Button,
+              {color: 'red', key: 2, onClick: this.handleDelete}, 'löschen')]);
 
-        let confirmal =
-            <div className='confirmal' ref='confirmal'>
-                <Button 
-                    key={1} 
-                    noActive={true} 
-                    handleClick={()=>Actions.setActiveConfirm(null)} 
-                    text='abbrechen' />
-                <Button key={2} noActive={true} handleClick={handleClick} text={'löschen'} color='red' />
-            </div>;
 
         // dynamic choose the right animation function
-        let animation = activeConfirm ? slideinSmall : slideinSmallLeft;
+        let animation = activeConfirm ? a.slideinSmall : a.slideinSmallLeft;
 
         return animation(activeConfirm ? confirmal : button);
     }
 });
+module.exports = ConfirmButton;

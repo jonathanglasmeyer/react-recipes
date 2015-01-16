@@ -48,7 +48,8 @@ module.exports = Reflux.createStore({
 
     onRemoveAllChecked() {
         let checkedItems = _.filter(this.items, 'checked');
-        _.each(checkedItems, item => this.onDeleteItem(item.key));
+        _.each(checkedItems, (item,i) =>
+           setTimeout(()=>this.onDeleteItem(item.key),50*i));
     },
 
     onCheckAll() {

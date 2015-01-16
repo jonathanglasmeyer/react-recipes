@@ -5,7 +5,7 @@ module.exports = React.createClass({
 
     getDefaultProps() {
         return {
-            handleClick: () => {}
+            onClick: () => {}
         };
     },
 
@@ -13,10 +13,10 @@ module.exports = React.createClass({
         let {handleClick, fname, className} = this.props;
 
         return (
-            <div className={"svg " + className}
+            <div className={"svg " + className} style={{cursor: 'pointer'}}
                 dangerouslySetInnerHTML={
                     {__html: require('img/' + fname + '.svg')}}
-                onClick={handleClick} />
+                onClick={this.props.onClick} />
         );
     }
 });

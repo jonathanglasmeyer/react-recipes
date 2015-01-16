@@ -1,36 +1,33 @@
 'use strict';
 require('styles/list');
 
-let ListHeader = require('components/list_header');
-let Footer = require('components/footer');
-
 let pt = require('react').PropTypes;
 
 let ListWrap = React.createClass({
+    displayName: 'ListWrap',
+
     propTypes: {
-        style: pt.object,
-        open: pt.bool,
-        height: pt.number
+        footer: pt.element,
     },
 
     getDefaultProps: () => ({
-        open: true
+        footer: null
     }),
 
-    render() {
-        let style = {height: this.props.height};
-        return (
-            <div
-                className='items'
-                style={style}>
+    contextTypes: {
+        isOpen: pt.bool.isRequired,
+        height: pt.number.isRequired
+    },
 
-                <ul>
-                {/*<ListHeader {...this.props} />*/}
-                    {a.fadingSlow(this.props.open ? this.props.children : null)}
-                </ul>
-                {/*this.props.open ? <Footer {...this.props}/> : null */}
-            </div>
-        );
+    render() {
+        let style = {height: this.context.height};
+
+
+        return d('div.items', {style}, [
+            d('ul', {}, this.props.children), 
+            this.context.isOpen ? this.props.footer : null
+        ]);
+
     }
 });
 

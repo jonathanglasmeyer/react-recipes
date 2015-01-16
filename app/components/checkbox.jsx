@@ -8,18 +8,19 @@ let pt = require('react').PropTypes;
 let Checkbox = React.createClass({
     propTypes: {
         color: pt.object, // needed for background
-        checked: pt.bool
+        checked: pt.bool.isRequired,
+        onClick: pt.func // for list header checkbox
     },
 
+    getDefaultProps: () => ({
+        onClick: function() {}
+    }),
+
     render() {
-        return <div className='checkbox-wrap'>
-            <input
-                className='checkbox-animated'
-                style={this.props.color}
-                type='checkbox'
-                readOnly
-                checked={this.props.checked}/>
-        </div>;
+        return d('div.checkbox-wrap', {onClick: this.props.onClick},
+            d('input:checkbox.checkbox-animated[readOnly]', {
+                style: this.props.color,
+                checked: this.props.checked}));
     }
 
 });

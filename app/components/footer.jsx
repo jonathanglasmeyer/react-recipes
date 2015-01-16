@@ -32,7 +32,7 @@ let Footer = React.createClass({
         let buttonRight = isRecipe ?
             <div className='button-right'>
                 { activeRecipe ?
-                    <Button text='fertig' color='green' handleClick={this.handleEndEditMode}/> : 
+                    <Button text='fertig' color='green' handleClick={this.handleEndEditMode}/> :
                     <Button text='bearbeiten' handleClick={this.handleStartEditMode}/>
                 }
             </div>

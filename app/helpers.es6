@@ -1,5 +1,6 @@
 'use strict';
-var categories = require('data/categories.json');
+let categories = require('data/categories.json');
+
 /*jslint bitwise: true */
 
 function contains(string1, string2) {
@@ -29,6 +30,23 @@ module.exports = {
         return cat === undefined ?
             { name: 'undefined', id: 999, color: ''} :
             { name: cat.name, id: cat.id, color: cat.color };
+    },
+
+    categoryColor(hexColor) {
+        return {backgroundColor:
+            `rgba(${this.hexToRgb(hexColor)}, .20)`};
+    },
+
+    categorySorted(items) {
+        let categorizedItems = _.each(items, item =>
+                                         item.category = this.category(item.text));
+        return _.sortBy(categorizedItems, item => item.category.id);
+    },
+
+    itemComponentList(items, componentType, startIndex=1, additionalProps={}) {
+        return _.map(this.categorySorted(items), (item, i) =>
+            d(componentType,
+              _.extend(additionalProps, {key: item.key, i: startIndex+i, item})));
     },
 
     capitalize(string) {

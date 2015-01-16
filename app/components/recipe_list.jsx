@@ -3,57 +3,74 @@ require('styles/list.less');
 
 let pt = require('react').PropTypes;
 
-let Input = require('components/input');
-let Item = require('components/item');
+// let Input = require('components/input');
+// let Item = require('components/item');
+let ListInput = require('components/list_input');
+let RecipeListHeader = require('components/recipe_list_header');
+let RecipeListItem = require('components/recipe_list_item');
+let RecipeListFooter = require('components/recipe_list_footer');
+let ListWrap = require('components/list_wrap');
 
-let h = require('helpers');
-let a = require('animate');
-
-let ShoppingList = React.createClass({
+let RecipeList = React.createClass({
+    displayName: 'RecipeList',
 
     propTypes: {
-        i: pt.number, // index for calculating height of li element
-        items: pt.array
+        recipe: pt.object.isRequired,
+    },
+
+    // from App-Component
+    contextTypes: {
+        ui: pt.object.isRequired 
+    },
+
+    childContextTypes: {
+        recipeKey: pt.string.isRequired,
+        recipe: pt.object.isRequired, // for adding all elements icon in header
+        isOpen: pt.bool.isRequired,
+        editMode: pt.bool.isRequired,
+        height: pt.number.isRequired,
+    },
+
+    getChildContext() {
+        return {
+            recipeKey: this.props.recipe.key,
+            recipe: this.props.recipe,
+            isOpen: this.isOpen(),
+            editMode: this.isOpen() && this.editMode(),
+            height: this.height(),
+        };
+    },
+
+    itemCount()  { return this.props.recipe.items.length; },
+    itemStartI() { return this.editMode() ? 2 : 1; },
+    isOpen()     { return this.context.ui.openRecipe === this.props.recipe.key; },
+    editMode()   { return this.context.ui.editMode; },
+    height()     {
+        return this.isOpen() ? this.itemCount()*50+6+50*(this.itemStartI()+1) : 50;
     },
 
     render() {
-        let {items, meta, counter, isRecipe, recipeKey, activeRecipe,
-             openRecipe, activeItem, activeTitle, activeConfirm} = this.props;
-
-        let categorizedItems = _.each(items, item =>
-                                         item.category = category(item.text));
-        let sortedItems = _.sortBy(categorizedItems, item => item.category.id);
-
-        let itemComponents = _.map(sortedItems, (item, i) =>
-            <ShoppingListItem
-                key={item.key}
-                i={i+2}
-                item={item} />
-        );
+        // let itemComponents = _.map(h.categorySorted(this.props.items, (item, i) =>
+        //     <ShoppingListItem
+        //         key={item.key}
+        //         i={i+2}
+        //         item={item} />
+        // );
 
 
-        // let pic =
-        //     <li className='picture' >
-        //         <img src={require('img/bild.jpg')}/>
-        //     </li>;
+        return d(ListWrap, {footer: d(RecipeListFooter)}, [
 
-        let heightList = Math.max(470, this.props.items.length * 50 + 104);
+            d(RecipeListHeader),
 
-        let backgroundColor = !openRecipe ?
-            helpers.mergeColors(counterColor_(this.props.counter), [255, 250, 245]) : null;
+            this.editMode() ? d(ListInput) : null,
 
-        return <ListWrap
-            title='Einkaufsliste'
-            style={{background: backgroundColor}}
-            height={heightList}>
+            h.itemComponentList(
+                this.props.recipe.items,
+                RecipeListItem,
+                this.itemStartI())
+        ]);
 
-            <Input/>
-            {itemComponents}
-        <ListWrap/>;
     }
 });
+module.exports = RecipeList;
 
-module.exports = ShoppingList;
-
-                // {this.showPic() ? pic : null}
-                    // <li id='li-symbols'><ListHeader /></li>

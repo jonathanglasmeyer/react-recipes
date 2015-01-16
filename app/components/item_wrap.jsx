@@ -8,21 +8,31 @@ let pt = require('react').PropTypes;
 // used ShoppingListItem
 let ItemWrap = React.createClass({
     propTypes: {
-        color: pt.object.isRequired,
+        color: pt.string, // hex
         id: pt.string, // the html id attribute
-        i: pt.number.isRequired,
+        cursor: pt.string
     },
 
-    getDefaultProps: () => ({
-        id: null
-    }),
+    contextTypes: {
+        i: pt.number,
+    },
+
+    getDefaultProps() {
+        return {
+            id: null,
+            color: '',
+            cursor: 'pointer'
+        };
+    },
 
     render() {
-        let style = _.extend(this.props.color, h.listTransformStyle(this.props.i));
+        let i = _.isUndefined(this.context.i) ? this.props.i : this.context.i;
+        let style = _.extend(
+            this.props.color ? h.categoryColor(this.props.color) : {},
+            h.listTransformStyle(i));
+        style.cursor = this.props.cursor;
 
-        return <li style={style} id={this.props.id}>
-            {this.props.children}
-        </li>;
+        return d('li', {style, id: this.props.id}, this.props.children);
     }
 });
 

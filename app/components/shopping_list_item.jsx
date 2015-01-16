@@ -3,11 +3,10 @@
 require('styles/item');
 require('styles/checkbox');
 
-let pt = require('react').PropTypes;
-
 let ItemWrap = require('components/item_wrap');
 let CheckboxLabel = require('components/checkbox_label');
-let cx = require('react/addons').addons.classSet;
+
+let pt = require('react').PropTypes;
 
 let ShoppingListItem = React.createClass({
 
@@ -16,46 +15,24 @@ let ShoppingListItem = React.createClass({
         i: pt.number.isRequired,
     },
 
-   backgroundColor() {
-        return this.props.item.category.color ?
-            {background:
-                `rgba(${h.hexToRgb(this.props.item.category.color)}, .20)`} :
-            {};
+    childContextTypes: {
+        item: pt.object.isRequired,
+        i: pt.number.isRequired
     },
 
-    handleCheck() {
-        console.log('foo');
-        Actions.check(this.props.item.key, !this.props.item.checked);
+    getChildContext() {
+        return {
+            item: this.props.item,
+            i: this.props.i
+        };
     },
+
 
     render() {
-        let color = {backgroundColor:
-            `rgba(${h.hexToRgb(this.props.item.category.color)}, .20)`};
+        let color = this.props.item.category.color;
 
-        return <ItemWrap
-            color={color}
-            i={this.props.i}>
-
-            <CheckboxLabel 
-                onClick={this.handleCheck}
-                item={this.props.item}/>
-        </ItemWrap>;
+        return d(ItemWrap, {color}, d(CheckboxLabel));
     },
-
-
-    render_alt() {
-
-        // let deleteIcon =
-        //     <Svg
-        //         handleClick = {this.handleDelete}
-        //         fname       = 'delete'
-        //         className   = 'right delete-icon' />;
-
-
-        return <ItemWrap color={color} i={this.props.i}>
-            <CheckboxLabel item={this.props.item} color={color}/>
-        </ItemWrap>;
-    }
 });
 
 module.exports = ShoppingListItem;

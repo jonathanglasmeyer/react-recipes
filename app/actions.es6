@@ -7,9 +7,11 @@ var Reflux = require('reflux');
 module.exports = Reflux.createActions([
     // global state
     'setActiveItem',
+    'startEditMode',
+    'endEditMode',
     'setOpenRecipe',
     'setActiveTitle',
-    'setActiveConfirm',
+    'setConfirm',
     'setActiveMeta',
     // items
     'init',

@@ -7,12 +7,17 @@ let helpers = require('helpers');
 
 const COLORS = {red: '#F44336', green: '#5C832F'};
 
+let pt = require('react').PropTypes;
 
 let Button = React.createClass({
 
+    propTypes: {
+        children: pt.string.isRequired,
+        onClick: pt.func.isRequired
+    },
 
     getDefaultProps: () => ({
-        handleClick: null
+        onClick: null
     }),
 
     getInitialState: () => ({
@@ -36,14 +41,6 @@ let Button = React.createClass({
         }
     },
 
-    handleClick() {
-        if (!helpers.hasTouch()) {
-            if (this.props.handleClick) {
-                this.props.handleClick();
-            }
-        }
-    },
-
     render() {
         let {noActive, text, color} = this.props;
         let className = cx({'button-flat': true,
@@ -51,10 +48,8 @@ let Button = React.createClass({
 
         return (
             <div className={className}
-                onTouchStart={this.handleTouchStart}
-                onTouchEnd={this.handleTouchEnd}
-                onClick={this.handleClick}>
-                <div style={{color: COLORS[color]}} className='text-center uppercase'>{text}</div>
+                onClick={this.props.onClick}>
+                <div style={{color: COLORS[color]}} className='text-center uppercase'>{this.props.children}</div>
             </div>
         );
     }
