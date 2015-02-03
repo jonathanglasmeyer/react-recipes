@@ -5,19 +5,12 @@ require('styles/item');
 let ItemWrap = require('components/item_wrap');
 let InputWrap = require('components/input_wrap');
 
-let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
-
 let pt = require('react').PropTypes;
 
 let ListInput = React.createClass({
     displayName: 'ListInput',
 
-    mixins: [LinkedStateMixin],
-
-    contextTypes: {
-        recipeKey: pt.string
-    },
-
+    contextTypes: {recipeKey: pt.string},
 
     handleSubmit(text) {
         if (_.isUndefined(this.context.recipeKey)) {
@@ -36,7 +29,6 @@ let ListInput = React.createClass({
                 resetAfterSubmit: true,
                 className: 'input-form input-form-item',
                 id: 'input-item'}));
-
     }
 });
 module.exports = ListInput;

@@ -35,7 +35,7 @@ let RecipeListItem = React.createClass({
     render() {
         let color = this.props.item.category.color;
 
-        return d(ItemWrap, {color, cursor: 'text'},
+        return d(ItemWrap, {color, cursor: 'text', opacity: this.context.itemOpacity},
             d(EditableLabel));
     },
 });

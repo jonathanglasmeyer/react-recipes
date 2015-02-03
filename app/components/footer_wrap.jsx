@@ -1,11 +1,19 @@
 'use strict';
 require('styles/footer.less');
 
+let pt = require('react').PropTypes;
+
 let FooterWrap = React.createClass({
     displayName: 'FooterWrap',
 
+    contextTypes: {
+        percent: pt.number,
+    },
+
     render() {
-        return d('div#footer', {}, d('div.footer-content', {}, this.props.children));
+        let style = {opacity: this.context.percent || 1};
+
+        return d('div#footer', {style}, d('div.footer-content', {}, this.props.children));
     }
 });
 

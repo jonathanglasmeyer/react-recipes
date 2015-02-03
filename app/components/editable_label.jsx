@@ -27,13 +27,11 @@ let EditableLabel = React.createClass({
                 this.context.ui.modal === 'item' && 
                 this.context.ui.activeItem === this.context.item.key;
 
-        let spanOrEditForm = itemIsActive ?
-            d(ItemEditForm, {item: this.context.item}) :
-            d('span.label-text', {style}, this.context.item.text);
+        let editForm = d(ItemEditForm, {item: this.context.item})
 
         return d('div', {}, [
             d('div.label-wrap', {onClick: this.handleClick},
-                d('label.item.item-recipe', {}, spanOrEditForm)),
+                d('label.item.item-recipe', {}, editForm)),
             itemIsActive ? d(DeleteIcon) : null]);
     },
 });

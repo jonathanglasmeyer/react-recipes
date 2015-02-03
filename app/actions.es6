@@ -14,6 +14,8 @@ module.exports = Reflux.createActions([
     'setActiveTitle',
     'setConfirm',
     'setActiveMeta',
+    'tweenOut',
+    'tweenIn',
     // items
     'init',
     'addItem',

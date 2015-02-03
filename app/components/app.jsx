@@ -56,7 +56,7 @@ let App = React.createClass({
     render() {
         let recipes = this.state.recipes.slice().reverse();
         let recipesLists = _.map(recipes, recipe =>
-                d(RecipeList, {key: recipe.key, recipe}));
+                d(RecipeList, {ui: this.state.ui, key: recipe.key, recipe}));
 
     // let recentObjects = _.map(_.take(this.state.recents.slice().reverse(),5),
     //   recent =>

@@ -80,17 +80,16 @@ module.exports = {
         return [126, 170, Math.max(250-50*counter,0)];
     },
 
-    mergeColors(c1,c2) {
+    mergeColors(c1,c2, weightFirst=.1) {
 
         // weight of the first, 10 based
         // first: accent color;
-        let weightFirst = .10;
         let f = (a,b,w) => Math.floor((a*w + b*(1-w)));
         let r = f(c1[0], c2[0], weightFirst);
         let g = f(c1[1], c2[1], weightFirst);
         let b = f(c1[2], c2[2], weightFirst);
         let result =  `rgb(${r},${g},${b})`;
-        // console.log(result);
+        console.log(result);
         return result;
     }
 

@@ -5,6 +5,9 @@ require('styles/checkbox.less');
 
 let pt = require('react').PropTypes;
 
+const BRIGHT = [255, 250, 245];
+const DARK = [66,65,64];
+
 // used ShoppingListItem
 let ItemWrap = React.createClass({
     propTypes: {

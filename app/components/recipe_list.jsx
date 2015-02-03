@@ -1,7 +1,11 @@
 'use strict';
 require('styles/list.less');
 
+let tweenState = require('react-tween-state');
+
 let pt = require('react').PropTypes;
+
+let Reflux = require('reflux');
 
 // let Input = require('components/input');
 // let Item = require('components/item');
@@ -14,15 +18,27 @@ let ListWrap = require('components/list_wrap');
 let RecipeList = React.createClass({
     displayName: 'RecipeList',
 
-    propTypes: {
-        recipe: pt.object.isRequired,
-    },
+    mixins: [ tweenState.Mixin,
+        Reflux.listenTo(Actions.tweenOut, 'tweenOut'),
+        Reflux.listenTo(Actions.tweenIn, 'tweenIn')
+    ],
+
+    propTypes: {recipe: pt.object.isRequired},
 
     // from App-Component
     contextTypes: {
-        ui: pt.object.isRequired 
+        ui: pt.object.isRequired
     },
 
+    getInitialState() {
+        return {
+            percent: 0,
+            itemOpacity: 0,
+            showItems: false
+        };
+    },
+
+    // --------- context for children ------------------------------------------
     childContextTypes: {
         recipeKey: pt.string.isRequired,
         recipe: pt.object.isRequired, // for adding all elements icon in header
@@ -37,37 +53,67 @@ let RecipeList = React.createClass({
             recipe: this.props.recipe,
             isOpen: this.isOpen(),
             editMode: this.isOpen() && this.editMode(),
-            height: this.height(),
+            height: this.height()
         };
     },
+    // -------------------------------------------------------------------------
 
     itemCount()  { return this.props.recipe.items.length; },
+
     itemStartI() { return this.editMode() ? 2 : 1; },
-    isOpen()     { return this.context.ui.openRecipe === this.props.recipe.key; },
-    editMode()   { return this.context.ui.editMode || this.itemCount() === 0; },
+
+    isOpen() {
+       return this.context.ui.openRecipe === this.props.recipe.key;
+    },
+
+    editMode() { 
+        return this.context.ui.editMode || this.itemCount() === 0; 
+    },
+
     height()     {
         return this.isOpen() ? this.itemCount()*50+6+50*(this.itemStartI()+1) : 50;
     },
 
-    render() {
-        // let itemComponents = _.map(h.categorySorted(this.props.items, (item, i) =>
-        //     <ShoppingListItem
-        //         key={item.key}
-        //         i={i+2}
-        //         item={item} />
-        // );
+    // // for the tweening
+    // heightItems() {
+    //     return this.itemCount()*50+6+50*this.itemStartI();
+    // },
 
+    // // grow
+    // tweenOut(recipeKey) {
+    //     if (this.props.recipe.key === recipeKey) {
+    //         this.tweenState('percent', {
+    //               easing: tweenState.easingTypes.easeInOutQuad,
+    //               duration: 400,
+    //               beginValue: 0,
+    //               endValue: 1
+    //         });
+    //     }
+    // },
+
+    // // shrink
+    // tweenIn(recipeKey) {
+    //     if (this.props.recipe.key === recipeKey) {
+    //         this.tweenState('percent', {
+    //               easing: tweenState.easingTypes.easeInOutQuad,
+    //               duration: 400,
+    //               beginValue: 1,
+    //               endValue: 0
+    //         });
+    //     }
+    // },
+
+    render() {
 
         return d(ListWrap, {footer: d(RecipeListFooter)}, [
-
             d(RecipeListHeader),
 
             this.editMode() ? d(ListInput) : null,
 
-            a.fadingSlow(h.itemComponentList(
+            this.isOpen() ? a.fadingSlow(h.itemComponentList(
                 this.props.recipe.items,
                 RecipeListItem,
-                this.itemStartI()))
+                this.itemStartI())) : null,
         ]);
 
     }

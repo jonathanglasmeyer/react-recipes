@@ -11,13 +11,14 @@ let ListWrap = React.createClass({
     },
 
     getDefaultProps: () => ({
-        footer: null
+        footer: null,
+        percent: 1
     }),
 
     contextTypes: {
         ui: pt.object.isRequired,
         isOpen: pt.bool.isRequired,
-        height: pt.number.isRequired
+        height: pt.number.isRequired,
     },
 
     render() {

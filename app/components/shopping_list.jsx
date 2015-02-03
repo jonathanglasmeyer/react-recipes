@@ -13,9 +13,7 @@ let pt = require('react').PropTypes;
 let ShoppingList = React.createClass({
     displayName: 'ShoppingList',
 
-    propTypes: {
-        items: pt.array
-    },
+    propTypes: {items: pt.array},
 
     childContextTypes: {
         height: pt.number.isRequired,
@@ -23,32 +21,20 @@ let ShoppingList = React.createClass({
     },
 
     getChildContext() {
-        return {
-            height: this.height(),
-            isOpen: true
-        };
+        return {height: this.height(), isOpen: true};
     },
 
-    itemCount() {
-        return this.props.items.length;
-    },
+    itemCount()  { return this.props.items.length; },
+    itemStartI() { return 2; },
+    height()     { return Math.max(470, this.props.items.length * 50 + 156); },
 
-    itemStartI() {
-        return 2;
-    },
-
-    height() {
-        return Math.max(470, this.props.items.length * 50 + 156);
-    },
 
     render() {
-
         return d(ListWrap, {footer: d(ShoppingListFooter)}, [
             d(ShoppingListHeader, this.props),
             d(ListInput),
             a.fadingSlow(
                 h.itemComponentList(this.props.items, ShoppingListItem, 2))]);
-
     }
 });
 module.exports = ShoppingList;
