@@ -13,7 +13,7 @@ let ListInput = require('components/list_input');
 let RecipeListHeader = require('components/recipe_list_header');
 let RecipeListItem = require('components/recipe_list_item');
 let RecipeListFooter = require('components/recipe_list_footer');
-let ListWrap = require('components/list_wrap');
+let List = require('./widgets/list.jsx');
 
 let RecipeList = React.createClass({
     displayName: 'RecipeList',
@@ -105,7 +105,7 @@ let RecipeList = React.createClass({
 
     render() {
 
-        return d(ListWrap, {footer: d(RecipeListFooter)}, [
+        return d(List, {footer: d(RecipeListFooter)}, [
             d(RecipeListHeader),
 
             this.editMode() ? d(ListInput) : null,

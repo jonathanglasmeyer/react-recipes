@@ -2,6 +2,7 @@ var webpack = require('webpack'),
     path = require('path');
 
 module.exports = {
+  devtool: 'eval',
   cache: true,
   debug: true,
   entry: [

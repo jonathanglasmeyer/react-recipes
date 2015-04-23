@@ -3,10 +3,10 @@ require('styles/list.less');
 
 
 let ListInput = require('components/list_input');
-let ShoppingListHeader = require('components/shopping_list_header');
-let ShoppingListItem = require('components/shopping_list_item');
-let ShoppingListFooter = require('components/shopping_list_footer');
-let ListWrap = require('components/list_wrap');
+let ShoppingListHeader = require('./shopping_list_header.jsx');
+let ShoppingListItem = require('./shopping_list_item.jsx');
+let ShoppingListFooter = require('./shopping_list_footer.jsx');
+let List = require('../widgets/list.jsx');
 
 let pt = require('react').PropTypes;
 
@@ -30,7 +30,7 @@ let ShoppingList = React.createClass({
 
 
     render() {
-        return d(ListWrap, {footer: d(ShoppingListFooter)}, [
+        return d(List, {footer: d(ShoppingListFooter)}, [
             d(ShoppingListHeader, this.props),
             d(ListInput),
             a.fadingSlow(

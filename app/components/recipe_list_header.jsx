@@ -3,7 +3,7 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-let ListHeaderWrap = require('components/list_header_wrap');
+let ListHeader = require('./widgets/list_header.jsx');
 let RecipeListTitle = require('components/recipe_list_title');
 let TitleEdit = require('components/title_edit');
 let PageNumber = require('components/page_number');
@@ -24,7 +24,7 @@ let RecipeListHeader = React.createClass({
         let counterOrPageNr = this.context.isOpen ? PageNumber : Counter;
         let titleOrEdit = this.context.editMode ? TitleEdit : RecipeListTitle;
 
-        return d(ListHeaderWrap, {},
+        return d(ListHeader, {},
              _.map([ titleOrEdit, AddAllIcon, counterOrPageNr], c => d(c)));
     }
 });
