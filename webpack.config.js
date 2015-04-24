@@ -19,15 +19,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery",
         React: 'react',
         "_": 'lodash',
         Actions: 'actions',
         h: 'helpers',
         a: 'animate',
-        s: 'react-style',
         colors: 'colors'
 
     })
