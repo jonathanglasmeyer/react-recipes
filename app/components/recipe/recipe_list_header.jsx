@@ -3,9 +3,9 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-var ListHeader = require('./widgets/list_header.jsx');
-var RecipeListTitle = require('components/recipe_list_title');
-var TitleEdit = require('components/title_edit');
+var ListHeader = require('../widgets/list_header.jsx');
+var RecipeListTitle = require('./recipe_list_title.jsx');
+var TitleEdit = require('../title_edit.jsx');
 var PageNumber = require('components/page_number');
 var AddAllIcon = require('components/add_all_icon');
 var Counter = require('components/counter');

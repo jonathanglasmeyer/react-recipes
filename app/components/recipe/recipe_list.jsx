@@ -6,10 +6,10 @@ var pt = require('react').PropTypes;
 var Reflux = require('reflux');
 
 var ListInput = require('components/list_input');
-var RecipeListHeader = require('components/recipe_list_header');
-var RecipeListItem = require('components/recipe_list_item');
-var RecipeListFooter = require('components/recipe_list_footer');
-var List = require('./widgets/list.jsx');
+var RecipeListHeader = require('./recipe_list_header.jsx');
+var RecipeListItem = require('./recipe_list_item.jsx');
+var RecipeListFooter = require('./recipe_list_footer.jsx');
+var List = require('../widgets/list.jsx');
 
 let RecipeList = React.createClass({
     displayName: 'RecipeList',

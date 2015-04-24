@@ -8,7 +8,7 @@ var ItemStore = require('item_store');
 var UIStore = require('ui_store');
 var RecipesStore = require('recipes_store');
 var ShoppingList = require('./shopping_list/shopping_list.jsx');
-var RecipeList = require('components/recipe_list');
+var RecipeList = require('./recipe/recipe_list.jsx');
 var NewRecipeButton = require('components/new_recipe_button');
 
 var pt = require('react').PropTypes;
