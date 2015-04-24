@@ -2,17 +2,17 @@
 require('styles/list.less');
 // require('styles/item.less');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let Item = require('components/item');
-let ListHeader = require('components/list_header');
-let Footer = require('components/footer');
-let helpers = require('helpers');
-let {fadingSlow} = require('animate');
-let animate = require('animate');
-let Svg = require('components/svg');
+var Item = require('components/item');
+var ListHeader = require('components/list_header');
+var Footer = require('components/footer');
+var helpers = require('helpers');
+var {fadingSlow} = require('animate');
+var animate = require('animate');
+var Svg = require('components/svg');
 
-let {listTransformStyle} = require('helpers');
+var {listTransformStyle} = require('helpers');
 
 let Recents = React.createClass({
     mixins: [React.addons.LinkedStateMixin],

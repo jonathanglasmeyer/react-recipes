@@ -2,10 +2,10 @@
 require('styles/input');
 require('styles/item');
 
-let Item = require('./widgets/item.jsx');
-let Input = require('./widgets/input.jsx');
+var Item = require('./widgets/item.jsx');
+var Input = require('./widgets/input.jsx');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ListInput = React.createClass({
     displayName: 'ListInput',

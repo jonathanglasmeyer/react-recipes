@@ -5,7 +5,7 @@ require('styles/slidein');
 require('styles/slidein-small');
 require('styles/slidein-small-left');
 
-let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
+var ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 
 module.exports = {

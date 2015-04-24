@@ -2,11 +2,11 @@
 require('styles/input');
 require('styles/item');
 require('styles/svg');
-let Svg = require('components/svg');
+var Svg = require('components/svg');
 
-let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
+var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let Input = React.createClass({
     displayName: 'Input',

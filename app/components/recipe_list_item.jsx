@@ -3,10 +3,10 @@
 require('styles/item');
 require('styles/checkbox');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let Item = require('./widgets/item.jsx');
-let EditableLabel = require('components/editable_label');
+var Item = require('./widgets/item.jsx');
+var EditableLabel = require('components/editable_label');
 
 let RecipeListItem = React.createClass({
     displayName: 'RecipeListItem',

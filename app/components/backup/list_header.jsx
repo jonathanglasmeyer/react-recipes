@@ -3,14 +3,14 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-let Svg = require('components/svg');
-let ListHeaderWrap = require('components/list_header_wrap');
+var Svg = require('components/svg');
+var ListHeaderWrap = require('components/list_header_wrap');
 
-let Actions = require('actions');
+var Actions = require('actions');
 
-let animate = require('animate');
-let cx = require('react/addons').addons.classSet;
-let {counterColor} = require('helpers');
+var animate = require('animate');
+var cx = require('react/addons').addons.classSet;
+var {counterColor} = require('helpers');
 
 let ListHeader = React.createClass({
     displayName: 'ListHeader',

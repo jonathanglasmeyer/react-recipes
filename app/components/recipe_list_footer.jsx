@@ -1,10 +1,10 @@
 'use strict';
 
-let Button = require('components/button');
-let FooterWrap = require('components/footer_wrap');
-let ConfirmButton = require('components/confirm_button');
+var Button = require('components/button');
+var FooterWrap = require('components/footer_wrap');
+var ConfirmButton = require('components/confirm_button');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let RecipeListFooter = React.createClass({
     displayName: 'RecipeListFooter',

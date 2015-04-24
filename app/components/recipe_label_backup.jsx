@@ -1,6 +1,6 @@
 'use strict';
 
-let Checkbox = require('components/checkbox');
+var Checkbox = require('components/checkbox');
 
 let CheckboxLabel = React.createClass({
 

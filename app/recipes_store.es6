@@ -1,11 +1,11 @@
 'use strict';
 
-let Reflux = require('reflux');
-let ref = require('firebase_ref').child('recipes');
-let Actions = require('actions');
+var Reflux = require('reflux');
+var ref = require('firebase_ref').child('recipes');
+var Actions = require('actions');
 
-let {capitalize,category} = require('helpers');
-let actions = require('actions');
+var {capitalize,category} = require('helpers');
+var actions = require('actions');
 
 const categories = require('data/categories.json');
 

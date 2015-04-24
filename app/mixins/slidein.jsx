@@ -1,7 +1,7 @@
 'use strict';
 require('styles/slidein');
 
-let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
+var ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 module.exports = {
     slidein(component) {

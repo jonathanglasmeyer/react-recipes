@@ -2,7 +2,7 @@
 require('styles/fade');
 require('styles/slidein');
 
-let ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
+var ReactCSSTransitionGroup = require('react/addons').addons.CSSTransitionGroup;
 
 module.exports = {
     fading(component) {

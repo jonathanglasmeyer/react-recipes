@@ -1,7 +1,7 @@
 'use strict';
 
-let Button = require('components/button');
-let FooterWrap = require('components/footer_wrap');
+var Button = require('components/button');
+var FooterWrap = require('components/footer_wrap');
 
 let ShoppingListFooter = React.createClass({
     displayName: 'ShoppingListFooter',

@@ -2,7 +2,7 @@
 
 var Input = require('./widgets/input.jsx');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ItemEditForm = React.createClass({
     displayName: 'ItemEditForm',

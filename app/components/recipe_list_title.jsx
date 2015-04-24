@@ -1,7 +1,7 @@
 'use strict';
 require('styles/list_header');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let RecipeListTitle = React.createClass({
     displayName: 'RecipeListTitle',

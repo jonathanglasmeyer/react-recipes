@@ -1,9 +1,9 @@
 'use strict';
 require('styles/list_header');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let Counter = React.createClass({
+var Counter = React.createClass({
     displayName: 'Counter',
 
     contextTypes: {

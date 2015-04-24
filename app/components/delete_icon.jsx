@@ -1,9 +1,9 @@
 'use strict';
 require('styles/svg');
 
-let Svg = require('components/svg');
+var Svg = require('components/svg');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let DeleteIcon  = React.createClass({
     displayName: 'DeleteIcon',

@@ -3,14 +3,14 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-let ListHeader = require('./widgets/list_header.jsx');
-let RecipeListTitle = require('components/recipe_list_title');
-let TitleEdit = require('components/title_edit');
-let PageNumber = require('components/page_number');
-let AddAllIcon = require('components/add_all_icon');
-let Counter = require('components/counter');
+var ListHeader = require('./widgets/list_header.jsx');
+var RecipeListTitle = require('components/recipe_list_title');
+var TitleEdit = require('components/title_edit');
+var PageNumber = require('components/page_number');
+var AddAllIcon = require('components/add_all_icon');
+var Counter = require('components/counter');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let RecipeListHeader = React.createClass({
     displayName: 'RecipeListHeader',

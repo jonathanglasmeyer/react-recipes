@@ -2,13 +2,13 @@
 require('styles/list.less');
 
 
-let ListInput = require('components/list_input');
-let ShoppingListHeader = require('./shopping_list_header.jsx');
-let ShoppingListItem = require('./shopping_list_item.jsx');
-let ShoppingListFooter = require('./shopping_list_footer.jsx');
-let List = require('../widgets/list.jsx');
+var ListInput = require('components/list_input');
+var ShoppingListHeader = require('./shopping_list_header.jsx');
+var ShoppingListItem = require('./shopping_list_item.jsx');
+var ShoppingListFooter = require('./shopping_list_footer.jsx');
+var List = require('../widgets/list.jsx');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ShoppingList = React.createClass({
     displayName: 'ShoppingList',

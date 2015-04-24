@@ -2,7 +2,7 @@
 require('styles/item');
 require('styles/checkbox');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 // used in CheckboxLabel
 let Checkbox = React.createClass({

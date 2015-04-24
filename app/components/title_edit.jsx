@@ -1,8 +1,8 @@
 'use strict';
 require('styles/list_header');
-let Input = require('./widgets/input.jsx');
+var Input = require('./widgets/input.jsx');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let TitleEdit = React.createClass({
     displayName: 'TitleEdit',

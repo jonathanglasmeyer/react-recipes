@@ -7,7 +7,7 @@ const ShoppingListTitle = require('./shopping_list_title.jsx');
 const Checkbox = require('components/checkbox');
 const ListHeader = require('../widgets/list_header.jsx');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ShoppingListHeader = React.createClass({
     displayName: 'ShoppingListHeader',

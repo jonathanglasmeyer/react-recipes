@@ -1,9 +1,9 @@
 'use strict';
 require('styles/svg.less');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let Svg = React.createClass({
+var Svg = React.createClass({
     displayName: 'Svg',
 
     propTypes: {

@@ -1,9 +1,9 @@
 'use strict';
 
-let ref = require('firebase_ref').child('recents');
-let Reflux = require('reflux');
+var ref = require('firebase_ref').child('recents');
+var Reflux = require('reflux');
 
-let actions = require('actions');
+var actions = require('actions');
 
 module.exports = Reflux.createStore({
     listenables: actions,

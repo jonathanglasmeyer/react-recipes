@@ -2,7 +2,7 @@
 // require('styles/list_header');
 require('./shopping_list_title.less');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let Title = React.createClass({
   displayName: 'Title',

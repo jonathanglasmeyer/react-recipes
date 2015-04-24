@@ -1,7 +1,7 @@
 'use strict';
 var App = require('components/app');
-let d = require('jsnox')(React);
-let pt = require('react').PropTypes;
+var d = require('jsnox')(React);
+var pt = require('react').PropTypes;
 
 window.jQuery = window.$ = require('jquery');
 window.d = d;

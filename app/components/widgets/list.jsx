@@ -1,7 +1,7 @@
 'use strict';
 require('styles/list');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ListWrap = React.createClass({
     displayName: 'ListWrap',

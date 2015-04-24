@@ -1,8 +1,8 @@
 'use strict';
 require('styles/list_header');
 
-let cx = require('react/addons').addons.classSet;
-let d = require('jsnox')(React);
+var cx = require('react/addons').addons.classSet;
+var d = require('jsnox')(React);
 
 
 let ListHeaderWrap = React.createClass({

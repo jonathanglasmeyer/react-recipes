@@ -2,12 +2,12 @@
 
 require('styles/button.less');
 
-let cx = require('react/addons').addons.classSet;
-let helpers = require('helpers');
+var cx = require('react/addons').addons.classSet;
+var helpers = require('helpers');
 
 const COLORS = {red: '#F44336', green: '#5C832F'};
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let Button = React.createClass({
 

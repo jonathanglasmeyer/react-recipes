@@ -1,7 +1,7 @@
 'use strict';
 require('styles/footer.less');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let FooterWrap = React.createClass({
     displayName: 'FooterWrap',

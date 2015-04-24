@@ -3,7 +3,7 @@
 require('styles/item.less');
 require('styles/checkbox.less');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 const BRIGHT = [255, 250, 245];
 const DARK = [66,65,64];

@@ -1,10 +1,10 @@
 'use strict';
 require('styles/item');
 
-let Checkbox = require('components/checkbox');
+var Checkbox = require('components/checkbox');
 
-let pt = require('react').PropTypes;
-let cx = require('react/addons').addons.classSet;
+var pt = require('react').PropTypes;
+var cx = require('react/addons').addons.classSet;
 
 /* used in ShoppingListItem, children of ItemWrap*/
 let CheckboxLabel = React.createClass({

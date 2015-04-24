@@ -3,9 +3,9 @@
 require('styles/footer');
 require('styles/new_recipe_button');
 
-let cx = require('react/addons').addons.classSet;
+var cx = require('react/addons').addons.classSet;
 
-let Button = require('components/button');
+var Button = require('components/button');
 
 let NewRecipeButton = React.createClass({
 

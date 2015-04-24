@@ -1,5 +1,5 @@
 'use strict';
-let categories = require('data/categories.json');
+var categories = require('data/categories.json');
 
 /*jslint bitwise: true */
 

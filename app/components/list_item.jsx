@@ -4,15 +4,15 @@ require('styles/item.less');
 require('styles/checkbox.less');
 require('styles/list_header');
 
-let cx = require('react/addons').addons.classSet;
+var cx = require('react/addons').addons.classSet;
 
-let {hexToRgb} = require('helpers');
+var {hexToRgb} = require('helpers');
 
-let Actions = require('actions');
-let {listTransformStyle} = require('helpers');
-let helpers = require('helpers');
-let Svg = require('components/svg');
-let animate = require('animate');
+var Actions = require('actions');
+var {listTransformStyle} = require('helpers');
+var helpers = require('helpers');
+var Svg = require('components/svg');
+var animate = require('animate');
 
 
 let Item = React.createClass({

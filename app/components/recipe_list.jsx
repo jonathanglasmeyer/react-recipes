@@ -1,19 +1,19 @@
 'use strict';
 require('styles/list.less');
 
-let tweenState = require('react-tween-state');
+var tweenState = require('react-tween-state');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let Reflux = require('reflux');
+var Reflux = require('reflux');
 
-// let Input = require('components/input');
-// let Item = require('components/item');
-let ListInput = require('components/list_input');
-let RecipeListHeader = require('components/recipe_list_header');
-let RecipeListItem = require('components/recipe_list_item');
-let RecipeListFooter = require('components/recipe_list_footer');
-let List = require('./widgets/list.jsx');
+// var Input = require('components/input');
+// var Item = require('components/item');
+var ListInput = require('components/list_input');
+var RecipeListHeader = require('components/recipe_list_header');
+var RecipeListItem = require('components/recipe_list_item');
+var RecipeListFooter = require('components/recipe_list_footer');
+var List = require('./widgets/list.jsx');
 
 let RecipeList = React.createClass({
     displayName: 'RecipeList',

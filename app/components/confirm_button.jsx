@@ -2,10 +2,10 @@
 
 require('styles/button');
 
-let Button = require('components/button');
-let Actions = require('actions');
+var Button = require('components/button');
+var Actions = require('actions');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ConfirmButton = React.createClass({
 

@@ -4,21 +4,21 @@ require('modernizr/modernizr');
 require('base/less/style.less');
 require('styles/app');
 
-let Reflux = require('reflux');
+var Reflux = require('reflux');
 
-let ItemStore = require('item_store');
-let UIStore = require('ui_store');
-// let RecentsStore = require('recents_store');
-let RecipesStore = require('recipes_store');
-let ShoppingList = require('./shopping_list/shopping_list.jsx');
-let RecipeList = require('components/recipe_list');
-let NewRecipeButton = require('components/new_recipe_button');
-// let Recents = require('components/recents');
+var ItemStore = require('item_store');
+var UIStore = require('ui_store');
+// var RecentsStore = require('recents_store');
+var RecipesStore = require('recipes_store');
+var ShoppingList = require('./shopping_list/shopping_list.jsx');
+var RecipeList = require('components/recipe_list');
+var NewRecipeButton = require('components/new_recipe_button');
+// var Recents = require('components/recents');
 
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
-let {slidein} = require('animate');
+var {slidein} = require('animate');
 
 
 let App = React.createClass({

@@ -2,9 +2,9 @@
 require('styles/list_header');
 require('styles/input');
 
-let pt = require('react').PropTypes;
-// let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
-let Input = require('./widgets/input.jsx');
+var pt = require('react').PropTypes;
+// var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
+var Input = require('./widgets/input.jsx');
 
 let PageNumber = React.createClass({
     displayName: 'PageNumber',

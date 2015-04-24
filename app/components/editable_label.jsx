@@ -1,11 +1,11 @@
 'use strict';
 require('styles/item');
 
-let ItemEditForm = require('components/item_edit_form');
-let Svg = require('components/svg');
-let DeleteIcon = require('components/delete_icon');
+var ItemEditForm = require('components/item_edit_form');
+var Svg = require('components/svg');
+var DeleteIcon = require('components/delete_icon');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 /* used in ShoppingListItem, children of ItemWrap*/
 let EditableLabel = React.createClass({

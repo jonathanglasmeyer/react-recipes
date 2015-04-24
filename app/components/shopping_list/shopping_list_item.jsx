@@ -3,10 +3,10 @@
 require('styles/item');
 require('styles/checkbox');
 
-let Item = require('../widgets/item.jsx');
-let CheckboxLabel = require('components/checkbox_label');
+var Item = require('../widgets/item.jsx');
+var CheckboxLabel = require('components/checkbox_label');
 
-let pt = require('react').PropTypes;
+var pt = require('react').PropTypes;
 
 let ShoppingListItem = React.createClass({
 
