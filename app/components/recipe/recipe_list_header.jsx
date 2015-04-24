@@ -7,7 +7,7 @@ var ListHeader = require('../widgets/list_header.jsx');
 var RecipeListTitle = require('./recipe_list_title.jsx');
 var TitleEdit = require('../title_edit.jsx');
 var PageNumber = require('components/page_number');
-var AddAllIcon = require('components/add_all_icon');
+var AddAllIcon = require('./add_all_icon.jsx');
 var Counter = require('components/counter');
 
 var pt = require('react').PropTypes;
