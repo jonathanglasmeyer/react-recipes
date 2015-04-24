@@ -1,8 +1,6 @@
 'use strict';
 require('styles/list.less');
 
-var tweenState = require('react-tween-state');
-
 var pt = require('react').PropTypes;
 
 var Reflux = require('reflux');
@@ -16,10 +14,6 @@ var List = require('./widgets/list.jsx');
 let RecipeList = React.createClass({
     displayName: 'RecipeList',
 
-    mixins: [ tweenState.Mixin,
-        Reflux.listenTo(Actions.tweenOut, 'tweenOut'),
-        Reflux.listenTo(Actions.tweenIn, 'tweenIn')
-    ],
 
     propTypes: {recipe: pt.object.isRequired},
 
@@ -70,35 +64,6 @@ let RecipeList = React.createClass({
     height()     {
         return this.isOpen() ? this.itemCount()*50+6+50*(this.itemStartI()+1) : 50;
     },
-
-    // // for the tweening
-    // heightItems() {
-    //     return this.itemCount()*50+6+50*this.itemStartI();
-    // },
-
-    // // grow
-    // tweenOut(recipeKey) {
-    //     if (this.props.recipe.key === recipeKey) {
-    //         this.tweenState('percent', {
-    //               easing: tweenState.easingTypes.easeInOutQuad,
-    //               duration: 400,
-    //               beginValue: 0,
-    //               endValue: 1
-    //         });
-    //     }
-    // },
-
-    // // shrink
-    // tweenIn(recipeKey) {
-    //     if (this.props.recipe.key === recipeKey) {
-    //         this.tweenState('percent', {
-    //               easing: tweenState.easingTypes.easeInOutQuad,
-    //               duration: 400,
-    //               beginValue: 1,
-    //               endValue: 0
-    //         });
-    //     }
-    // },
 
     render() {
 
