@@ -3,8 +3,8 @@ require('styles/footer.less');
 
 var pt = require('react').PropTypes;
 
-let FooterWrap = React.createClass({
-    displayName: 'FooterWrap',
+let Footer = React.createClass({
+    displayName: 'Footer',
 
     contextTypes: {
         percent: pt.number,
@@ -17,5 +17,5 @@ let FooterWrap = React.createClass({
     }
 });
 
-module.exports = FooterWrap;
+module.exports = Footer;
 
