@@ -2,7 +2,7 @@
 
 require('styles/footer.less');
 var Actions = require('actions');
-var Button = require('components/button');
+var Button = require('./widgets/button.jsx');
 var ConfirmButton = require('components/confirm_button');
 // var cx = require('react/addons').addons.classSet;
 

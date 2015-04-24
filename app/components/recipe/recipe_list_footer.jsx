@@ -1,6 +1,6 @@
 'use strict';
 
-var Button = require('components/button');
+var Button = require('../widgets/button.jsx');
 var FooterWrap = require('components/footer_wrap');
 var ConfirmButton = require('components/confirm_button');
 

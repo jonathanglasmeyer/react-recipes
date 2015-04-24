@@ -5,7 +5,7 @@ require('styles/new_recipe_button');
 
 var cx = require('react/addons').addons.classSet;
 
-var Button = require('components/button');
+var Button = require('./widgets/button.jsx');
 
 let NewRecipeButton = React.createClass({
 
