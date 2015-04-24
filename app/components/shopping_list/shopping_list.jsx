@@ -2,7 +2,7 @@
 require('styles/list.less');
 
 
-var ListInput = require('components/list_input');
+var ListInput = require('../widgets/list_input.jsx');
 var ShoppingListHeader = require('./shopping_list_header.jsx');
 var ShoppingListItem = require('./shopping_list_item.jsx');
 var ShoppingListFooter = require('./shopping_list_footer.jsx');

@@ -2,8 +2,8 @@
 require('styles/input');
 require('styles/item');
 
-var Item = require('./widgets/item.jsx');
-var Input = require('./widgets/input.jsx');
+var Item = require('./item.jsx');
+var Input = require('./input.jsx');
 
 var pt = require('react').PropTypes;
 

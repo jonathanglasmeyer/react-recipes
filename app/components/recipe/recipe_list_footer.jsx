@@ -1,7 +1,7 @@
 'use strict';
 
 var Button = require('../widgets/button.jsx');
-var FooterWrap = require('components/footer_wrap');
+var Footer = require('../widgets/footer.jsx');
 var ConfirmButton = require('./confirm_button.jsx');
 
 var pt = require('react').PropTypes;
@@ -20,7 +20,7 @@ let RecipeListFooter = React.createClass({
                 d(Button, {onClick: Actions.endEditMode, color: 'green'}, 'fertig') :
                 d(Button, {onClick: Actions.startEditMode}, 'bearbeiten'));
 
-        return d(FooterWrap, {}, [
+        return d(Footer, {}, [
             d(ConfirmButton),
             startEditModeOrDone
         ]);

@@ -5,7 +5,7 @@ var pt = require('react').PropTypes;
 
 var Reflux = require('reflux');
 
-var ListInput = require('components/list_input');
+var ListInput = require('../widgets/list_input.jsx');
 var RecipeListHeader = require('./recipe_list_header.jsx');
 var RecipeListItem = require('./recipe_list_item.jsx');
 var RecipeListFooter = require('./recipe_list_footer.jsx');

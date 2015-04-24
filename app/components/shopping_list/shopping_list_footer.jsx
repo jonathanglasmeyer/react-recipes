@@ -1,13 +1,13 @@
 'use strict';
 
 var Button = require('../widgets/button.jsx');
-var FooterWrap = require('components/footer_wrap');
+var Footer = require('../widgets/footer.jsx');
 
 let ShoppingListFooter = React.createClass({
     displayName: 'ShoppingListFooter',
 
     render() {
-        return d(FooterWrap, {},
+        return d(Footer, {},
             d(Button, {onClick: Actions.removeAllChecked}, 'aufräumen'));
     }
 });
