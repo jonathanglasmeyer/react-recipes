@@ -1,6 +1,4 @@
 'use strict';
-// CSS
-require('modernizr/modernizr');
 require('base/less/style.less');
 require('styles/app');
 
