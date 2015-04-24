@@ -29,7 +29,8 @@ let Item = React.createClass({
     },
 
     render() {
-        let i = _.isUndefined(this.context.i) ? this.props.i : this.context.i;
+        let i = _.isUndefined(this.context.i) ? 
+          this.props.i : this.context.i;
         let style = _.extend(
             this.props.color ? h.categoryColor(this.props.color) : {},
             h.listTransformStyle(i));
