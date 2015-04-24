@@ -1,6 +1,6 @@
 'use strict';
 
-let Input = require('./widgets/input.jsx');
+var Input = require('./widgets/input.jsx');
 
 let pt = require('react').PropTypes;
 
@@ -33,7 +33,7 @@ let ItemEditForm = React.createClass({
         //     d('input:text#input-title.input-item',
         //       {valueLink: this.linkState('inputText'), style, ref:'input'}));
 
-return d(Input, {
+        return d(Input, {
             onSubmit: this.handleSubmit,
             initial: this.context.item.text,
             className: 'input-form-title input-form-edit-item',

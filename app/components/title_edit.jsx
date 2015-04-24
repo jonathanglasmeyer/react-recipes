@@ -19,7 +19,7 @@ let TitleEdit = React.createClass({
     },
 
     render() {
-return d(Input, {
+        return d(Input, {
             onSubmit: this.handleSubmit,
             initial: this.context.recipe.title,
             autoSubmit: true,

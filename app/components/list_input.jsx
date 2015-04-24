@@ -22,13 +22,13 @@ let ListInput = React.createClass({
 
     render() {
         return d(Item, {id: 'li-input', i: 1},
-    d(Input, {
+            d(Input, {
                 onSubmit: this.handleSubmit,
                 placeholder: 'Artikel',
                 drawSymbol: true,
                 resetAfterSubmit: true,
                 className: 'input-form input-form-item',
                 id: 'input-item'}));
-    }
-});
+            }
+    });
 module.exports = ListInput;

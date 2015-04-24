@@ -23,8 +23,8 @@ let EditableLabel = React.createClass({
 
     render() {
         let style = {cursor: 'text'},
-            itemIsActive = 
-                this.context.ui.modal === 'item' && 
+            itemIsActive =
+                this.context.ui.modal === 'item' &&
                 this.context.ui.activeItem === this.context.item.key;
 
         let editForm = d(ItemEditForm, {item: this.context.item})
