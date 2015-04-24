@@ -50,7 +50,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node server.js",
+    "start": "webpack-dev-server --config webpack.config.js --hot --progress",
     "build": "webpack --optimize-minimize --optimize-occurence-order --optimize-dedupe"
   },
   "repository": {
