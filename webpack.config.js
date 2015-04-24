@@ -38,11 +38,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loaders: ['react-hot', 'es6', 'jsx?harmony'] },
-      { test: /\.js$/, loaders: ['jsx?harmony'] },
-      { test: /\.es6$/, loader: "es6" },
+      {test: /\.jsx?$/, exclude: /node_modules/, loaders:
+        ['react-hot', 'babel-loader?stage=0&optional=runtime']},
+      { test: /\.es6$/, loaders: ['react-hot', 'babel-loader?stage=0&optional=runtime'] },
       { test: /\.css/, loader: "style-loader!css-loader" },
-	    { test: /\.less$/, loader: "style-loader!css-loader!autoprefixer!less-loader" },
+      {test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!less-loader'},
       { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
       { test: /\.svg/, loader: "raw-loader" },
