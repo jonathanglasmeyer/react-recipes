@@ -2,7 +2,7 @@
 require('styles/input');
 require('styles/item');
 require('styles/svg');
-var Svg = require('components/svg');
+var Svg = require('./svg.jsx');
 
 var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 

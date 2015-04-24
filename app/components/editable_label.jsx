@@ -2,7 +2,7 @@
 require('styles/item');
 
 var ItemEditForm = require('components/item_edit_form');
-var Svg = require('components/svg');
+var Svg = require('./widgets/svg.jsx');
 var DeleteIcon = require('components/delete_icon');
 
 var pt = require('react').PropTypes;

@@ -10,7 +10,7 @@ var Footer = require('components/footer');
 var helpers = require('helpers');
 var {fadingSlow} = require('animate');
 var animate = require('animate');
-var Svg = require('components/svg');
+var Svg = require('./widgets/svg.jsx');
 
 var {listTransformStyle} = require('helpers');
 

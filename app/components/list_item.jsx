@@ -11,7 +11,7 @@ var {hexToRgb} = require('helpers');
 var Actions = require('actions');
 var {listTransformStyle} = require('helpers');
 var helpers = require('helpers');
-var Svg = require('components/svg');
+var Svg = require('./widgets/svg.jsx');
 var animate = require('animate');
 
 
