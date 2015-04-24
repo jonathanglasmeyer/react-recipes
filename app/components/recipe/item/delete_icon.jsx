@@ -1,7 +1,7 @@
 'use strict';
 require('styles/svg');
 
-var Svg = require('../widgets/svg.jsx');
+var Svg = require('../../widgets/svg.jsx');
 
 var pt = require('react').PropTypes;
 

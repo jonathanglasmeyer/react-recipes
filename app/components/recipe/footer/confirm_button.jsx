@@ -2,7 +2,7 @@
 
 require('styles/button');
 
-var Button = require('../widgets/button.jsx');
+var Button = require('../../widgets/button.jsx');
 var Actions = require('actions');
 
 var pt = require('react').PropTypes;

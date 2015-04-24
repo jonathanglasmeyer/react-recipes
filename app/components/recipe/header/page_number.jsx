@@ -4,7 +4,7 @@ require('styles/input');
 
 var pt = require('react').PropTypes;
 // var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
-var Input = require('../widgets/input.jsx');
+var Input = require('../../widgets/input.jsx');
 
 let PageNumber = React.createClass({
     displayName: 'PageNumber',

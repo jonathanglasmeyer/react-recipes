@@ -6,9 +6,9 @@ var pt = require('react').PropTypes;
 var Reflux = require('reflux');
 
 var ListInput = require('../widgets/list_input.jsx');
-var RecipeListHeader = require('./recipe_list_header.jsx');
-var RecipeListItem = require('./recipe_list_item.jsx');
-var RecipeListFooter = require('./recipe_list_footer.jsx');
+var RecipeListHeader = require('./header/recipe_list_header.jsx');
+var RecipeListItem = require('./item/recipe_list_item.jsx');
+var RecipeListFooter = require('./footer/recipe_list_footer.jsx');
 var List = require('../widgets/list.jsx');
 
 let RecipeList = React.createClass({
@@ -57,8 +57,8 @@ let RecipeList = React.createClass({
        return this.context.ui.openRecipe === this.props.recipe.key;
     },
 
-    editMode() { 
-        return this.context.ui.editMode || this.itemCount() === 0; 
+    editMode() {
+        return this.context.ui.editMode || this.itemCount() === 0;
     },
 
     height()     {

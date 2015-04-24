@@ -1,7 +1,7 @@
 'use strict';
 
-var Button = require('../widgets/button.jsx');
-var Footer = require('../widgets/footer.jsx');
+var Button = require('../../widgets/button.jsx');
+var Footer = require('../../widgets/footer.jsx');
 var ConfirmButton = require('./confirm_button.jsx');
 
 var pt = require('react').PropTypes;
