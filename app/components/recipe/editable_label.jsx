@@ -1,8 +1,8 @@
 'use strict';
 require('styles/item');
 
-var ItemEditForm = require('components/item_edit_form');
-var Svg = require('./widgets/svg.jsx');
+var ItemEditForm = require('./item_edit_form.jsx');
+var Svg = require('../widgets/svg.jsx');
 var DeleteIcon = require('components/delete_icon');
 
 var pt = require('react').PropTypes;

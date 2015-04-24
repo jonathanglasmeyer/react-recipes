@@ -6,7 +6,7 @@ require('styles/checkbox');
 var pt = require('react').PropTypes;
 
 var Item = require('../widgets/item.jsx');
-var EditableLabel = require('components/editable_label');
+var EditableLabel = require('./editable_label.jsx');
 
 let RecipeListItem = React.createClass({
     displayName: 'RecipeListItem',

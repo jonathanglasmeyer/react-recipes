@@ -4,7 +4,7 @@ require('styles/item');
 require('styles/checkbox');
 
 var Item = require('../widgets/item.jsx');
-var CheckboxLabel = require('components/checkbox_label');
+var CheckboxLabel = require('./checkbox_label.jsx');
 
 var pt = require('react').PropTypes;
 

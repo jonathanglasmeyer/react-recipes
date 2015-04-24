@@ -1,6 +1,6 @@
 'use strict';
 
-var Input = require('./widgets/input.jsx');
+var Input = require('../widgets/input.jsx');
 
 var pt = require('react').PropTypes;
 

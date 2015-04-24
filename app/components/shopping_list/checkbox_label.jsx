@@ -1,7 +1,7 @@
 'use strict';
 require('styles/item');
 
-var Checkbox = require('components/checkbox');
+var Checkbox = require('./checkbox.jsx');
 
 var pt = require('react').PropTypes;
 var cx = require('react/addons').addons.classSet;

@@ -4,7 +4,7 @@ require('styles/input');
 require('styles/svg');
 
 const ShoppingListTitle = require('./shopping_list_title.jsx');
-const Checkbox = require('components/checkbox');
+const Checkbox = require('./checkbox.jsx');
 const ListHeader = require('../widgets/list_header.jsx');
 
 var pt = require('react').PropTypes;
