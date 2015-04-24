@@ -7,8 +7,6 @@ var pt = require('react').PropTypes;
 
 var Reflux = require('reflux');
 
-// var Input = require('components/input');
-// var Item = require('components/item');
 var ListInput = require('components/list_input');
 var RecipeListHeader = require('components/recipe_list_header');
 var RecipeListItem = require('components/recipe_list_item');
@@ -38,7 +36,6 @@ let RecipeList = React.createClass({
         };
     },
 
-    // --------- context for children ------------------------------------------
     childContextTypes: {
         recipeKey: pt.string.isRequired,
         recipe: pt.object.isRequired, // for adding all elements icon in header
