@@ -36,19 +36,8 @@ let Item = React.createClass({
             h.listTransformStyle(i));
         style.cursor = this.props.cursor;
 
-        return d('li', {style, id: this.props.id}, this.props.children);
+        return d('li.item', {style, id: this.props.id}, this.props.children);
     }
 });
 
 module.exports = Item;
-
-                // <div className='label-wrap'>
-                //     <label className='item'>
-                //     {this.props.children}
-                //     </label>
-                // </div>
-                // {deleteIcon}
-                //         // {checkbox(recent.checked)}
-                //         // <span className='label-text'>
-                //         //     {recent.title}
-                //         // </span>
