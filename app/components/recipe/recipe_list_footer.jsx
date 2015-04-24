@@ -2,7 +2,7 @@
 
 var Button = require('../widgets/button.jsx');
 var FooterWrap = require('components/footer_wrap');
-var ConfirmButton = require('components/confirm_button');
+var ConfirmButton = require('./confirm_button.jsx');
 
 var pt = require('react').PropTypes;
 
