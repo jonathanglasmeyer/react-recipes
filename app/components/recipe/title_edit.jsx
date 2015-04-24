@@ -1,6 +1,6 @@
 'use strict';
 require('styles/list_header');
-var Input = require('./widgets/input.jsx');
+var Input = require('../widgets/input.jsx');
 
 var pt = require('react').PropTypes;
 
