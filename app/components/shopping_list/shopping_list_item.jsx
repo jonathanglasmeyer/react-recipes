@@ -1,7 +1,5 @@
 /* @flow */
 'use strict';
-require('styles/item');
-require('styles/checkbox');
 
 var Item = require('../widgets/item.jsx');
 var CheckboxLabel = require('./checkbox_label.jsx');
