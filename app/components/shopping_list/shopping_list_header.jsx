@@ -3,27 +3,45 @@ require('styles/list_header');
 require('styles/input');
 require('styles/svg');
 
-const ShoppingListTitle = require('./shopping_list_title.jsx');
+import {StyleResolverMixin} from 'radium';
+var pt = require('react').PropTypes;
+
+const Title = require('../widgets/title.jsx');
 const Checkbox = require('./checkbox.jsx');
 const ListHeader = require('../widgets/list_header.jsx');
 
-var pt = require('react').PropTypes;
+
+const styles = {
+}
 
 let ShoppingListHeader = React.createClass({
+
     displayName: 'ShoppingListHeader',
+
+    mixins: [StyleResolverMixin],
 
     propTypes: {
         items: pt.array
     },
 
     render() {
-        let allChecked = _.all(this.props.items, 'checked');
-        let checkAllIcon = d(Checkbox, {
+        const allChecked = _.all(this.props.items, 'checked');
+        const checkAllIcon = d(Checkbox, {
             onClick: Actions.checkAll, checked: allChecked});
+        const style = this.buildStyles(styles);
 
-        return d(ListHeader, {}, [
-            this.props.items.length > 0 ? checkAllIcon : null,
-            d(ShoppingListTitle, {}, 'Einkaufsliste')]);
+        const dummy = d('div', {style: {
+            height: 20,
+            width: 20
+        }});
+
+        return d(ListHeader, {style}, [
+            dummy,
+            d(Title, {}, 'Einkaufsliste'),
+            d('span', {}, 'bla')
+        ]);
+
+            // this.props.items.length > 0 ? checkAllIcon : null,
 
     }
 });

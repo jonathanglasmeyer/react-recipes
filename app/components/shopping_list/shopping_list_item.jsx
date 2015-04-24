@@ -1,7 +1,7 @@
 /* @flow */
 'use strict';
 
-var Item = require('../widgets/item.jsx');
+var ListItem = require('../widgets/list_item.jsx');
 var CheckboxLabel = require('./checkbox_label.jsx');
 
 var pt = require('react').PropTypes;
@@ -29,7 +29,7 @@ let ShoppingListItem = React.createClass({
     render() {
         let color = this.props.item.category.color;
 
-        return d(Item, {color}, d(CheckboxLabel));
+        return d(ListItem, {color}, d(CheckboxLabel));
     },
 });
 

@@ -1,7 +1,7 @@
 'use strict';
-require('styles/list_header');
-require('styles/input');
-require('styles/svg');
+// require('styles/list_header');
+// require('styles/input');
+// require('styles/svg');
 
 var ListHeader = require('../../widgets/list_header.jsx');
 var RecipeListTitle = require('./recipe_list_title.jsx');

@@ -17,11 +17,15 @@ var Svg = React.createClass({
     },
 
     render() {
-        let {fname, className} = this.props,
-            style = {cursor: 'pointer'},
-            dangerouslySetInnerHTML = {__html: require('img/' + fname + '.svg')},
-            onClick = this.props.onClick;
-        return d('div.svg', {className, style, dangerouslySetInnerHTML, onClick});
+        const {fname, className} = this.props;
+        const style = {cursor: 'pointer'};
+        const onClick = this.props.onClick;
+        const dangerouslySetInnerHTML = {__html: 
+            require('img/' + fname + '.svg')};
+
+        return d('div.svg', {
+            className, style, dangerouslySetInnerHTML, onClick
+        });
     }
 });
 module.exports = Svg;

@@ -9,9 +9,9 @@ const styles = {
 		fontWeight: 600
 }
 
-let ShoppingListTitle = React.createClass({
+let Title = React.createClass({
 
-    displayName: 'ShoppingListTitle',
+    displayName: 'Title',
 
     mixins: [StyleResolverMixin],
 
@@ -26,4 +26,4 @@ let ShoppingListTitle = React.createClass({
       return d('span', {style}, text);
     }
 });
-module.exports = ShoppingListTitle;
+module.exports = Title;

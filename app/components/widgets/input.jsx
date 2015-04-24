@@ -2,16 +2,36 @@
 require('styles/input');
 require('styles/item');
 require('styles/svg');
-var Svg = require('./svg.jsx');
 
 var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
-
+import {StyleResolverMixin} from 'radium';
+import {Color, Dimen, Values} from 'styles/vars.js';
 var pt = require('react').PropTypes;
+
+var Svg = require('./svg.jsx');
+
+
+const styles = {
+		border: 0,
+		outline: 0,
+    fontFamily: Values.fontFamily
+}
+
+// 	},
+// 	'.input-form': {
+// 		overflowX: 'visible',
+// 		position: 'relative',
+// 		left: '.8rem',
+// 		top: '-.5rem',
+// 		paddingBottom: '2.5rem',
+// 		display: 'block'
+// 	}
+// }
 
 let Input = React.createClass({
     displayName: 'Input',
 
-    mixins: [LinkedStateMixin],
+    mixins: [LinkedStateMixin, StyleResolverMixin],
 
     propTypes: {
         initial: pt.string,
@@ -68,20 +88,27 @@ let Input = React.createClass({
 
     render() {
 
-        let {id, placeholder} = this.props,
-            valueLink = this.linkState('inputText'),
-            onFocus = this.handleFocus;
+        const {id, placeholder} = this.props;
+        const valueLink = this.linkState('inputText');
+        const onFocus = this.handleFocus;
+        const style = this.buildStyles(styles);
 
-        let plusSymbol = d(Svg,
-           {className: 'plus-icon', fname: 'add', onClick: this.handleSubmit});
+        const plusSymbol = d(Svg, {
+            className: 'plus-icon', 
+            fname: 'add', 
+            onClick: this.handleSubmit
+        });
 
         return d('form', {
-            className: this.props.className || 'input-form ',
             autoComplete: 'off',
             onSubmit: this.handleSubmit}, [
 
             this.props.drawSymbol ? plusSymbol : null,
-            d('input:text', {id, onFocus, ref: 'input', placeholder, valueLink})]);
+
+            d('input:text', {
+                style, onFocus, placeholder, valueLink,
+                ref: 'input'
+            })]);
 
     }
 });

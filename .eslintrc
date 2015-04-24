@@ -18,5 +18,12 @@
     "no-underscore-dangle": [0],
     "no-multi-spaces": [0],
     "no-unused-vars": [0]
+  },
+  "globals": {
+    "React": true,
+    "_": false,
+    "Actions": true,
+    "d": false,
+    "h": false
   }
 }

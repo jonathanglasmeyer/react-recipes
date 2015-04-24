@@ -2,33 +2,38 @@
 require('styles/input');
 require('styles/item');
 
-var Item = require('./item.jsx');
+var pt = require('react').PropTypes;
+import {StyleResolverMixin} from 'radium';
+
+var ListItem = require('./list_item.jsx');
 var Input = require('./input.jsx');
 
-var pt = require('react').PropTypes;
+// const styles = {
+// 		borderLeft: 'none',
+// 		paddingBottom: '1rem',
+// 		borderRight: 'none'
+// }
+
 
 let ListInput = React.createClass({
+
     displayName: 'ListInput',
+
+    mixins: [StyleResolverMixin],
 
     contextTypes: {recipeKey: pt.string},
 
-    handleSubmit(text) {
-        if (_.isUndefined(this.context.recipeKey)) {
-                Actions.addItem(text);
-            } else {
-                Actions.addToRecipe(text, this.context.recipeKey);
-        }
-    },
-
     render() {
-        return d(Item, {id: 'li-input', i: 1},
+        const {handleSubmit, placeholder} = this.props;
+
+        return d(ListItem, {},
             d(Input, {
-                onSubmit: this.handleSubmit,
-                placeholder: 'Artikel',
+                placeholder,
+                onSubmit: handleSubmit,
                 drawSymbol: true,
                 resetAfterSubmit: true,
-                className: 'input-form input-form-item',
-                id: 'input-item'}));
-            }
-    });
+                }));
+    }
+});
+
 module.exports = ListInput;

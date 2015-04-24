@@ -53,9 +53,9 @@ let App = React.createClass({
                 d(RecipeList, {ui: this.state.ui, key: recipe.key, recipe}));
 
         return d('div.main', {}, [
-            d(ShoppingList, {key: 0, items: this.state.items}),
-            d(NewRecipeButton, {key: 1}),
-            recipes.length > 0 ? a.slidein(recipesLists) : null]);
+            d(ShoppingList, {key: 0, items: this.state.items})]);
+            // d(NewRecipeButton, {key: 1}),
+            // recipes.length > 0 ? a.slidein(recipesLists) : null]);
     }
 });
 
