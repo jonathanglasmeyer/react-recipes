@@ -43,7 +43,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --config webpack.config.js --hot --progress",
+    "start": "node ./hotReloadServer.js",
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js"
   },
   "repository": {

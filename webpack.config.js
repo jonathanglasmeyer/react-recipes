@@ -5,11 +5,13 @@ module.exports = {
   devtool: 'eval',
   cache: true,
   debug: true,
-  entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/dev-server',
+  entry: {
+    app: [
+    'webpack-dev-server/client?http://0.0.0.0:8888',
+    'webpack/hot/only-dev-server',
     './app/entry'
-  ],
+    ]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/dist/',
