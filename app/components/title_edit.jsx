@@ -1,6 +1,6 @@
 'use strict';
 require('styles/list_header');
-let InputWrap = require('components/input_wrap');
+let Input = require('./widgets/input.jsx');
 
 let pt = require('react').PropTypes;
 
@@ -19,7 +19,7 @@ let TitleEdit = React.createClass({
     },
 
     render() {
-        return d(InputWrap, {
+return d(Input, {
             onSubmit: this.handleSubmit,
             initial: this.context.recipe.title,
             autoSubmit: true,

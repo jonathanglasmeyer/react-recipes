@@ -8,8 +8,8 @@ let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 
 let pt = require('react').PropTypes;
 
-let InputWrap = React.createClass({
-    displayName: 'InputWrap',
+let Input = React.createClass({
+    displayName: 'Input',
 
     mixins: [LinkedStateMixin],
 
@@ -85,4 +85,4 @@ let InputWrap = React.createClass({
 
     }
 });
-module.exports = InputWrap;
+module.exports = Input;

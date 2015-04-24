@@ -4,7 +4,7 @@ require('styles/input');
 
 let pt = require('react').PropTypes;
 // let LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
-let InputWrap = require('components/input_wrap');
+let Input = require('./widgets/input.jsx');
 
 let PageNumber = React.createClass({
     displayName: 'PageNumber',
@@ -28,7 +28,7 @@ let PageNumber = React.createClass({
         // return d('form.input-form-meta.meta', {onSubmit},
         //     d('input:text#input-meta',
         //       {ref: 'input', onFocus, valueLink: this.linkState('inputText')}));
-        return d(InputWrap, {
+return d(Input, {
             onSubmit: this.handleSubmit,
             initial: this.context.recipe.meta,
             placeholder: 'ID',

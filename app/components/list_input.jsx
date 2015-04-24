@@ -2,8 +2,8 @@
 require('styles/input');
 require('styles/item');
 
-let ItemWrap = require('components/item_wrap');
-let InputWrap = require('components/input_wrap');
+let Item = require('./widgets/item.jsx');
+let Input = require('./widgets/input.jsx');
 
 let pt = require('react').PropTypes;
 
@@ -21,8 +21,8 @@ let ListInput = React.createClass({
     },
 
     render() {
-        return d(ItemWrap, {id: 'li-input', i: 1},
-            d(InputWrap, {
+        return d(Item, {id: 'li-input', i: 1},
+    d(Input, {
                 onSubmit: this.handleSubmit,
                 placeholder: 'Artikel',
                 drawSymbol: true,

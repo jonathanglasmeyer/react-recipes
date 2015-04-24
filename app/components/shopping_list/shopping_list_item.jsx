@@ -3,7 +3,7 @@
 require('styles/item');
 require('styles/checkbox');
 
-let ItemWrap = require('components/item_wrap');
+let Item = require('../widgets/item.jsx');
 let CheckboxLabel = require('components/checkbox_label');
 
 let pt = require('react').PropTypes;
@@ -31,7 +31,7 @@ let ShoppingListItem = React.createClass({
     render() {
         let color = this.props.item.category.color;
 
-        return d(ItemWrap, {color}, d(CheckboxLabel));
+        return d(Item, {color}, d(CheckboxLabel));
     },
 });
 

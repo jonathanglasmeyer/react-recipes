@@ -5,7 +5,7 @@ require('styles/checkbox');
 
 let pt = require('react').PropTypes;
 
-let ItemWrap = require('components/item_wrap');
+let Item = require('./widgets/item.jsx');
 let EditableLabel = require('components/editable_label');
 
 let RecipeListItem = React.createClass({
@@ -35,7 +35,7 @@ let RecipeListItem = React.createClass({
     render() {
         let color = this.props.item.category.color;
 
-        return d(ItemWrap, {color, cursor: 'text', opacity: this.context.itemOpacity},
+        return d(Item, {color, cursor: 'text', opacity: this.context.itemOpacity},
             d(EditableLabel));
     },
 });
