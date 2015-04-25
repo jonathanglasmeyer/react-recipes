@@ -3,55 +3,88 @@
 require('styles/item.less');
 require('styles/checkbox.less');
 
-var pt = require('react').PropTypes;
-import {Colors, Dimen} from 'styles/vars.js';
 
-import {StyleResolverMixin} from 'radium';
+import {PropTypes} from 'react';
+import {Element, Colors, Dimen} from 'styles/vars.js';
+
+import {StyleResolverMixin, BrowserStateMixin} from 'radium';
+
+import ListItemLeft from './list_item/list_item_left.jsx';
+import ListItemMiddle from './list_item/list_item_middle.jsx';
+import ListItemRight from './list_item/list_item_right.jsx';
 
 const BRIGHT = [255, 250, 245];
 const DARK = [66, 65, 64];
 
 const styles = {
-    display: 'flex',
-    alignItems: 'center',
+  display: 'flex',
+  alignItems: 'center',
 
-		height: Dimen.listItemHeight,
-    width: '100%',
-    padding: `0 ${Dimen.grid / 2}px`,
+  height: Dimen.ListItem.height,
+  width: '100%',
 
-		transition: 'all .2s ease-out'
+  transition: 'all .2s ease-out',
+  modifiers: [{oneClickTarget: {
+    cursor: 'pointer',
+    states: Element.ListItem.states
+  }}]
 };
 
 let ListItem = React.createClass({
 
-    displayName: 'ListItem',
+  displayName: 'ListItem',
 
-    propTypes: {
-        color: pt.string, // hex
-        id: pt.string, // the html id attribute
-        cursor: pt.string
-    },
+  propTypes: {
+    color: PropTypes.string, // hex
+    id: PropTypes.string, // the html id attribute
+    cursor: PropTypes.string,
+    left: PropTypes.element,
+    middle: PropTypes.element,
+    right: PropTypes.element,
+    onClickLeft: PropTypes.func,
+    onClickMiddle: PropTypes.func,
+    onClickRight: PropTypes.func,
+    onClickWhole: PropTypes.func,
+    middleCentered: PropTypes.bool
+  },
 
-    mixins: [StyleResolverMixin],
+  mixins: [StyleResolverMixin, BrowserStateMixin],
 
     getDefaultProps() {
-        return {
-            id: null,
-            color: '',
-            cursor: 'pointer',
-            style: {}
-        };
+      return {
+        id: null,
+        color: '',
+        style: {},
+        onClickLeft: null,
+        onClickMiddle: null,
+        onClickRight: null,
+        onClickWhole: null
+      };
     },
 
-    render() {
-        let style = Object.assign(
-            this.props.color ? h.categoryColor(this.props.color) : {},
-            this.buildStyles(styles),
-            this.props.style);
-        style.cursor = this.props.cursor;
+  render() {
+    let style = Object.assign(
+        this.props.color ? h.categoryColor(this.props.color) : {},
+        this.buildStyles(styles, {
+          oneClickTarget: this.props.onClickWhole != null
+        }),
+        this.props.style);
 
-        return d('li', {style}, this.props.children);
-    }
+    const {
+      left, middle, right, middleCentered,
+      onClickLeft, onClickMiddle, onClickRight, onClickWhole
+    } = this.props;
+
+    const maybeOnClickLeft = left ? onClickLeft : null;
+    const maybeOnClickMiddle = middle ? onClickMiddle : null;
+    const maybeOnClickRight = right ? onClickRight : null;
+
+    return d('li', Object.assign({style, onClick: onClickWhole}, this.getBrowserStateEvents()), [
+      d(ListItemLeft, {onClick: maybeOnClickLeft}, left),
+      d(ListItemMiddle, {centered: middleCentered, onClick: maybeOnClickMiddle}, middle),
+      d(ListItemRight, {onClick: maybeOnClickRight}, right)
+    ]);
+  }
 });
 
 

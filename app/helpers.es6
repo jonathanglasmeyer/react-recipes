@@ -43,10 +43,10 @@ module.exports = {
         return _.sortBy(categorizedItems, item => item.category.id);
     },
 
-    itemComponentList(items, componentType, startIndex=1, additionalProps={}) {
-        return _.map(this.categorySorted(items), (item, i) =>
-            d(componentType,
-              _.extend(additionalProps, {key: item.key, i: startIndex+i, item})));
+    itemComponentList(items, component, additionalProps={}) {
+        return this.categorySorted(items).map((item, i) =>
+            d(component, Object.assign(
+                {key: item.key, item}, additionalProps)));
     },
 
     capitalize(string) {

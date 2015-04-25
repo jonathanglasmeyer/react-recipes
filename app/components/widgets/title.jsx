@@ -2,22 +2,25 @@
 // require('styles/list_header');
 // require('./shopping_list_title.less');
 import {StyleResolverMixin} from 'radium';
+import {Element, Color, Dimen, Values} from 'styles/vars.js';
 
 var pt = require('react').PropTypes;
 
 const styles = {
-		fontWeight: 600
-}
+  // fontWeight: 600,
+  fontSize: Element.Title.fontSize,
+  fontFamily: "'Roboto'"
+};
 
 let Title = React.createClass({
 
-    displayName: 'Title',
+  displayName: 'Title',
 
-    mixins: [StyleResolverMixin],
+  mixins: [StyleResolverMixin],
 
-    propTypes: {
-        children: pt.string.isRequired,
-    },
+  propTypes: {
+    children: pt.string.isRequired
+  },
 
     render() {
       const text = this.props.children;

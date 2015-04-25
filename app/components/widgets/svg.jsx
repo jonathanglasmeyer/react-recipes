@@ -1,30 +1,45 @@
 'use strict';
 require('styles/svg.less');
 
-var pt = require('react').PropTypes;
+
+import {PropTypes} from 'react';
+import {Color, Dimen, Values} from 'styles/vars.js';
+import {StyleResolverMixin} from 'radium';
+
+const styles = {
+  fill: Color.greyDark,
+  background: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+  height: Dimen.Icon.size,
+
+  modifiers: [{doubleSize: {height: Dimen.Icon.size * 2}}]
+};
 
 var Svg = React.createClass({
+
     displayName: 'Svg',
 
-    propTypes: {
-        onClick: pt.func
-    },
+    mixins: [StyleResolverMixin],
 
-    getDefaultProps() {
-        return {
-            onClick: () => {}
-        };
+    propTypes: {
+      fname: PropTypes.string,
+      color: PropTypes.string,
+      doubleSize: PropTypes.bool
     },
 
     render() {
-        const {fname, className} = this.props;
-        const style = {cursor: 'pointer'};
-        const onClick = this.props.onClick;
-        const dangerouslySetInnerHTML = {__html: 
+        const {fname, className, color} = this.props;
+
+        let style = this.buildStyles(styles);
+        if (color) style.fill = color;
+
+
+        const dangerouslySetInnerHTML = {__html:
             require('img/' + fname + '.svg')};
 
         return d('div.svg', {
-            className, style, dangerouslySetInnerHTML, onClick
+            className, style, dangerouslySetInnerHTML
         });
     }
 });

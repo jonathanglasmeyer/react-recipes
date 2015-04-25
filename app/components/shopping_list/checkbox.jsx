@@ -1,27 +1,22 @@
 'use strict';
-require('styles/item');
-require('styles/checkbox');
 
 var pt = require('react').PropTypes;
+import Svg from '../widgets/svg.jsx';
+import {Color, Dimen, Values} from 'styles/vars.js';
 
-// used in CheckboxLabel
 let Checkbox = React.createClass({
-    propTypes: {
-        color: pt.object, // needed for background
-        checked: pt.bool.isRequired,
-        onClick: pt.func // for list header checkbox
-    },
+  propTypes: {
+    checked: pt.bool.isRequired,
+  },
 
-    getDefaultProps: () => ({
-        onClick: function() {}
-    }),
+  render() {
+    const {checked} = this.props;
 
-    render() {
-        return d('div.checkbox-wrap', {onClick: this.props.onClick},
-            d('input:checkbox.checkbox-animated[readOnly]', {
-                style: this.props.color,
-                checked: this.props.checked}));
-    }
+    return d(Svg, {
+      fname: `checkbox-${checked? 'marked' : 'blank'}`,
+      color: checked ? Color.accent : null
+    });
+  }
 
 });
 

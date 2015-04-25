@@ -1,6 +1,7 @@
 'use strict';
 require('styles/list.less');
 
+import {PropTypes} from 'react';
 
 var ShoppingListInput = require('./shopping_list_input.jsx');
 var ShoppingListHeader = require('./shopping_list_header.jsx');
@@ -8,33 +9,26 @@ var ShoppingListItem = require('./shopping_list_item.jsx');
 var ShoppingListFooter = require('./shopping_list_footer.jsx');
 var List = require('../widgets/list.jsx');
 
-var pt = require('react').PropTypes;
 
 let ShoppingList = React.createClass({
-    displayName: 'ShoppingList',
 
-    propTypes: {items: pt.array},
+  displayName: 'ShoppingList',
 
-    childContextTypes: {
-        height: pt.number.isRequired,
-        isOpen: pt.bool.isRequired,
-    },
+  propTypes: {
+    items: PropTypes.array
+  },
 
-    getChildContext() {
-        return {height: this.height(), isOpen: true};
-    },
+  render() {
+    const {items} = this.props;
 
-    itemCount()  { return this.props.items.length; },
-    itemStartI() { return 2; },
-    height()     { return Math.max(470, this.props.items.length * 50 + 156); },
+    return d(List, {}, [
+        d(ShoppingListHeader, {items}),
+        d(ShoppingListInput),
+        h.itemComponentList(this.props.items, ShoppingListItem, 2),
+        d(ShoppingListFooter, {items})
+    ]);
+  }
 
-
-    render() {
-        return d(List, {footer: d(ShoppingListFooter)}, [
-            d(ShoppingListHeader, this.props),
-            d(ShoppingListInput),
-            a.fadingSlow(
-                h.itemComponentList(this.props.items, ShoppingListItem, 2))]);
-    }
 });
+
 module.exports = ShoppingList;

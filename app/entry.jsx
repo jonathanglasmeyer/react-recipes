@@ -1,10 +1,9 @@
 'use strict';
-var App = require('components/app');
+var AppController = require('./components/app_controller.jsx');
 var d = require('jsnox')(React);
-var pt = require('react').PropTypes;
 
 window.d = d;
 
 React.initializeTouchEvents(true);
 
-React.render(d(App), document.getElementById('content'));
+React.render(d(AppController), document.getElementById('content'));

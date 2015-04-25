@@ -4,55 +4,77 @@ require('styles/button.less');
 
 var cx = require('react/addons').addons.classSet;
 var helpers = require('helpers');
+import {Element, Color, Dimen, Values} from 'styles/vars.js';
+var C = require('color');
+import {StyleResolverMixin, BrowserStateMixin} from 'radium';
 
 const COLORS = {red: '#F44336', green: '#5C832F'};
 
-var pt = require('react').PropTypes;
+import {PropTypes} from 'react';
+
+const outerStyles = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  height: Dimen.Button.touchHeight
+
+};
+
+const styles = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  height: Dimen.Button.height,
+  padding: '0 8px',
+  borderRadius: 2,
+
+  fontFamily: Values.fontFamilySans,
+  fontSize: 14,
+  fontWeight: 600,
+  letterSpacing: .7,
+  textTransform: 'uppercase',
+  color: Color.primaryDark,
+
+
+
+  modifiers: [
+  {
+    inactive: {
+      color: C(Color.primaryDark).alpha(0.26).rgbString(),
+      cursor: 'default'
+    }
+  }, 
+  {
+    active: {
+      states: Element.Button.states,
+      cursor: 'pointer',
+    }
+  }
+  ]
+
+};
 
 let Button = React.createClass({
 
-    propTypes: {
-        children: pt.string.isRequired,
-        onClick: pt.func
-    },
+  propTypes: {
+    onClick: PropTypes.func,
+    inactive: PropTypes.bool,
+    children: PropTypes.string.isRequired
+  },
 
-    getDefaultProps: () => ({
-        onClick: null
-    }),
+  mixins: [StyleResolverMixin, BrowserStateMixin],
 
-    getInitialState: () => ({
-        active: false // render with background, touch events
-    }),
+  render() {
+    const style = this.buildStyles(styles, {active: !this.props.inactive});
+    const {onClick, children} = this.props;
+    const text = children || 'empty';
 
-    // event() {
-    //     this.props.handleClick();
+    return d('div', {style: outerStyles, onClick},
+      d('div', Object.assign({style}, this.getBrowserStateEvents()), text));
+  }
 
-
-    handleTouchStart() {
-        if (this.props.handleClick) {
-            this.setState({active: true});
-        }
-    },
-
-    handleTouchEnd() {
-        if (this.props.handleClick) {
-            this.setState({active: false});
-            this.props.handleClick();
-        }
-    },
-
-    render() {
-        let {noActive, text, color} = this.props;
-        let className = cx({'button-flat': true,
-                           'active': this.state.active });
-
-        return (
-            <div className={className}
-                onClick={this.props.onClick}>
-                <div style={{color: COLORS[color]}} className='text-center uppercase'>{this.props.children}</div>
-            </div>
-        );
-    }
 });
 
 module.exports = Button;

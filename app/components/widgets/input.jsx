@@ -5,111 +5,97 @@ require('styles/svg');
 
 var LinkedStateMixin = require('react/addons').addons.LinkedStateMixin;
 import {StyleResolverMixin} from 'radium';
-import {Color, Dimen, Values} from 'styles/vars.js';
+import {Element, Dimen, Values} from 'styles/vars.js';
 var pt = require('react').PropTypes;
 
-var Svg = require('./svg.jsx');
 
 
 const styles = {
-		border: 0,
-		outline: 0,
-    fontFamily: Values.fontFamily
-}
-
-// 	},
-// 	'.input-form': {
-// 		overflowX: 'visible',
-// 		position: 'relative',
-// 		left: '.8rem',
-// 		top: '-.5rem',
-// 		paddingBottom: '2.5rem',
-// 		display: 'block'
-// 	}
-// }
+  border: 0,
+  outline: 0,
+  margin: 0,
+  padding: 0,
+  background: Element.List.background,
+  fontFamily: Values.fontFamily,
+};
 
 let Input = React.createClass({
-    displayName: 'Input',
+  displayName: 'Input',
 
-    mixins: [LinkedStateMixin, StyleResolverMixin],
+  mixins: [LinkedStateMixin, StyleResolverMixin],
 
-    propTypes: {
-        initial: pt.string,
-        onSubmit: pt.func.isRequired,
-        placeholder: pt.string,
+  propTypes: {
+    initial: pt.string,
+    onSubmit: pt.func.isRequired,
+    placeholder: pt.string,
 
-        drawSymbol: pt.bool, // default: false
-        resetAfterSubmit: pt.bool, // default: false
-        autoSubmit: pt.bool, //default: false
+    drawSymbol: pt.bool, // default: false
+    resetAfterSubmit: pt.bool, // default: false
+    autoSubmit: pt.bool, //default: false
 
-        id: pt.string, // html id
-        className: pt.string
-    },
+    id: pt.string, // html id
+    className: pt.string
+  },
 
     getDefaultProps() {
-        return {
-            initial: '',
-            drawSymbol: false,
-            id: null,
-            placeholder: null,
-            resetAfterSubmit: false,
-            autoSubmit: false
-        };
+      return {
+        initial: '',
+        drawSymbol: false,
+        id: null,
+        placeholder: null,
+        resetAfterSubmit: false,
+        autoSubmit: false
+      };
     },
 
     getInitialState() {
-        return { inputText: this.props.initial };
+      return { inputText: this.props.initial };
     },
 
     handleFocus() {
-        Actions.setActiveInput();
-        Actions.startEditMode();
+      Actions.setActiveInput();
+      Actions.startEditMode();
     },
 
     handleSubmit(e) {
-        e.preventDefault();
+      e.preventDefault();
 
-        if (this.state.inputText) {
-            this.props.onSubmit(this.state.inputText);
+      if (this.state.inputText) {
+        this.props.onSubmit(this.state.inputText);
 
-            if (this.props.resetAfterSubmit) {
-                this.setState({inputText: this.props.initial});
-            } else {
-                this.refs.input.getDOMNode().blur();
-            }
+        if (this.props.resetAfterSubmit) {
+          this.setState({inputText: this.props.initial});
+        } else {
+          this.refs.input.getDOMNode().blur();
         }
+      }
     },
 
     componentWillUnmount() {
-        if (this.props.autoSubmit && this.state.inputText !== this.props.initial) {
-            this.props.onSubmit(this.state.inputText);
-        }
+      if (this.props.autoSubmit && this.state.inputText !== this.props.initial) {
+        this.props.onSubmit(this.state.inputText);
+      }
     },
 
     render() {
 
-        const {id, placeholder} = this.props;
-        const valueLink = this.linkState('inputText');
-        const onFocus = this.handleFocus;
-        const style = this.buildStyles(styles);
+      const style = this.buildStyles(styles);
+      const {id, placeholder} = this.props;
 
-        const plusSymbol = d(Svg, {
-            className: 'plus-icon', 
-            fname: 'add', 
-            onClick: this.handleSubmit
-        });
+      const valueLink = this.linkState('inputText');
+      const onFocus = this.handleFocus;
 
-        return d('form', {
-            autoComplete: 'off',
-            onSubmit: this.handleSubmit}, [
+      return d('form', {
+        style: {display: 'flex'},
+        autoComplete: 'off',
+        onSubmit: this.handleSubmit},
 
-            this.props.drawSymbol ? plusSymbol : null,
-
-            d('input:text', {
-                style, onFocus, placeholder, valueLink,
-                ref: 'input'
-            })]);
+        d('input:text', {
+          style, onFocus, placeholder, valueLink,
+          ref: 'input'
+        }));
 
     }
 });
+
 module.exports = Input;

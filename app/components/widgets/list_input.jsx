@@ -1,19 +1,11 @@
 'use strict';
-require('styles/input');
-require('styles/item');
 
 var pt = require('react').PropTypes;
 import {StyleResolverMixin} from 'radium';
 
 var ListItem = require('./list_item.jsx');
 var Input = require('./input.jsx');
-
-// const styles = {
-// 		borderLeft: 'none',
-// 		paddingBottom: '1rem',
-// 		borderRight: 'none'
-// }
-
+var Svg = require('./svg.jsx');
 
 let ListInput = React.createClass({
 
@@ -21,18 +13,19 @@ let ListInput = React.createClass({
 
     mixins: [StyleResolverMixin],
 
-    contextTypes: {recipeKey: pt.string},
-
     render() {
         const {handleSubmit, placeholder} = this.props;
 
-        return d(ListItem, {},
-            d(Input, {
-                placeholder,
-                onSubmit: handleSubmit,
-                drawSymbol: true,
-                resetAfterSubmit: true,
-                }));
+        const plusSymbol = d(Svg, {className: 'plus-icon', fname: 'add'});
+
+        return d(ListItem, {
+          left: plusSymbol,
+          middle: d(Input, {
+            placeholder,
+            onSubmit: handleSubmit,
+            resetAfterSubmit: true,
+            }),
+        });
     }
 });
 

@@ -2,47 +2,41 @@
 require('styles/list_header');
 
 var cx = require('react/addons').addons.classSet;
-var d = require('jsnox')(React);
+import {PropTypes} from 'react';
 
 import {StyleResolverMixin} from 'radium';
-import {Color, Dimen} from 'styles/vars.js';
+import {Element, Dimen} from 'styles/vars.js';
 
 var ListItem = require('./list_item.jsx');
 
 const styles = {
-    justifyContent: 'space-between',
-		borderBottom: `1px solid ${Color.greyDark}`,
-}
+  height: Dimen.ListHeader.height,
+  background: Element.ListHeader.background,
+  borderBottom: `1px solid ${Element.ListHeader.borderBottom}`,
+  marginBottom: Dimen.List.marginTopBottom
+};
 
 let ListHeader = React.createClass({
 
-    displayName: 'ListHeader',
+  displayName: 'ListHeader',
 
-    mixins: [StyleResolverMixin],
+  propTypes: {
+    left: PropTypes.element,
+    middle: PropTypes.element,
+    right: PropTypes.element,
+    middleCentered: PropTypes.bool,
+    onClickLeft: PropTypes.func,
+    onClickMiddle: PropTypes.func,
+    onClickRight: PropTypes.func,
+    onClickWhole: PropTypes.func
+  },
 
-    getInitialState: () => ({
-        active: false // render with background, touch events
-    }),
-
-    handleTouchStart() {
-        this.setState({active: true});
-    },
-
-    handleTouchEnd() {
-        this.setState({active: false});
-    },
+  mixins: [StyleResolverMixin],
 
     render() {
-        const style = this.buildStyles(styles);
+      const style = this.buildStyles(styles);
 
-        return d(ListItem, {style}, this.props.children);
-
-        // return d('li#list-header', {
-        //     className: cx({'active': this.state.active }),
-        //     onTouchStart: this.handleTouchStart,
-        //     onTouchEnd: this.handleTouchEnd},
-
-        //     this.props.children);
+      return d(ListItem, Object.assign({style}, this.props));
     }
 
 });
