@@ -8,6 +8,7 @@ import {Element, Color, Dimen, Values} from 'styles/vars.js';
 var ShoppingList = require('./shopping_list/shopping_list.jsx');
 var RecipeList = require('./recipe/recipe_list.jsx');
 var NewRecipeButton = require('components/new_recipe_button');
+import Toolbar from './toolbar.jsx';
 
 //     font: 100% 'Roboto Slab', sans-serif;
 //     color: @base3;
@@ -66,8 +67,11 @@ const App = React.createClass({
     const {items} = this.props;
 
     return d('div', {style}, [
+        d(Toolbar),
         <Style rules={globalStyles} />,
-        d(ShoppingList, {items})]);
+        d('main', {style: {marginTop: Dimen.Toolbar.height}}, [
+          d(ShoppingList, {items})])
+        ]);
 
     // let recipes = this.state.recipes.slice().reverse();
     // let recipesLists = _.map(recipes, recipe =>
