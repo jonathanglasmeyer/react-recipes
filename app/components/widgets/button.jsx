@@ -20,47 +20,40 @@ const outerStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-
-  height: Dimen.Button.touchHeight
-
+  marginTop: 8,
+  marginBottom: 8,
+  borderRadius: 2,
+  height: Dimen.Button.height,
 };
 
+const color = Color.accent2;
 const styles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
 
   height: Dimen.Button.height,
-  padding: '0 8px',
-  borderRadius: 2,
+  padding: '0 4px',
 
   fontFamily: Values.fontFamilySans,
   fontSize: 14,
   fontWeight: 600,
   letterSpacing: .7,
   textTransform: 'uppercase',
-  color: Color.primaryDark,
+  color,
 
 
-
-  modifiers: [
-  {
-    inactive: {
-      color: C(Color.primaryDark).alpha(0.26).rgbString(),
-      cursor: 'default'
-    }
-  }, 
-  {
+  modifiers: [{
     active: {
-      states: Element.Button.states,
-      cursor: 'pointer',
+      states: makeStates(color, 0.08, 0.15),
     }
-  }
-  ]
-
+  }]
 };
 
+const activeStyle = {background: c(color).alpha(0.1).rgbString()};
+
 let Button = React.createClass({
+  displayName: 'Button',
 
   propTypes: {
     onClick: PropTypes.func,
