@@ -7,9 +7,17 @@ import {Element, Color, Dimen, Values} from 'styles/vars.js';
 var pt = require('react').PropTypes;
 
 const styles = {
-  // fontWeight: 600,
+  fontWeight: 600,
   fontSize: Element.Title.fontSize,
-  fontFamily: "'Roboto'"
+  fontFamily: "'Roboto'",
+
+  modifiers: [{
+    white: {color: 'white'}
+  }, {
+    header: {
+      fontWeight: 400,
+      fontSize: Element.Header.fontSize}
+  }]
 };
 
 let Title = React.createClass({
@@ -19,7 +27,8 @@ let Title = React.createClass({
   mixins: [StyleResolverMixin],
 
   propTypes: {
-    children: pt.string.isRequired
+    children: pt.string.isRequired,
+    white: pt.bool
   },
 
     render() {

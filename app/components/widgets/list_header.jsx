@@ -13,7 +13,10 @@ const styles = {
   height: Dimen.ListHeader.height,
   background: Element.ListHeader.background,
   borderBottom: `1px solid ${Element.ListHeader.borderBottom}`,
-  marginBottom: Dimen.List.marginTopBottom
+  marginBottom: Dimen.List.marginTopBottom,
+  modifiers: [{
+    big: {height: Dimen.ListHeader.heightBig}
+  }]
 };
 
 let ListHeader = React.createClass({

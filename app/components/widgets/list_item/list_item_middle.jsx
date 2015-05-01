@@ -10,7 +10,8 @@ const styles = {
   flexGrow: 1,
 
   height: '100%',
-  fontSize: Element.BodyText.fontSize,
+  fontSize: Element.Body.fontSize,
+
   modifiers: [
     {centered: {justifyContent: 'center'}}
   ]

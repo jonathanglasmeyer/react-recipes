@@ -25,8 +25,8 @@ const styles = {
 
   transition: 'all .2s ease-out',
   modifiers: [{oneClickTarget: {
-    cursor: 'pointer',
-    states: Element.ListItem.states
+    cursor: 'pointer'
+    // states: Element.ListItem.states
   }}]
 };
 
