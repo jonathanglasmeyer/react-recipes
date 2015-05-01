@@ -1,5 +1,11 @@
-var C = require('color');
+var c = require('color');
 import {makeStates} from './helpers.js';
+
+import MaterialGreenRedTheme from './themes/material-green-red.js';
+import RecipeCards from './themes/recipe-cards.js';
+let Theme;
+Theme = MaterialGreenRedTheme;
+Theme = RecipeCards;
 
 let DEBUG = 0;
 // DEBUG = 1;
