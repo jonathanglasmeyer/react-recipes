@@ -35,12 +35,12 @@ let List = React.createClass({
     height: pt.number.isRequired,
   },
 
-    render() {
-      const style = this.buildStyles(styles);
+  render() {
+    const style = this.buildStyles(styles);
 
-      return d('ul', {style}, this.props.children);
+    return d('ul', {style}, this.props.children);
 
-    }
+  }
 });
 
 module.exports = List;
