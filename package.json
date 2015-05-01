@@ -51,7 +51,8 @@
   "scripts": {
     "test": "jest",
     "start": "node ./hotReloadServer.js",
-    "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js"
+    "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js",
+    "deploy": "npm run build && git ci -am 'deploy' && git deploy dist"
   },
   "repository": {
     "type": "git",
