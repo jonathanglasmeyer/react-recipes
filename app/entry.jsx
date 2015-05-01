@@ -4,6 +4,7 @@ var d = require('jsnox')(React);
 
 window.d = d;
 
-React.initializeTouchEvents(true);
+// React.initializeTouchEvents(true);
+require('react-tap-event-plugin')();
 
 React.render(d(AppController), document.getElementById('content'));
