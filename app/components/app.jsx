@@ -34,8 +34,13 @@ import Toolbar from './toolbar.jsx';
 const globalStyles = [{
   body: {
     fontFamily: Values.fontFamily,
-    fontSize: Element.BodyText.fontSize,
-    background: Color.grey
+    fontSize: Element.Body.fontSize,
+    background: Element.Body.background,
+    tapHighlightColor: 'rgba(0,0,0,0)',
+    WebkitTapHighlightColor: 'rgba(0,0,0,0)',
+    WebkitUserSelect: 'none',
+    userSelect: 'none',
+    textRendering: 'optimizelegibility'
   }
 }
 ];
