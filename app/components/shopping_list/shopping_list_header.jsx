@@ -34,7 +34,7 @@ let ShoppingListHeader = React.createClass({
           left: maybeCheckbox,
           onClickLeft: Actions.checkAll,
 
-          middle: d(Title, 'Shopping List')
+          middle: d(Title, 'Einkaufsliste')
         });
 
     }
