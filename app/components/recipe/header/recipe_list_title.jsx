@@ -13,8 +13,6 @@ let RecipeListTitle = React.createClass({
     },
 
     handleClick() {
-        // console.log('shoetn');
-        // console.log(this.context.ui.openRecipe);
         if (this.context.isOpen) {
             Actions.setOpenRecipe(null);
             // Actions.tweenIn(this.context.recipe.key);

@@ -12,13 +12,6 @@ import Toolbar from './toolbar.jsx';
 
 //     font: 100% 'Roboto Slab', sans-serif;
 //     color: @base3;
-//     user-select: none;
-//     text-rendering: optimizelegibility;
-//     // line-height: 1.5;
-//     font-weight: normal;
-//     background-color: #eee;
-//     -webkit-tap-highlight-color: rgba(0,0,0,0);
-//     -webkit-tap-highlight-color: transparent; /* For some Androids */
 // }
 
 // .main {

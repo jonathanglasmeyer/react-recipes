@@ -89,7 +89,6 @@ module.exports = {
         let g = f(c1[1], c2[1], weightFirst);
         let b = f(c1[2], c2[2], weightFirst);
         let result =  `rgb(${r},${g},${b})`;
-        console.log(result);
         return result;
     }
 

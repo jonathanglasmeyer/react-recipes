@@ -8,11 +8,9 @@ module.exports = {
 
     handleTouchMove() {
         this.touchCount++;
-        console.log('touchmove');
     },
 
     handleTouchEnd() {
-        console.log('handletouchend');
         if (this.touchCount === 0) {
             this.handleChange();
         }
@@ -20,7 +18,6 @@ module.exports = {
 
     handleClick() {
         if (!h.hasTouch()) {
-            console.log('handleclick');
             this.handleChange();
         }
     },

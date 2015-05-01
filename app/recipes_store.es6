@@ -37,7 +37,6 @@ module.exports = Reflux.createStore({
     },
 
     onSetMeta(recipeKey, meta) {
-        // console.log('setMeta', meta, recipeKey);
         let metaRef = ref.child(recipeKey);
         metaRef.update({meta});
     },
