@@ -10,6 +10,8 @@
     "color": "^0.8.0",
     "cors": "^2.4.1",
     "css-loader": "^0.9.0",
+    "envify": "^1.2.1",
+    "envify-loader": "^0.1.0",
     "express": "^4.8.6",
     "fastclick": "^1.0.3",
     "firebase": "^2.0.6",

@@ -43,6 +43,8 @@ module.exports = {
     loaders: [
       {test: /\.jsx?$/, exclude: /node_modules/, loaders:
         ['react-hot', 'babel-loader?stage=0&optional=runtime']},
+      { test: /\.js$/, loader: "envify-loader" },
+      { test: /\.jsx$/, loader: "envify-loader" },
       { test: /\.es6$/, loaders: ['react-hot', 'babel-loader?stage=0&optional=runtime'] },
       { test: /\.css/, loader: "style-loader!css-loader?sourceMap" },
       {test: /\.less$/, loader: 'style-loader!css-loader?sourceMap!autoprefixer-loader?{browsers:["last 2 version"]}!less-loader'},
