@@ -7,8 +7,10 @@ var Tappable = require('react-tappable');
 var cx = require('react/addons').addons.classSet;
 var helpers = require('helpers');
 import {Element, Color, Dimen, Values} from 'styles/vars.js';
-var C = require('color');
-import {StyleResolverMixin, BrowserStateMixin} from 'radium';
+var c = require('color');
+import {makeStates} from '../../styles/helpers.js';
+import {Style, StyleResolverMixin, BrowserStateMixin} from 'radium';
+import tappable from '../utils/tappable.js';
 
 const COLORS = {red: '#F44336', green: '#5C832F'};
 
@@ -72,10 +74,11 @@ let Button = React.createClass({
     const {onClick, children} = this.props;
     const text = children || 'empty';
 
-    return d('div', {style: outerStyles, onClick},
-      d('div', Object.assign({style}, this.getBrowserStateEvents()), text));
+    return d('div.outerButton', Object.assign({style: outerStyles}, this.props, this.getBrowserStateEvents()),
+      d('div.innerButton', {style}, text));
+    
   }
 
 });
 
-module.exports = Button;
+module.exports = tappable(Button, outerStyles, activeStyle);
