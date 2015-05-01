@@ -17,11 +17,12 @@ let ShoppingListFooter = React.createClass({
     render() {
       const {items} = this.props;
 
-      const buttonInactive = !_.any(items, item => item.checked);
-      const button = d(Button, {inactive: buttonInactive, onClick: Actions.removeAllChecked}, 'aufräumen');
+      const shouldButtonBeVisible = _.any(items, item => item.checked);
+      const maybeButton = shouldButtonBeVisible ?
+        d(Button, {onClick: Actions.removeAllChecked}, 'aufräumen') : null;
 
       return d(ListFooter, {
-        left: button
+        left: maybeButton
       });
     }
 });

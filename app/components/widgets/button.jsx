@@ -62,7 +62,6 @@ let Button = React.createClass({
 
   propTypes: {
     onClick: PropTypes.func,
-    inactive: PropTypes.bool,
     children: PropTypes.string.isRequired
   },
 
