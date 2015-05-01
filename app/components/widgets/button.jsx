@@ -2,6 +2,8 @@
 
 require('styles/button.less');
 
+var PureRenderMixin = require('react/addons').addons.PureRenderMixin;
+var Tappable = require('react-tappable');
 var cx = require('react/addons').addons.classSet;
 var helpers = require('helpers');
 import {Element, Color, Dimen, Values} from 'styles/vars.js';
@@ -64,7 +66,7 @@ let Button = React.createClass({
     children: PropTypes.string.isRequired
   },
 
-  mixins: [StyleResolverMixin, BrowserStateMixin],
+  mixins: [StyleResolverMixin, BrowserStateMixin, PureRenderMixin],
 
   render() {
     const style = this.buildStyles(styles, {active: !this.props.inactive});

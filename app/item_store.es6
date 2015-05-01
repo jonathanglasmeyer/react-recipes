@@ -1,13 +1,19 @@
 'use strict';
 
+var Parse = require('parse').Parse;
 var Reflux = require('reflux');
 var ref = require('firebase_ref').child('items');
+import Immutable from 'immutable';
+import config from 'config/config.js';
 
 var actions = require('actions');
 var {capitalize,category} = require('helpers');
 
 const categories = require('data/categories.json');
 
+function _immutable(items) {
+  return Immutable.List(items.map(item => Immutable.Map(item)));
+}
 
 module.exports = Reflux.createStore({
 

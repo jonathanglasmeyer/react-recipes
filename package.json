@@ -13,6 +13,7 @@
     "express": "^4.8.6",
     "fastclick": "^1.0.3",
     "firebase": "^2.0.6",
+    "immutable": "^3.7.2",
     "install": "^0.1.8",
     "jsnox": "^0.9.1",
     "json-loader": "^0.5.1",

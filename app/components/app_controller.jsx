@@ -2,9 +2,12 @@
 require('base/less/style.less');
 require('styles/app');
 
+// var PureRenderMixin = require('react/addons').addons.PureRenderMixin;
+var ImmutableRenderMixin = require('react-immutable-render-mixin')
 var Reflux = require('reflux');
 import {PropTypes} from 'react';
 import {MatchMediaBase} from 'radium';
+import Immutable from 'immutable';
 
 var ItemStore = require('item_store');
 var UIStore = require('ui_store');
@@ -18,15 +21,16 @@ MatchMediaBase.init(ScreenSizes);
 let AppController = React.createClass({
 
   mixins: [
+    ImmutableRenderMixin,
     MatchMediaBase,
     Reflux.connect(ItemStore, 'items'),
-    Reflux.connect(RecipesStore, 'recipes'),
-    Reflux.connect(UIStore, 'ui')
+    // Reflux.connect(RecipesStore, 'recipes'),
+    // Reflux.connect(UIStore, 'ui')
   ],
 
   getInitialState() {
     return {
-      items: [],
+      items: null,
       recipes: [],
       recents: [],
       ui: {openRecipe: null}
@@ -48,7 +52,9 @@ let AppController = React.createClass({
   },
 
   render() {
-    const {items} = this.state;
+    let {items} = this.state;
+    items = items ? items.toJS() : [];
+
 
     return d(App, {items});
 
